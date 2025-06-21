@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T20 CLASSIC TECH BLOGS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1542751110-97427bbecf20') center/cover no-repeat;
+      height: 350px;
+
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #fff;
+
+      margin-bottom: 10px;
+    }
+
+    nav {
+      background: #2e7d32;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+
+    .search-bar {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 80%;
+      max-width: 500px;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .blog {
+      background: white;
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .blog h2 {
+      color: #2e7d32;
+
+      margin-top: 0;
+    }
+
+    .blog p {
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 15px;
+      background: #4caf50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .read-more:hover {
+      background: #388e3c;
+    }
+
+    footer {
+      text-align: center;
+
+      padding: 20px;
+      background: #e0e0e0;
+      margin-top: 40px;
+      font-size: 0.95em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo -->
+  <header id="home">
+    <div class="header-content">
+      <div class="logo">T20 CLASSIC TECH</div>
+      <p>Welcome to our official tech blog hub</p>
+    </div>
+  </header>
+
+  <!-- Sticky Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Main Content -->
+
+  <div class="container" id="blogs">
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" id="searchInput" onkeyup="searchPosts()" placeholder="Search blog posts...">
+    </div>
+
+    <!-- Blog Post 1 -->
+    <div class="blog">
+      <h2>What Is Web Development? A Beginner-Friendly Guide for 2025</h2>
+      <p>Web development is the process of building websites and apps for the internet. In this post, we break down what it is, how it works, and why you should learn it in 2025...</p>
+      <a href="web-development.html" class="read-more">Read More</a>
+    </div>
+
+    <!-- Blog Post 2 -->
+    <div class="blog">
+      <h2>HTML vs JavaScript: Which One Should You Learn First?</h2>
+
+      <p>As a beginner, you might wonder whether to start with HTML or JavaScript. Here’s a friendly breakdown to help you make the right choice based on your goals...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <!-- Blog Post 3 -->
+    <div class="blog">
+      <h2>Top 5 Phone Settings to Reduce Mobile Data Usage</h2>
+      <p>Want to stop your bundles from vanishing fast? These 5 smart settings will help you save data and extend your internet usage in 2025...</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p>📧 Contact: <a href="mailto:arnold@example.com">arnold@exam
+
+ple.com</a></p>
+    <p>&copy; 2025 T20 Classic Tech. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Search -->
+  <script>
+    function searchPosts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const blogs = document.querySelectorAll(".blog");
+
+      blogs.forEach(blog => {
+        const title = blog.querySelector("h2").textContent.toLowerCase();
+        const content = blog.querySelector("p").textContent.toLowerCase();
+
+        if (title.includes(input) || content.includes(input)) {
+          blog.style.display = "block";
+        } else {
+
+          blog.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
