@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Dashboard - T20 CLASSIC TECH</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
+      authDomain: "t20classic.firebaseapp.com",
+      projectId: "t20classic",
+      storageBucket: "t20classic.firebasestorage.app",
+      messagingSenderId: "586223200337",
+      appId: "1:586223200337:web:d70211f02a842014707070",
+      measurementId: "G-0XSRFMY0HY"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        if (!user.emailVerified) {
+          alert('Please verify your email before using the dashboard.');
+          auth.signOut();
+          window.location.href = 'index.html'; // or your login page
+        } else {
+          document.getElementById('user-email').textContent = user.email;
+        }
+      } else {
+        window.location.href = 'index.html'; // Redirect to login if not signed in
+      }
+    });
+
+    document.getElementById('logout').addEventListener('click', () => {
+      signOut(auth).then(() => {
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Your Dashboard</h1>
+    <p>Your email: <span id="user-email"></span></p>
+    <button id="logout" class="btn">Logout</button>
+  </div>
+</body>
+</html>

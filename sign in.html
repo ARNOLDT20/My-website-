@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T20 CLASSIC TECH - Auth</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 500px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #0077cc;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #0077cc;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+    .link {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .link a {
+      color: #0077cc;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    .msg {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Register</h2>
+    <form id="register-form">
+      <input type="email" name="reg-email" placeholder="Email" required />
+      <input type="password" name="reg-password" placeholder="Password" required />
+      <input type="password" name="reg-confirm" placeholder="Confirm Password" required />
+      <button type="submit">Register</button>
+    </form>
+    <p class="msg" id="register-msg"></p>
+    <div class="link">
+      <a href="#login">Already have an account? Sign In</a>
+    </div>
+  </div>
+
+  <div class="container" id="login">
+    <h2>Sign In</h2>
+    <form id="login-form">
+      <input type="email" name="login-email" placeholder="Email" required />
+      <input type="password" name="login-password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+    <p class="msg" id="login-msg"></p>
+    <div class="link">
+      <a href="#reset">Forgot password?</a>
+    </div>
+  </div>
+
+  <div class="container" id="reset">
+    <h2>Reset Password</h2>
+    <form id="reset-form">
+      <input type="email" name="reset-email" placeholder="Enter your email" required />
+      <button type="submit">Send Reset Email</button>
+    </form>
+    <p class="msg" id="reset-msg"></p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      sendEmailVerification,
+      signInWithEmailAndPassword,
+      sendPasswordResetEmail,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
+      authDomain: "t20classic.firebaseapp.com",
+      projectId: "t20classic",
+      storageBucket: "t20classic.firebasestorage.app",
+      messagingSenderId: "586223200337",
+      appId: "1:586223200337:web:d70211f02a842014707070",
+      measurementId: "G-0XSRFMY0HY"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    const registerForm = document.getElementById('register-form');
+    const loginForm = document.getElementById('login-form');
+    const resetForm = document.getElementById('reset-form');
+
+    const registerMsg = document.getElementById('register-msg');
+    const loginMsg = document.getElementById('login-msg');
+    const resetMsg = document.getElementById('reset-msg');
+
+    function isStrongPassword(password) {
+      return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/.test(password);
+    }
+
+    registerForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = registerForm['reg-email'].value;
+      const password = registerForm['reg-password'].value;
+      const confirm = registerForm['reg-confirm'].value;
+
+      registerMsg.textContent = '';
+
+      if (password !== confirm) {
+        registerMsg.textContent = "Passwords don't match!";
+        registerMsg.style.color = "red";
+        return;
+      }
+
+      if (!isStrongPassword(password)) {
+        registerMsg.textContent = "Password must be at least 6 characters and include uppercase, lowercase, and number.";
+        registerMsg.style.color = "red";
+        return;
+      }
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await sendEmailVerification(userCredential.user);
+        registerMsg.textContent = "Registered! Please verify your email before logging in.";
+        registerMsg.style.color = "green";
+        registerForm.reset();
+      } catch (err) {
+        registerMsg.textContent = err.message;
+        registerMsg.style.color = "red";
+      }
+    });
+
+    loginForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = loginForm['login-email'].value;
+      const password = loginForm['login-password'].value;
+
+      loginMsg.textContent = '';
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        if (userCredential.user.emailVerified) {
+          loginMsg.textContent = "Login successful! Redirecting...";
+          loginMsg.style.color = "green";
+          setTimeout(() => window.location.href = "dashboard.html", 1500);
+        } else {
+          loginMsg.textContent = "Please verify your email before logging in.";
+          loginMsg.style.color = "red";
+          await signOut(auth);
+        }
+      } catch (err) {
+        loginMsg.textContent = err.message;
+        loginMsg.style.color = "red";
+      }
+    });
+
+    resetForm.addEventListener('submit', async e => {
+      e.preventDefault();
+      const email = resetForm['reset-email'].value;
+      resetMsg.textContent = '';
+      try {
+        await sendPasswordResetEmail(auth, email);
+        resetMsg.textContent = "Reset link sent! Check your email.";
+        resetMsg.style.color = "green";
+        resetForm.reset();
+      } catch (err) {
+        resetMsg.textContent = err.message;
+        resetMsg.style.color = "red";
+      }
+    });
+  </script>
+</body>
+</html>
