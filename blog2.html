@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T20 CLASSIC TECH | Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* Header */
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1522199710521-72d69614c702?fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* Blog section */
+    .blog-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .blog-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .blog-card-content {
+      padding: 20px;
+    }
+
+    .blog-card-content h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .blog-card-content p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .blog-card-content a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+    }
+
+    .blog-card-content a:hover {
+      color: #005fa3;
+    }
+
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>T20 CLASSIC TECH</h1>
+    <p>Explore the latest tech trends, tips, and tutorials</p>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <div class="blog-grid">
+      
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1581090700227-4c3a9c90cfee?auto=format&fit=crop&w=800&q=60" alt="Tech Blog 1">
+        <div class="blog-card-content">
+          <h3>HTML vs JavaScript: Which One First?</h3>
+          <p>Confused about where to start your coding journey? Here’s a beginner-friendly breakdown for 2025.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1581093588401-58d8b8c9477f?auto=format&fit=crop&w=800&q=60" alt="Tech Blog 2">
+        <div class="blog-card-content">
+          <h3>Top 5 Settings to Save Mobile Data</h3>
+          <p>Want to reduce data usage and extend your bundles? These 5 settings will help you do that easily.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=60" alt="Tech Blog 3">
+        <div class="blog-card-content">
+          <h3>How to Build a Website with VS Code</h3>
+          <p>Follow this easy guide to design, develop and publish your own modern website using Visual Studio Code.</p>
+          <a href="#">Read More</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 T20 CLASSIC TECH. All rights reserved.
+  </footer>
+
+</body>
+</html>
