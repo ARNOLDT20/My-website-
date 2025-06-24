@@ -224,6 +224,44 @@
       bottom: 80px;
     }
   }
+    .share-icons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .share-icons a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+  }
+  .share-icons .wa { background-color: #25D366; }
+  .share-icons .fb { background-color: #4267B2; }
+  .share-icons .ig { background-color: #E1306C; }
+  .share-icons svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+  }
+
+  @media (max-width: 480px) {
+    #swahili-blog-container {
+      padding-bottom: 140px;
+    }
+    footer {
+      flex-direction: column;
+      gap: 15px;
+    }
+    #back-button {
+      bottom: 80px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -254,6 +292,21 @@
       <div class="extra-content" hidden>
         <p>AI ni programu au mfumo wa kompyuta unaoweza kufanya kazi zinazohitaji akili za binadamu. Kwa mfano, AI inaweza kutambua picha, kuelewa lugha, au hata kutabiri matokeo. Kuna aina mbalimbali za AI, kama AI nyepesi inayotumika kwa kazi maalum na AI ya jumla ambayo bado ni ndoto.</p>
         <p>Teknolojia hii imepata maendeleo makubwa kutokana na uwezo wa kompyuta kubadilika na kuongezeka kwa data zinazopatikana kila siku, hivyo kufanya mashine kujifunza na kuboresha utendaji wake kwa muda.</p>
+       <p>Shiriki chapisho hili na marafiki</p>
+        <div class="share-icons">
+  <a class="wa" href="#" onclick="sharePost(this, 'whatsapp')">
+    <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.81 11.81 0 0012.02.15..."/></svg>
+    WhatsApp
+  </a>
+  <a class="fb" href="#" onclick="sharePost(this, 'facebook')">
+    <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.62 9.87v-6.99h-2..."/></svg>
+    Facebook
+  </a>
+  <a class="ig" href="https://www.instagram.com/" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75..."/></svg>
+    Instagram
+  </a>
+</div>
       </div>
     </article>
 
@@ -269,7 +322,21 @@
       <div class="extra-content" hidden>
         <p>Katika sekta ya afya, teknolojia imerahisisha uchunguzi na tiba kupitia mashine za kisasa na data za mgonjwa. Katika elimu, mitandao na programu za mtandaoni zimeweza kufungua fursa za kujifunza kwa watu wengi zaidi duniani.</p>
         <p>Kupitia biashara, teknolojia imeongeza ufanisi katika usimamizi wa malighafi, mauzo, na huduma kwa wateja, hivyo kuongeza tija na faida.</p>
-      </div>
+     <p>Shiriki chapisho hili na marafiki</p>
+        <div class="share-icons">
+  <a class="wa" href="#" onclick="sharePost(this, 'whatsapp')">
+    <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.81 11.81 0 0012.02.15..."/></svg>
+    WhatsApp
+  </a>
+  <a class="fb" href="#" onclick="sharePost(this, 'facebook')">
+    <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.62 9.87v-6.99h-2..."/></svg>
+    Facebook
+  </a>
+  <a class="ig" href="https://www.instagram.com/" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75..."/></svg>
+    Instagram
+  </a>
+</div>
     </article>
 
     <article class="blog-post">
@@ -284,7 +351,23 @@
       <div class="extra-content" hidden>
         <p>Njia bora ya kujifunza ni kwa kuanza na misingi ya lugha ya programu unayotaka kujifunza, kisha kuendelea kufanya mazoezi madogo madogo. Kujiunga na jamii za wavuti kama GitHub au Stack Overflow pia kunasaidia sana kupata msaada na maarifa mapya.</p>
         <p>Pia, kutumia kozi za mtandaoni zilizopangwa vizuri au vitabu vinavyofundisha hatua kwa hatua ni njia nzuri ya kujifunza haraka na kwa ufanisi.</p>
+   <p>Shiriki chapisho hili na marafiki</p>
+        <div class="share-icons">
+  <a class="wa" href="#" onclick="sharePost(this, 'whatsapp')">
+    <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.81 11.81 0 0012.02.15..."/></svg>
+    WhatsApp
+  </a>
+  <a class="fb" href="#" onclick="sharePost(this, 'facebook')">
+    <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.62 9.87v-6.99h-2..."/></svg>
+    Facebook
+  </a>
+  <a class="ig" href="https://www.instagram.com/" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75..."/></svg>
+    Instagram
+  </a>
+</div>
       </div>
+      
     </article>
 
     <!-- New blog post about Ada Lovelace -->
@@ -303,6 +386,22 @@
         <p>Ada alitafsiri na kuongeza maelezo kwenye karatasi ya mtaalamu wa hisabati Luigi Menabrea kuhusu Analytical Engine. Katika maelezo yake, alipanga algorithm (mpangilio wa maelekezo) ambao sasa unachukuliwa kuwa programu ya kwanza ya kompyuta duniani.</p>
         <p>Alionyesha mashine hiyo inaweza kuhesabu nambari za Bernoulli na kueleza uwezo wa mashine katika kufanya siyo tu mahesabu, bali pia kazi za mantiki na uandishi wa ishara.</p>
         <p>Ingawa mashine hakuweza kukamilika wakati wake, kazi ya Ada Lovelace ni msingi wa sayansi ya kompyuta ya kisasa. Lugha ya programu "Ada" ilijulikana kwa heshima kwake mwaka 1980.</p>
+      <p>Shiriki chapisho hili na marafiki</p>
+        <div class="share-icons">
+  <a class="wa" href="#" onclick="sharePost(this, 'whatsapp')">
+    <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.81 11.81 0 0012.02.15..."/></svg>
+    WhatsApp
+  </a>
+  <a class="fb" href="#" onclick="sharePost(this, 'facebook')">
+    <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.62 9.87v-6.99h-2..."/></svg>
+    Facebook
+  </a>
+  <a class="ig" href="https://www.instagram.com/" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M7.75 2A5.75 5.75 0 002 7.75v8.5A5.75..."/></svg>
+    Instagram
+  </a>
+</div>
+
       </div>
     </article>
 
@@ -373,6 +472,22 @@
       }
     });
   });
+</script>
+<script>
+function sharePost(el, platform) {
+  const post = el.closest('.blog-post');
+  const title = encodeURIComponent(post.querySelector('h2').innerText);
+  const url = encodeURIComponent(window.location.href);
+  let shareUrl = '';
+
+  if (platform === 'whatsapp') {
+    shareUrl = `https://wa.me/?text=${title}%20-%20${url}`;
+  } else if (platform === 'facebook') {
+    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
+  }
+
+  window.open(shareUrl, '_blank');
+}
 </script>
 
 </body>
