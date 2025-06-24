@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T20 CLASSIC TECH BLOG</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background: #111 url('header-image.jpg') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    nav {
+      background: #2e7d32;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .video-banner {
+      width: 100%;
+      max-height: 300px;
+      overflow: hidden;
+    }
+    .video-banner video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    .blog-card {
+      background: white;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .blog-card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .read-more {
+      display: inline-block;
+      padding: 8px 14px;
+      background: #4caf50;
+      color: white;
+      text-decoration: none;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+    .category-tags {
+      font-size: 0.85em;
+      margin-top: 5px;
+      color: #555;
+    }
+    footer {
+      background: #07ddc0;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .toggle-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      z-index: 1000;
+    }
+    .dark-mode {
+      background: #121212;
+      color: white;
+    }
+    .dark-mode .blog-card,
+    .dark-mode footer {
+      background: #1e1e1e;
+      color: white;
+    }
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #2e7d32;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="mode-toggle" class="toggle-btn">🌙 Dark Mode</button>
+
+  <header>
+    <h1>T20 CLASSIC TECH BLOG</h1>
+    <p>Welcome to your go-to tech knowledge hub</p>
+  </header>
+
+  <div class="video-banner">
+    <video autoplay muted loop>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <nav>
+    <a href="#blogs">Blogs</a>
+    <a href="#categories">Categories</a>
+    <a href="#contact">Contact</a>
+    <a href="#newsletter">Newsletter</a>
+  </nav>
+
+  <div class="container">
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search blogs...">
+    </div>
+
+    <section id="blogs">
+      <div class="blog-card">
+        <img src="webdev.jpg" alt="Web Dev">
+        <h2>What Is Web Development?</h2>
+        <p>Learn how websites and apps are made, and why learning this skill is useful in 2025...</p>
+        <div class="category-tags">#WebDev #Beginner</div>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+
+      <div class="blog-card">
+        <img src="htmlvsjs.jpg" alt="HTML vs JS">
+        <h2>HTML vs JavaScript: What Should You Learn First?</h2>
+        <p>Unsure whether to start with HTML or JavaScript? Let us guide your decision...</p>
+        <div class="category-tags">#HTML #JavaScript</div>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </section>
+
+    <section id="newsletter">
+      <h3>Subscribe to our newsletter</h3>
+      <form action="https://formsubmit.co/your@email.com" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </div>
+
+  <footer id="contact">
+    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+    <p>📧 <a href="mailto:atarimo117@gmail.com">Contact Us</a></p>
+  </footer>
+
+  <div class="scroll-top" id="scrollTop">⬆️</div>
+
+  <script>
+    document.getElementById('mode-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      document.getElementById('mode-toggle').textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    window.onscroll = () => {
+      const btn = document.getElementById("scrollTop");
+      btn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+
+    document.getElementById("scrollTop").onclick = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    document.getElementById("searchInput").addEventListener("input", function () {
+      const input = this.value.toLowerCase();
+      document.querySelectorAll(".blog-card").forEach(card => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        const text = card.querySelector("p").textContent.toLowerCase();
+        card.style.display = (title.includes(input) || text.includes(input)) ? "block" : "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
