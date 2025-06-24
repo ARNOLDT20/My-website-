@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blogu za Kiswahili - AI, Light/Dark Mode</title>
+<style>
+  /* Container ya blogu na video background */
+  #swahili-blog-container {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px 120px 20px; /* padding chini zaidi kwa footer */
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 12px;
+    z-index: 0;
+  }
+
+  /* Video background ipo absolute, inafunika div yote */
+  #swahili-bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(0.5);
+    z-index: -1;
+  }
+
+  /* Sehemu kuu ya blogu, ina background semi-transparent */
+  #swahili-blog-section {
+    position: relative;
+    background-color: rgba(249, 249, 249, 0.85);
+    color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    transition: background-color 0.4s, color 0.4s;
+    z-index: 1;
+  }
+  /* Dark mode */
+  #swahili-blog-section.dark-mode {
+    background-color: rgba(18, 18, 18, 0.85);
+    color: #ddd;
+  }
+
+  /* Kichwa */
+  #swahili-blog-section h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Kitufe cha Light/Dark */
+  #swahili-blog-section .mode-toggle {
+    display: block;
+    margin: 0 auto 30px auto;
+    padding: 10px 20px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  #swahili-blog-section .mode-toggle:hover {
+    background-color: #004999;
+  }
+
+  /* Kadi za blogu */
+  #swahili-blog-section .blog-post {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  #swahili-blog-section.dark-mode .blog-post {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+    color: #ddd;
+  }
+
+  #swahili-blog-section .blog-post h2 {
+    margin-top: 0;
+    color: #004a99;
+  }
+  #swahili-blog-section.dark-mode .blog-post h2 {
+    color: #66aaff;
+  }
+
+  #swahili-blog-section .blog-post p {
+    line-height: 1.6;
+  }
+
+  /* Kitufe cha Soma Zaidi */
+  .read-more-btn {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .read-more-btn:hover {
+    background-color: #005f75;
+  }
+  #swahili-blog-section.dark-mode .read-more-btn {
+    background-color: #3399ff;
+  }
+  #swahili-blog-section.dark-mode .read-more-btn:hover {
+    background-color: #005f75;
+  }
+
+  /* Ikoni ya mshale kwenye kitufe cha Soma Zaidi */
+  .read-more-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+    transition: transform 0.3s;
+  }
+  .read-more-btn.pressed svg {
+    transform: rotate(180deg);
+  }
+
+  /* Maelezo ya ziada - animation */
+  .extra-content {
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 15px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 0;
+  }
+  .extra-content.show {
+    max-height: 500px;
+    padding: 10px 0;
+  }
+
+  /* Kitufe cha Rudi Nyuma fixed chini kushoto */
+  #back-button {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    background-color: #444;
+    color: white;
+    border: 2px solid #eee;
+    border-radius: 25px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    z-index: 1000;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  #back-button:hover {
+    background-color: #222;
+    border-color: #fff;
+  }
+
+  /* Footer chini ya maudhui */
+  footer {
+    max-width: 900px;
+    margin: 40px auto 30px auto;
+    padding: 20px;
+    background-color: #222;
+    color: #eee;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  /* WhatsApp footer buttons */
+  footer .whatsapp-contact {
+    background-color: #25D366;
+    padding: 12px 20px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 3px 8px rgba(37, 211, 102, 0.5);
+    transition: background-color 0.3s;
+  }
+  footer .whatsapp-contact:hover {
+    background-color: #1ebe57;
+  }
+  footer .whatsapp-contact a {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  footer .whatsapp-contact svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+  }
+
+  @media (max-width: 480px) {
+    #swahili-blog-container {
+      padding-bottom: 140px;
+    }
+    footer {
+      flex-direction: column;
+      gap: 15px;
+    }
+    #back-button {
+      bottom: 80px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div id="swahili-blog-container">
+  <!-- Offline video background: hakikisha umeweka video file kwenye folder yako -->
+  <video id="swahili-bg-video" autoplay muted loop playsinline>
+    <source src="video/background.mp4" type="video/mp4" />
+    Video yako haiwezi kuonyeshwa.
+  </video>
+
+  <button id="back-button" onclick="history.back()" aria-label="Rudi Nyuma">&#8592; Rudi Nyuma</button>
+
+  <section id="swahili-blog-section">
+    <h1>Blogu za Kiswahili</h1>
+    <button class="mode-toggle" id="toggleModeBtn" aria-label="Badilisha Light/Dark Mode">Badilisha Mode</button>
+
+    <article class="blog-post">
+      <h2>AI ni Nini? Maelezo Rahisi kwa Kila Mtu</h2>
+      <p>Akili Bandia (AI) ni teknolojia inayowawezesha mashine kufanya kazi kama binadamu, kama kufikiri, kujifunza na kutatua matatizo.</p>
+      <button class="read-more-btn" aria-expanded="false">
+        <span>Soma Zaidi</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </button>
+      <div class="extra-content" hidden>
+        <p>AI ni programu au mfumo wa kompyuta unaoweza kufanya kazi zinazohitaji akili za binadamu. Kwa mfano, AI inaweza kutambua picha, kuelewa lugha, au hata kutabiri matokeo. Kuna aina mbalimbali za AI, kama AI nyepesi inayotumika kwa kazi maalum na AI ya jumla ambayo bado ni ndoto.</p>
+        <p>Teknolojia hii imepata maendeleo makubwa kutokana na uwezo wa kompyuta kubadilika na kuongezeka kwa data zinazopatikana kila siku, hivyo kufanya mashine kujifunza na kuboresha utendaji wake kwa muda.</p>
+      </div>
+    </article>
+
+    <article class="blog-post">
+      <h2>Faida za Teknolojia katika Maisha ya Kila Siku</h2>
+      <p>Teknolojia imeleta mabadiliko makubwa, ikisaidia kuboresha huduma za afya, elimu, na biashara.</p>
+      <button class="read-more-btn" aria-expanded="false">
+        <span>Soma Zaidi</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </button>
+      <div class="extra-content" hidden>
+        <p>Katika sekta ya afya, teknolojia imerahisisha uchunguzi na tiba kupitia mashine za kisasa na data za mgonjwa. Katika elimu, mitandao na programu za mtandaoni zimeweza kufungua fursa za kujifunza kwa watu wengi zaidi duniani.</p>
+        <p>Kupitia biashara, teknolojia imeongeza ufanisi katika usimamizi wa malighafi, mauzo, na huduma kwa wateja, hivyo kuongeza tija na faida.</p>
+      </div>
+    </article>
+
+    <article class="blog-post">
+      <h2>Jinsi ya Kujifunza Programu kwa Haraka</h2>
+      <p>Kujifunza programu kunahitaji mazoezi ya mara kwa mara, uvumilivu, na rasilimali nzuri za mtandaoni.</p>
+      <button class="read-more-btn" aria-expanded="false">
+        <span>Soma Zaidi</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </button>
+      <div class="extra-content" hidden>
+        <p>Njia bora ya kujifunza ni kwa kuanza na misingi ya lugha ya programu unayotaka kujifunza, kisha kuendelea kufanya mazoezi madogo madogo. Kujiunga na jamii za wavuti kama GitHub au Stack Overflow pia kunasaidia sana kupata msaada na maarifa mapya.</p>
+        <p>Pia, kutumia kozi za mtandaoni zilizopangwa vizuri au vitabu vinavyofundisha hatua kwa hatua ni njia nzuri ya kujifunza haraka na kwa ufanisi.</p>
+      </div>
+    </article>
+  </section>
+</div>
+
+<footer>
+  <div class="whatsapp-contact">
+    <a href="https://whatsapp.com/channel/0029VbAbwiL3AzNOpEoe5Y23" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp PM">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M20.52 3.48A11.81 11.81 0 0012.02.15 11.99 11.99 0 003.2 6.55a11.83 11.83 0 00-1.2 7.26c.6 3.66 3.56 7.23 7.34 8.32a11.88 11.88 0 006.2.14 11.75 11.75 0 005.63-3.6 11.87 11.87 0 003.31-7.87 12.07 12.07 0 00-5.26-8.33zm-1.48 12.52a9.06 9.06 0 01-3.68 2.72 8.93 8.93 0 01-7.45-.84 8.56 8.56 0 01-2.42-3.16 8.78 8.78 0 01.57-8.34c.26-.4.54-.78.85-1.13a.68.68 0 01.48-.2c.28 0 .56.1.75.32l2.04 2.54a.75.75 0 01-.05 1.07l-1.6 1.6a.4.4 0 00-.11.28c0 .14.07.26.2.35l2.87 2.02a.46.46 0 00.68-.15l1.62-2.25a.74.74 0 01.64-.34.74.74 0 01.65.34l1.45 2.17c.13.2 0 .48-.23.6z"/>
+      </svg>
+      Chaneli ya WhatsApp
+    </a>
+  </div>
+  <div class="whatsapp-contact">
+    <a href="https://chat.whatsapp.com/KwolcWjSmbTEhgITWTnKLY" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Group">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M12 2a10 10 0 11-10 10 10.01 10.01 0 0110-10zm5 13h-3v3h-4v-3H7v-4h3V8h4v3h3z"/>
+      </svg>
+      Kikundi cha WhatsApp
+    </a>
+  </div>
+</footer>
+
+<script>
+  // Light/Dark mode
+  const toggleBtn = document.querySelector('#swahili-blog-section #toggleModeBtn');
+  const blogSection = document.getElementById('swahili-blog-section');
+
+  if(localStorage.getItem('sw-blog-mode') === 'dark'){
+    blogSection.classList.add('dark-mode');
+    toggleBtn.textContent = 'Tumia Light Mode';
+  } else {
+    toggleBtn.textContent = 'Tumia Dark Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    blogSection.classList.toggle('dark-mode');
+    if(blogSection.classList.contains('dark-mode')){
+      toggleBtn.textContent = 'Tumia Light Mode';
+      localStorage.setItem('sw-blog-mode', 'dark');
+    } else {
+      toggleBtn.textContent = 'Tumia Dark Mode';
+      localStorage.setItem('sw-blog-mode', 'light');
+    }
+  });
+
+  // Soma Zaidi
+  const readMoreButtons = document.querySelectorAll('#swahili-blog-section .read-more-btn');
+  readMoreButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const extraContent = btn.nextElementSibling;
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      if(isExpanded){
+        extraContent.classList.remove('show');
+        extraContent.setAttribute('hidden', '');
+        btn.classList.remove('pressed');
+        btn.querySelector('span').textContent = 'Soma Zaidi';
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        extraContent.classList.add('show');
+        extraContent.removeAttribute('hidden');
+        btn.classList.add('pressed');
+        btn.querySelector('span').textContent = 'Punguza';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
