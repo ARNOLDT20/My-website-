@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog - T20 CLASSIC TECH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body, html {
+      margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background: #000;
+      color: #eee;
+    }
+    .blog-hero {
+      position: relative;
+      height: 60vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .blog-hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+      z-index: -1;
+    }
+    .blog-hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #00ffcc;
+      text-shadow: 0 0 15px #00ffcc;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .blog-content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #111;
+      border-radius: 12px;
+      padding: 30px 25px;
+      box-shadow: 0 0 20px rgba(0,255,204,0.3);
+      color: #ddd;
+      line-height: 1.7;
+    }
+    .blog-content h2 {
+      color: #00e676;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .blog-content p {
+      margin-bottom: 20px;
+    }
+    /* Comment Section */
+    #comments-section {
+      max-width: 900px;
+      margin: 50px auto 100px;
+      background: #111;
+      border-radius: 12px;
+      padding: 20px 25px;
+      box-shadow: 0 0 15px rgba(0,255,204,0.2);
+    }
+    #comments-section h3 {
+      color: #00ffcc;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #comments-list {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      color: #eee;
+    }
+    .comment {
+      background: #222;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      box-shadow: 0 0 10px rgba(0,255,204,0.15);
+    }
+    .comment strong {
+      color: #00ffcc;
+    }
+    #comment-form {
+      display: flex;
+      flex-direction: column;
+    }
+    #comment-form textarea {
+      resize: vertical;
+      min-height: 80px;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 10px;
+      outline: none;
+    }
+    #comment-form button {
+      align-self: flex-end;
+      background: #00ffcc;
+      border: none;
+      color: #000;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    #comment-form button:hover {
+      background: #00e676;
+    }
+    /* Login prompt */
+    #login-prompt {
+      color: #00ffcc;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    #login-prompt button {
+      background: #00ffcc;
+      color: #000;
+      font-weight: 700;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #login-prompt button:hover {
+      background: #00e676;
+    }
+
+    /* Footer copyright */
+    footer {
+      text-align: center;
+      padding: 15px 10px;
+      color: #444;
+      font-size: 14px;
+      background: #111;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      box-shadow: inset 0 1px 0 #222;
+    }
+  </style>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    // YOUR FIREBASE CONFIGURATION
+    const firebaseConfig = {
+      apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
+      authDomain: "t20classic.firebaseapp.com",
+      projectId: "t20classic",
+      storageBucket: "t20classic.firebasestorage.app",
+      messagingSenderId: "586223200337",
+      appId: "1:586223200337:web:d70211f02a842014707070",
+      measurementId: "G-0XSRFMY0HY"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    window.auth = auth;
+    window.signIn = () => {
+      signInWithPopup(auth, provider)
+        .catch(e => alert("Kosa la kuingia: " + e.message));
+    };
+    window.signOutUser = () => {
+      signOut(auth);
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const commentsList = document.getElementById('comments-list');
+      const commentForm = document.getElementById('comment-form');
+      const commentInput = document.getElementById('comment-input');
+      const loginPrompt = document.getElementById('login-prompt');
+
+      onAuthStateChanged(auth, user => {
+        if (user) {
+          loginPrompt.style.display = "none";
+          commentForm.style.display = "flex";
+          commentInput.disabled = false;
+          loadComments();
+        } else {
+          loginPrompt.style.display = "block";
+          commentForm.style.display = "none";
+          commentInput.disabled = true;
+          commentsList.innerHTML = '<p style="color:#888; text-align:center;">Tafadhali ingia ili kuona maoni na kuandika.</p>';
+        }
+      });
+
+      function loadComments() {
+        const commentsRef = ref(db, "blogComments");
+        onValue(commentsRef, snapshot => {
+          commentsList.innerHTML = "";
+          const data = snapshot.val();
+          if (data) {
+            Object.values(data).forEach(commentObj => {
+              const commentDiv = document.createElement('div');
+              commentDiv.classList.add('comment');
+              commentDiv.innerHTML = `<strong>${escapeHtml(commentObj.user)}:</strong><br>${escapeHtml(commentObj.text)}`;
+              commentsList.appendChild(commentDiv);
+            });
+          } else {
+            commentsList.innerHTML = '<p style="color:#888; text-align:center;">Hakuna maoni bado.</p>';
+          }
+        });
+      }
+
+      commentForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const text = commentInput.value.trim();
+        if (!text) return alert("Tafadhali andika maoni yako.");
+        const user = auth.currentUser;
+        if (!user) return alert("Tafadhali ingia kwanza.");
+
+        const commentsRef = ref(db, "blogComments");
+        push(commentsRef, {
+          user: user.displayName || user.email,
+          text: text,
+          timestamp: Date.now()
+        }).then(() => {
+          commentInput.value = "";
+        }).catch(err => {
+          alert("Kosa la kuandika maoni: " + err.message);
+        });
+      });
+
+      function escapeHtml(text) {
+        return text.replace(/[&<>"']/g, m => {
+          return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+        });
+      }
+    });
+  </script>
+
+</head>
+<body>
+
+  <section class="blog-hero">
+    <video autoplay muted loop playsinline>
+      <source src="ai-background.mp4" type="video/mp4" />
+      <!-- Weka video yako hapa -->
+    </video>
+    <h1>Akili Bandia (AI) — Mwanga wa Teknolojia ya Kesho</h1>
+  </section>
+
+  <section class="blog-content">
+    <h2>Karibu kwenye T20 CLASSIC TECH Blogi!</h2>
+    <p>Katika ulimwengu unaobadilika kwa kasi, Akili Bandia (AI) ni mojawapo ya mabadiliko makubwa kabisa yanayotokea. T20 CLASSIC TECH inakuletea mafunzo, habari, na mitazamo ya kina kuhusu AI, ili uweze kujiandaa na kutumia teknolojia hii kwa ufanisi.</p>
+
+    <h2>AI ni Nini?</h2>
+    <p>AI ni teknolojia inayowezesha mashine kujifunza na kufanya maamuzi kama binadamu. Kutoka kwa chatbot hadi magari yanayojiendesha, AI inaenea kila mahali.</p>
+
+    <h2>Kwa Nini AI Ni Muhimu?</h2>
+    <p>Teknolojia hii inakuwezesha kufanya kazi haraka, kuokoa muda, na kufanikisha mambo magumu kwa urahisi zaidi.</p>
+
+    <h2>Changamoto na Fursa</h2>
+    <p>Kama kila teknolojia, AI ina faida na changamoto zake. Ni muhimu kutumia kwa maadili na kuhakikisha usalama wa taarifa zako.</p>
+
+    <h2>Jiunge Nasi!</h2>
+    <p>T20 CLASSIC TECH inakualika usome blogi zetu mara kwa mara na kushiriki mawazo yako katika sehemu ya maoni hapa chini.</p>
+  </section>
+
+  <section id="comments-section">
+    <h3>Maoni Yako</h3>
+    <div id="login-prompt" style="display:none;">
+      Tafadhali <button onclick="signIn()">Ingia kwa Google</button> kuweza kuona na kuandika maoni.
+    </div>
+    <div id="comments-list">Inapakia maoni...</div>
+
+    <form id="comment-form" style="display:none;">
+      <textarea id="comment-input" placeholder="Andika maoni yako hapa..." required></textarea>
+      <button type="submit">Tuma Maoni</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 T20 CLASSIC TECH. Haki zote zimehifadhiwa.
+  </footer>
+
+</body>
+</html>

@@ -14,6 +14,7 @@
   <meta name="theme-color" content="#007bff" />
 
   <style>
+    /* Your original mobile nav styles */
     .mobile-nav {
       position: fixed;
       top: 15px;
@@ -46,6 +47,123 @@
     }
     .menu-items a:hover {
       background: #f0f0f0;
+    }
+
+    /* Fun facts icon */
+    #fun-facts-icon {
+      position: fixed;
+      top: 20px;
+      right: 60px;
+      background: #28a745;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 30px;
+      animation: bounce 2s infinite;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+      z-index: 10000;
+      font-weight: 600;
+      user-select: none;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    #fun-facts-box {
+      display: none;
+      position: fixed;
+      top: 60px;
+      right: 60px;
+      background: white;
+      border-radius: 8px;
+      width: 260px;
+      padding: 12px;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      z-index: 9999;
+      user-select: none;
+    }
+    #fun-facts-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    /* Chatbot styles */
+    .chatbot-icon {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #007bff;
+      color: white;
+      border-radius: 50%;
+      padding: 14px;
+      font-size: 22px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      z-index: 10000;
+      user-select: none;
+    }
+    .chat-window {
+      display: none;
+      position: fixed;
+      bottom: 140px;
+      right: 20px;
+      width: 320px;
+      max-height: 450px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9999;
+      font-family: 'Poppins', sans-serif;
+    }
+    .chat-header {
+      background: #007bff;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .chat-header button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .chat-messages {
+      padding: 10px;
+      flex: 1;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.4;
+      background: #f9f9f9;
+    }
+    .chat-messages div {
+      margin-bottom: 8px;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      font-size: 14px;
+      outline: none;
+    }
+    .chat-input button {
+      padding: 10px;
+      background: #007bff;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -157,6 +275,31 @@
   </div>
 </footer>
 
+<!-- Fun Facts Icon -->
+<div id="fun-facts-icon" onclick="toggleFacts()">🤣 Fun Fact</div>
+<div id="fun-facts-box">
+  <strong>Did you know?</strong>
+  <ul>
+    <li>Ctrl+Alt+Del was made for reboots.</li>
+    <li>Wi-Fi doesn’t stand for anything.</li>
+    <li>The first computer bug was an actual moth.</li>
+  </ul>
+</div>
+
+<!-- Chatbot Icon -->
+<div class="chatbot-icon" onclick="toggleChat()">💬</div>
+<div class="chat-window" id="chat-window">
+  <div class="chat-header">
+    <span>T20 ChatBot</span>
+    <button onclick="clearChatHistory()" title="Clear Chat History">🗑</button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
   import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
@@ -244,6 +387,103 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
     console.error("Error:", error);
   });
 });
+</script>
+
+<script>
+  // Fun facts rotation
+  const facts = [
+    "Ctrl+Alt+Del was made for reboots.",
+    "Wi-Fi doesn’t stand for anything.",
+    "The first computer bug was an actual moth."
+  ];
+  let factIndex = 0;
+  const factsList = document.querySelector("#fun-facts-box ul");
+
+  function rotateFacts() {
+    if (!factsList) return;
+    factsList.innerHTML = `<li>${facts[factIndex]}</li>`;
+    factIndex = (factIndex + 1) % facts.length;
+  }
+  rotateFacts();
+  setInterval(rotateFacts, 5000);
+
+  function toggleFacts() {
+    const box = document.getElementById('fun-facts-box');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Chatbot toggle
+  function toggleChat() {
+    const chat = document.getElementById('chat-window');
+    chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  // Chat history and input refs
+  const chatMessages = document.getElementById("chat-messages");
+  const userInput = document.getElementById("user-input");
+
+  // Load saved chat or greet
+  function loadChatHistory() {
+    const saved = localStorage.getItem("chatHistory");
+    if (saved) {
+      chatMessages.innerHTML = saved;
+    } else {
+      chatMessages.innerHTML = `<div><strong>Bot:</strong> Welcome to T20 ChatBot! How can I assist you today?</div>`;
+    }
+  }
+  loadChatHistory();
+
+  // Save chat
+  function saveChatHistory() {
+    localStorage.setItem("chatHistory", chatMessages.innerHTML);
+  }
+
+  // Clear chat
+  function clearChatHistory() {
+    chatMessages.innerHTML = '<div><strong>Bot:</strong> History cleared!</div>';
+    saveChatHistory();
+  }
+
+  // Send message to OpenAI and show response
+  async function sendMessage() {
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    const userMsg = document.createElement("div");
+    userMsg.innerHTML = `<strong>You:</strong> ${message}`;
+    chatMessages.appendChild(userMsg);
+    userInput.value = "";
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    const botMsg = document.createElement("div");
+    botMsg.innerHTML = `<em>Thinking...</em>`;
+    chatMessages.appendChild(botMsg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    saveChatHistory();
+
+    try {
+      const res = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          // Replace with your actual OpenAI API key below:
+          "Authorization": "Bearer AIzYOUR-REAL-API-KEY"
+        },
+        body: JSON.stringify({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: "user", content: message }]
+        })
+      });
+      const data = await res.json();
+      botMsg.innerHTML = `<strong>Bot:</strong> ${data.choices?.[0]?.message?.content || 'Sorry, something went wrong.'}`;
+      saveChatHistory();
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (err) {
+      botMsg.innerHTML = `<strong>Bot:</strong> Error connecting.`;
+      saveChatHistory();
+    }
+  }
 </script>
 
 </body>

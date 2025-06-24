@@ -131,9 +131,14 @@
       margin-top: 40px;
       font-size: 0.95em;
     }
+    
   </style>
 </head>
 <body>
+   <!-- Hamburger menu at top right -->
+   <div style="position: fixed; top: 15px; left: 15px; z-index: 9999;">
+  <button id="mode-toggle" style="padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer;">🌙 Dark Mode</button>
+</div>
 
   <!-- Header with Logo -->
   <header id="home">
@@ -145,7 +150,7 @@
 
   <!-- Sticky Navigation -->
   <nav>
-    <a href="#home">Home</a>
+    <a href="index.html">Home</a>
     <a href="#blogs">Blogs</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -208,6 +213,23 @@
       });
     }
   </script>
+ <script>
+  const toggleBtn = document.getElementById('mode-toggle');
+  const currentMode = localStorage.getItem('mode');
+
+  if (currentMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️ Light Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('mode', isDark ? 'dark' : 'light');
+  });
+</script>
+
 
 </body>
 </html>
