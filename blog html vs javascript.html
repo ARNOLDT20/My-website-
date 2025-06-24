@@ -201,50 +201,59 @@ HTML, JavaScript has nothing to interact with.</p>
   </div>
 
   <!-- 🔗 Firebase SDK and Script -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebaseapp.js";
-    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+ <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
     const firebaseConfig = {
-      apiKey: "AlzaSyBEG8Y9cLceS3kQ80efpa5cBqPyb6XokAo",
-      authDomain: "html-js-blog.firebaseapp.com",
-      databaseURL: "https://html-js-blog.firebaseio.com",
-      projectId: "html-js-blog",
-      storageBucket: "html-js-blog.appspot.com",
-      messagingSenderId: "YOUR_MESSAGING_ID",
-      appId: "1:708740122407:web:11c6f96b340ec865ce8b02"
+      apiKey: "AIzaSyDv-uoifvaK8jbH7v5TtI15BS7s_5MUKDo",
+      authDomain: "commentsession-633ad.firebaseapp.com",
+      projectId: "commentsession-633ad",
+      storageBucket: "commentsession-633ad.appspot.com",
+      messagingSenderId: "884719953807",
+      appId: "1:884719953807:web:8b257b8dfdfd8a6822cdfa",
+      measurementId: "G-LT48Q4SVFX"
     };
 
     const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
+    const db = getFirestore(app);
 
-    const commentInput = document.getElementById("commentInput");
-    const commentSection = document.getElementById("commentSection");
+    const commentForm = document.getElementById('commentForm');
+    const commentsDisplay = document.getElementById('commentsDisplay');
+    const nameInput = document.getElementById('nameInput');
+    const commentInput = document.getElementById('commentInput');
 
-
-    function postComment() {
+    commentForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = nameInput.value.trim();
       const comment = commentInput.value.trim();
-      if (comment === "") return;
-      push(ref(database, "comments"), {
-        text: comment,
-        date: new Date().toLocaleString()
-      });
-      commentInput.value = "";
-    }
+      if (!name || !comment) return;
 
-    onValue(ref(database, "comments"), (snapshot) => {
-      commentSection.innerHTML = "";
-      const data = snapshot.val();
-      if (data) {
-        Object.values(data).forEach((entry) => {
-          const div = document.createElement("div");
-          div.className = "comment-entry";
-          div.innerHTML = `<p>${entry.text}</p><small>${entry.date}</small>`;
-          commentSection.prepend(div);
+      try {
+        await addDoc(collection(db, "comments"), {
+          name: name,
+          comment: comment,
+          timestamp: Date.now()
         });
+        nameInput.value = '';
+        commentInput.value = '';
+      } catch (error) {
+        alert("Imeshindikana kutuma maoni. Tafadhali jaribu tena.");
+        console.error(error);
       }
     });
 
+    const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+    onSnapshot(q, (snapshot) => {
+      commentsDisplay.innerHTML = "";
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        const div = document.createElement("div");
+        div.className = "comment-box";
+        div.innerHTML = `<strong>${data.name}</strong><p>${data.comment}</p>`;
+        commentsDisplay.appendChild(div);
+      });
+    });
   </script>
 </body>
 </html>
