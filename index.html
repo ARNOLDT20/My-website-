@@ -14,7 +14,6 @@
   <meta name="theme-color" content="#007bff" />
 
   <style>
-    /* Hamburger menu styles */
     .mobile-nav {
       position: fixed;
       top: 15px;
@@ -52,213 +51,200 @@
 </head>
 <body>
 
-  <!-- Hamburger menu at top right -->
-  <nav class="mobile-nav">
-    <button id="menu-toggle">&#9776;</button>
-    <div id="menu-items" class="menu-items">
-      <a href="dashboard.html" id="dashboard-link" style="display:none;">Dashboard</a>
-      <a href="dashboard.html">Sign In</a>
-      <a href="#register">Register</a>
-      <a href="#" id="logout-btn" style="display:none;">Logout</a>
-    </div>
-  </nav>
+<div style="position: fixed; top: 15px; left: 15px; z-index: 9999;">
+  <button id="mode-toggle" style="padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer;">🌙 Dark Mode</button>
+</div>
 
-  <!-- Your original homepage content unchanged below -->
+<nav class="mobile-nav">
+  <button id="menu-toggle">&#9776;</button>
+  <div id="menu-items" class="menu-items">
+    <a href="dashboard.html" id="dashboard-link" style="display:none;">Dashboard</a>
+    <a href="dashboard.html">Sign In</a>
+    <a href="#register">Register</a>
+    <a href="#" id="logout-btn" style="display:none;">Logout</a>
+  </div>
+</nav>
 
-  <header class="hero">
-    <div class="container">
-      <h1>T20 CLASSIC TECH</h1>
-      <p>Smart Tech. Smarter You.</p>
-      <a href="services.html" class="btn">Explore Services</a>
-    </div>
-  </header>
+<header class="hero">
+  <div class="container">
+    <h1>T20 CLASSIC TECH</h1>
+    <p>Smart Tech. Smarter You.</p>
+    <a href="services.html" class="btn">Explore Services</a>
+  </div>
+</header>
 
-  <nav class="navbar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-  <section id="about" class="section about fade-in">
-    <div class="container">
-      <h2>About T20 CLASSIC TECH</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>
-            <strong>T20 CLASSIC TECH</strong> is a youth-driven digital platform based in Tanzania, focused on smart tech education. We create and share mobile tricks, phone tips, coding tutorials (HTML, CSS, JavaScript), and honest gadget reviews — all simplified for everyday users.
-          </p>
-          <p>
-            Our mission is to make technology understandable, affordable, and powerful for young people across Africa. Whether you’re a student, content creator, or phone lover, we’ve got something valuable for you.
-          </p>
-          <p>
-            📌 <strong>Motto:</strong> Smart Tech. Smarter You.
-          </p>
-          <p>
-            💡 <strong>Why us?</strong> Because we speak your language, understand your needs, and deliver content that matters.
-          </p>
-        </div>
-        <div class="about-image">
-          <img src="file_00000000d4dc61f7abff96c4470aed27.png" alt="T20 CLASSIC TECH Logo">
-        </div>
+<section id="about" class="section about fade-in">
+  <div class="container">
+    <h2>About T20 CLASSIC TECH</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p><strong>T20 CLASSIC TECH</strong> is a youth-driven digital platform based in Tanzania, focused on smart tech education...</p>
+        <p>📌 <strong>Motto:</strong> Smart Tech. Smarter You.</p>
+        <p>💡 <strong>Why us?</strong> Because we speak your language, understand your needs, and deliver content that matters.</p>
+      </div>
+      <div class="about-image">
+        <img src="file_00000000d4dc61f7abff96c4470aed27.png" alt="T20 CLASSIC TECH Logo">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="services" class="section services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Tech Reviews</h3>
-          <p>We bring you honest, detailed reviews on the latest phones, apps, and gadgets.</p>
-        </div>
-        <div class="card">
-          <h3>Code Tutorials</h3>
-          <p>Learn HTML, CSS, JavaScript and mobile app development easily with our guides.</p>
-        </div>
-        <div class="card">
-          <h3>Mobile Tricks</h3>
-          <p>Explore phone secrets, battery hacks, internet savings and more!</p>
-        </div>
-        <div class="card">
-          <h4>EXPLORE MORE SERVICES!</h4>
-          <a href="services.html" class="btn">Explore Services</a>
-        </div>
-      </div>
+<section id="services" class="section services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card"><h3>Tech Reviews</h3><p>We bring honest, detailed reviews...</p></div>
+      <div class="card"><h3>Code Tutorials</h3><p>Learn HTML, CSS, JS easily...</p></div>
+      <div class="card"><h3>Mobile Tricks</h3><p>Explore phone secrets and more!</p></div>
+      <div class="card"><h4>EXPLORE MORE SERVICES!</h4><a href="services.html" class="btn">Explore Services</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="blog" class="section blog">
-    <div class="container">
-      <h2>Latest Blog Posts</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>How to Save Data on Android</h3>
-          <p>Top 5 settings to help you reduce background data and extend your bundles!</p>
-          <a href="blog data usage.html" class="btn"> see more!</a>
-        </div>
-        <div class="card">
-          <h3>HTML vs. JavaScript</h3>
-          <p>Which one should you learn first? A beginner-friendly breakdown for 2025.</p>
-          <a href="blog html vs javascript.html" class="btn">see more!</a>
-        </div>
-        <div class="card">
-          <h4>MORE BLOGS!!</h4>
-          <p>See more blog posts from T20 Classic</p>
-          <a href="blog page home.HTML" class="btn">explore more Blogs</a>
-        </div>
-      </div>
+<section id="blog" class="section blog">
+  <div class="container">
+    <h2>Latest Blog Posts</h2>
+    <div class="cards">
+      <div class="card"><h3>How to Save Data</h3><p>Top 5 Android settings...</p><a href="blog data usage.html" class="btn">See more!</a></div>
+      <div class="card"><h3>HTML vs. JS</h3><p>Beginner-friendly breakdown...</p><a href="blog html vs javascript.html" class="btn">See more!</a></div>
+      <div class="card"><h4>MORE BLOGS!!</h4><p>See more blog posts...</p><a href="blog page home.HTML" class="btn">Explore Blogs</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="team" class="section team">
-    <div class="container">
-      <h2>Meet the Team</h2>
-      <div class="cards">
-        <div class="card team-card">
-          <img src="ZOM_7941.jpg" height="100" alt="Founder" />
-          <h3>Arnold Tarimo</h3>
-          <p>Founder & Tech Expert</p>
-          <a href="about T20.html" class="btn">About!</a>
-        </div>
-        <div class="card team-card">
-          <img src="IMG-20250212-WA0024 (1) (1).jpg" height="100" width="200" alt="Co-Founder" />
-          <h3>Novath Komba</h3>
-          <p>Web Developer & Assistant</p>
-          <a href="about novath.html" class="btn">About!</a>
-        </div>
-        <div class="card team-card">
-          <img src="IMG-20250620-WA0073.jpg" height="100" alt="Co-Founder" />
-          <h3>Justice Geaz</h3>
-          <p>Web Developer & Assistant</p>
-          <a href="about justice.html" class="btn">About!</a>
-        </div>
-      </div>
+<section id="team" class="section team">
+  <div class="container">
+    <h2>Meet the Team</h2>
+    <div class="cards">
+      <div class="card team-card"><img src="ZOM_7941.jpg" height="100"><h3>Arnold Tarimo</h3><p>Founder</p><a href="about T20.html" class="btn">About!</a></div>
+      <div class="card team-card"><img src="IMG-20250212-WA0024 (1) (1).jpg" height="100"><h3>Novath Komba</h3><p>Web Developer</p><a href="about novath.html" class="btn">About!</a></div>
+      <div class="card team-card"><img src="IMG-20250620-WA0073.jpg" height="100"><h3>Justice Geaz</h3><p>Assistant</p><a href="about justice.html" class="btn">About!</a></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="section contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <form action="https://formsubmit.co/atarimo117@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p id="form-response" style="margin-top:10px;color:green;font-weight:bold;"></p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/255658206524"><i class="fab fa-whatsapp"></i></a>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/255658206524"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </div>
-  </footer>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
+    authDomain: "t20classic.firebaseapp.com",
+    projectId: "t20classic",
+    storageBucket: "t20classic.firebasestorage.app",
+    messagingSenderId: "586223200337",
+    appId: "1:586223200337:web:d70211f02a842014707070",
+    measurementId: "G-0XSRFMY0HY"
+  };
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
-      authDomain: "t20classic.firebaseapp.com",
-      projectId: "t20classic",
-      storageBucket: "t20classic.firebasestorage.app",
-      messagingSenderId: "586223200337",
-      appId: "1:586223200337:web:d70211f02a842014707070",
-      measurementId: "G-0XSRFMY0HY"
-    };
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth();
+  document.getElementById('menu-toggle').addEventListener('click', () => {
+    const menu = document.getElementById('menu-items');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  });
 
-    // Hamburger menu toggle
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      const menu = document.getElementById('menu-items');
-      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    });
-
-    // Show/hide dashboard and logout links based on auth state
-    onAuthStateChanged(auth, (user) => {
-      const dashLink = document.getElementById('dashboard-link');
-      const logoutBtn = document.getElementById('logout-btn');
-      if (user && user.emailVerified) {
-        dashLink.style.display = 'block';
-        logoutBtn.style.display = 'block';
-      } else {
-        dashLink.style.display = 'none';
-        logoutBtn.style.display = 'none';
-      }
-    });
-
-    // Logout functionality
-    document.getElementById('logout-btn').addEventListener('click', async (e) => {
-      e.preventDefault();
-      await signOut(auth);
-      alert("Logged out.");
-      window.location.href = "index.html";
-    });
-  </script>
-
-  <!-- PWA Service Worker Registration -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('Service Worker registered.', reg))
-          .catch(err => console.error('Service Worker registration failed:', err));
-      });
+  onAuthStateChanged(auth, (user) => {
+    const dashLink = document.getElementById('dashboard-link');
+    const logoutBtn = document.getElementById('logout-btn');
+    if (user && user.emailVerified) {
+      dashLink.style.display = 'block';
+      logoutBtn.style.display = 'block';
+    } else {
+      dashLink.style.display = 'none';
+      logoutBtn.style.display = 'none';
     }
-  </script>
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', async (e) => {
+    e.preventDefault();
+    await signOut(auth);
+    alert("Logged out.");
+    window.location.href = "index.html";
+  });
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registered.', reg))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    });
+  }
+
+  const toggleBtn = document.getElementById('mode-toggle');
+  const currentMode = localStorage.getItem('mode');
+  if (currentMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️ Light Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('mode', isDark ? 'dark' : 'light');
+  });
+</script>
+
+<!-- FIX: Prevent form resubmission using fetch -->
+<script>
+document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("https://formsubmit.co/ajax/atarimo117@gmail.com", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("form-response").textContent = "Message sent successfully!";
+    form.reset();
+  })
+  .catch(error => {
+    document.getElementById("form-response").textContent = "Failed to send. Please try again.";
+    console.error("Error:", error);
+  });
+});
+</script>
 
 </body>
 </html>

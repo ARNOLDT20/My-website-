@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T20 CLASSIC TECH</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Hamburger menu styles */
+    .mobile-nav {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      z-index: 9999;
+    }
+    #menu-toggle {
+      font-size: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+    }
+    .menu-items {
+      display: none;
+      position: absolute;
+      right: 0;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .menu-items a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+      border-bottom: 1px solid #eee;
+    }
+    .menu-items a:hover {
+      background: #f0f0f0;
+    }
+    /* Fade-in animation */
+    .fade-in-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in-section.visible {
+      opacity: 1;
+      transform: none;
+    }
+    /* Button hover pulse */
+    .btn:hover {
+      animation: pulse 0.4s ease-in-out;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+    /* Card hover lift */
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hamburger menu at top right -->
+  <nav class="mobile-nav">
+    <button id="menu-toggle">&#9776;</button>
+    <div id="menu-items" class="menu-items">
+      <a href="dashboard.html" id="dashboard-link" style="display:none;">Dashboard</a>
+      <a href="dashboard.html">Sign In</a>
+      <a href="#register">Register</a>
+      <a href="#" id="logout-btn" style="display:none;">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="container">
+      <h1>T20 CLASSIC TECH</h1>
+      <p id="typing-text"></p>
+      <a href="services.html" class="btn">Explore Services</a>
+    </div>
+  </header>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Your existing content remains unchanged -->
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/255658206524"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Firebase Auth and menu toggle -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
+      authDomain: "t20classic.firebaseapp.com",
+      projectId: "t20classic",
+      storageBucket: "t20classic.firebasestorage.app",
+      messagingSenderId: "586223200337",
+      appId: "1:586223200337:web:d70211f02a842014707070",
+      measurementId: "G-0XSRFMY0HY"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('menu-items');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    onAuthStateChanged(auth, (user) => {
+      const dashLink = document.getElementById('dashboard-link');
+      const logoutBtn = document.getElementById('logout-btn');
+      if (user && user.emailVerified) {
+        dashLink.style.display = 'block';
+        logoutBtn.style.display = 'block';
+      } else {
+        dashLink.style.display = 'none';
+        logoutBtn.style.display = 'none';
+      }
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', async (e) => {
+      e.preventDefault();
+      await signOut(auth);
+      alert("Logged out.");
+      window.location.href = "index.html";
+    });
+  </script>
+
+  <!-- Typing effect for slogan -->
+  <script>
+    const text = "Smart Tech. Smarter You.";
+    let i = 0;
+    const speed = 100;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typing-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
+
+  <!-- Scroll-based fade-in animation -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in-section');
+    const appearOptions = { threshold: 0.1 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+    faders.forEach(section => appearOnScroll.observe(section));
+  </script>
+
+</body>
+</html>

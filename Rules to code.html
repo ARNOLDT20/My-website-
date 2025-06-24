@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>12 Rules to Learn to Code – Angela Yu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+    }
+
+    /* Background Video */
+    .bg-video {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+      animation: fadeInDown 1.2s ease;
+      z-index: 1;
+      position: relative;
+
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      animation: pulse 2s infinite;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      color: #ecf0f1;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+      z-index: 1;
+      position: relative;
+      animation: fadeInUp 1.5s ease;
+    }
+
+
+    .container p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #f0f0f0;
+    }
+
+    h2 {
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .rule {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 5px solid #3498db;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .rule:hover {
+      transform: scale(1.03);
+
+      box-shadow: 0 8px 18px rgba(52, 152, 219, 0.3);
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 25px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      animation: fadeIn 2.5s ease;
+    }
+
+    .cta:hover {
+      background-color: #217dbb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: white;
+
+      margin-top: 3rem;
+      z-index: 1;
+      position: relative;
+      animation: fadeIn 3s ease;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        text-shadow: 0 0 0px white;
+      }
+      50% {
+        text-shadow: 0 0 12px #3498db;
+      }
+      100% {
+        text-shadow: 0 0 0px white;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://www.videvo.net/videvo_files/converted/2017_12/preview/180113_06_Coding_02.mp491774.webm" type="video/webm">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content -->
+  <header>
+    <h1>12 Rules to Learn to Code</h1>
+    <p>Inspired by Dr. Angela Yu – The App Brewery</p>
+  </header>
+
+  <div class="container">
+    <p>Angela Yu's guide is more than advice — it's a set of powerful habits that can shape you into a 
+
+confident and successful developer. Let’s dive in:</p>
+
+    <!-- Rules -->
+    <div class="rule">
+      <h2>1. Trick Your Brain with the 20‑Minute Rule</h2>
+      <p>Promise to code for just 20 minutes. Once started, you’ll likely keep going.</p>
+    </div>
+
+    <div class="rule">
+      <h2>2. Code for a Purpose – Have a Project</h2>
+      <p>Apply what you learn by building something real. Projects give you motivation and clarity.</p>
+    </div>
+
+    <div class="rule">
+      <h2>3. There Is No “Perfect” Language</h2>
+      <p>Start with any language that fits your goal. Just begin!</p>
+    </div>
+
+    <div class="rule">
+
+      <h2>4. Understand What You’re Writing</h2>
+      <p>Don’t just copy—comprehend every line of code. That’s true learning.</p>
+    </div>
+
+    <div class="rule">
+      <h2>5. It’s Okay to Not Know</h2>
+      <p>Everyone feels stuck. Accept it as part of becoming a better coder.</p>
+    </div>
+
+    <div class="rule">
+      <h2>6. Be a Copycat</h2>
+      <p>Imitate code to learn patterns—but always analyze and modify to grow.</p>
+    </div>
+
+    <div class="rule">
+      <h2>7. Be Accountable – Show Your Work</h2>
+      <p>Post updates or code publicly. It keeps you consistent and proud.</p>
+    </div>
+
+    <div class="rule">
+      <h2>8. Keep Learning</h2>
+
+      <p>Tech changes fast. Keep growing even after you “learn” the basics.</p>
+    </div>
+
+    <div class="rule">
+      <h2>9. Play Foosball</h2>
+      <p>Take breaks. Refresh your mind. Coding is creative, not mechanical.</p>
+    </div>
+
+    <div class="rule">
+      <h2>10. Get a Mentor – Try Pair Programming</h2>
+      <p>Learn from others. Pair programming can teach you in minutes what would take hours alone.</p>
+    </div>
+
+    <div class="rule">
+      <h2>11. Get Into the Habit of Chunking</h2>
+      <p>Divide problems into small tasks. One step at a time = big progress.</p>
+    </div>
+
+    <div class="rule">
+
+      <h2>12. Break Someone Else’s Code</h2>
+      <p>Explore open-source code. Debug, improve, or remix it for practice.</p>
+    </div>
+
+    <a class="cta" href="#">Start Coding Now 🚀</a>
+  </div>
+
+  <footer>
+    &copy; 2025 T20 CLASSIC TECH | Inspired by The App Brewery
+  </footer>
+
+</body>
+</html>

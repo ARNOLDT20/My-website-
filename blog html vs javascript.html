@@ -198,23 +198,21 @@ HTML, JavaScript has nothing to interact with.</p>
       <button onclick="postComment()">Post Comment</button>
       <div id="commentSection" style="margin-top: 20px;"></div>
     </div>
-  </div>nnpm install firebase
+  </div>
 
   <!-- 🔗 Firebase SDK and Script -->
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-
-
-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebaseapp.js";
     import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
 
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      apiKey: "AlzaSyBEG8Y9cLceS3kQ80efpa5cBqPyb6XokAo",
+      authDomain: "html-js-blog.firebaseapp.com",
+      databaseURL: "https://html-js-blog.firebaseio.com",
+      projectId: "html-js-blog",
+      storageBucket: "html-js-blog.appspot.com",
       messagingSenderId: "YOUR_MESSAGING_ID",
-      appId: "YOUR_APP_ID"
+      appId: "1:708740122407:web:11c6f96b340ec865ce8b02"
     };
 
     const app = initializeApp(firebaseConfig);
