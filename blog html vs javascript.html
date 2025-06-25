@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,30 +6,56 @@
   <title>HTML vs JavaScript – Which One Should You Learn First?</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    body, html {
       margin: 0;
-      background-color: #f4f8fb;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
       color: #333;
-      padding: 20px;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+      background: black;
+    }
+    video.bg-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;
+    }
+    .live-time-banner {
+      font-size: 18px;
+      text-align: center;
+      background: linear-gradient(90deg, #2f9de6, #29f023);
+      color: #333;
+      padding: 12px 10px;
+      font-weight: bold;
+      border-radius: 8px;
+      animation: fadeSlide 3s ease-in-out infinite;
+      margin: 10px auto;
+      max-width: 900px;
+    }
+    @keyframes fadeSlide {
+      0% { opacity: 0.5; transform: translateY(-5px); }
+      50% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0.5; transform: translateY(-5px); }
     }
     .container {
       max-width: 900px;
-      margin: auto;
+      margin: 20px auto;
       background: #fff;
       padding: 30px;
       border-radius: 10px;
-
-      box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
-    h1 {
-      color: #2c3e50;
-      font-size: 2.5em;
-    }
-    h2 {
-      color: #34495e;
-      margin-top: 30px;
-    }
+    h1 { color: #2c3e50; font-size: 2.5em; }
+    h2 { color: #34495e; margin-top: 30px; }
     .highlight, .conclusion {
       background: #e8f8f5;
       border-left: 5px solid #00b894;
@@ -42,11 +67,8 @@
       background: #fefae0;
       border-left: 5px solid #e67e22;
     }
-    ul {
-      padding-left: 20px;
-    }
+    ul { padding-left: 20px; }
     .image-box {
-
       text-align: center;
       margin: 20px 0;
     }
@@ -61,9 +83,7 @@
       gap: 10px;
       margin-bottom: 10px;
     }
-    .icon-text i {
-      color: #00b894;
-    }
+    .icon-text i { color: #00b894; }
     .back-button, .share-icons {
       margin-top: 30px;
       display: flex;
@@ -72,7 +92,6 @@
       flex-wrap: wrap;
     }
     .back-button a {
-
       background-color: #00b894;
       color: white;
       padding: 10px 20px;
@@ -86,9 +105,7 @@
       color: #34495e;
       transition: color 0.3s;
     }
-    .share-icons a:hover {
-      color: #00b894;
-    }
+    .share-icons a:hover { color: #00b894; }
     .comments {
       margin-top: 40px;
     }
@@ -98,7 +115,6 @@
     }
     .comments textarea {
       width: 100%;
-
       height: 100px;
       padding: 10px;
       font-size: 16px;
@@ -121,16 +137,37 @@
       border-radius: 5px;
       margin-bottom: 10px;
     }
+    footer {
+      background-color: #05cc16;
+      color: #eee;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    footer a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+  <!-- Background Video -->
+  <video class="bg-video" autoplay loop muted playsinline>
+    <source src="VID-20250623-WA0500.mp4" type="video/mp4">
+  </video>
 
+  <!-- Live Time Banner -->
+  <div class="live-time-banner" id="greetingTime">Loading time...</div>
 
+  <!-- Main Container -->
   <div class="container">
-    <h1>HTML vs JavaScript: Which One Should You Learn First? <span style="font-size: 0.5em;">(2025 Beginner Guide)</span></h1>
-
+    <h1>HTML vs JavaScript – Which One Should You Learn First?</h1>
     <div class="image-box">
-      <img src="fb1e7f9db2540c3194a9179094a925e2.jpg" />
+      <img src="fb1e7f9db2540c3194a9179094a925e2.jpg" height="400" width="500"="Banner image" />
     </div>
 
     <p>As a beginner stepping into the world of web development in 2025, it's common to ask: <strong>Should I learn HTML or JavaScript first?</strong></p>
@@ -140,7 +177,6 @@
     </div>
 
     <h2>What is HTML?</h2>
-
     <div class="icon-text"><i class="fas fa-code"></i> <p><strong>HTML</strong> (HyperText Markup Language) is the backbone of every website.</p></div>
     <ul>
       <li>Builds page structure</li>
@@ -158,12 +194,10 @@
     </ul>
 
     <h2>Why Learn HTML First?</h2>
-    <p>Learning HTML is simple and visual. It helps you understand how websites are built. Without 
-
-HTML, JavaScript has nothing to interact with.</p>
+    <p>Learning HTML is simple and visual. It helps you understand how websites are built. Without HTML, JavaScript has nothing to interact with.</p>
 
     <div class="image-box">
-      <img src="2e6eaf5eca67a5b95c7df3cd207c245a.jpg" alt="HTML first example" />
+      <img src="2e6eaf5eca67a5b95c7df3cd207c245a.jpg" height="400" width="800" alt="HTML first example" />
     </div>
 
     <h2>Real-Life Analogy</h2>
@@ -174,24 +208,20 @@ HTML, JavaScript has nothing to interact with.</p>
       <p>🟢 <strong>Start with HTML</strong> — the foundation.<br />
          🟡 <strong>Add CSS</strong> — to make it look amazing.<br />
          🔵 <strong>Then JavaScript</strong> — to make it interactive.</p>
-
       <p>In 2025, the best path to web success is learning step-by-step. Don’t skip the basics — build your future on solid ground!</p>
     </div>
 
     <div class="back-button">
       <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Blog</a>
-
       <div class="share-icons">
         <span>Share:</span>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/html-vs-javascript.html" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com/html-vs-javascript.html&text=Great read about HTML vs JavaScript!" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://wa.me/?text=Check%20this%20out:%20https://yourdomain.com/html-vs-javascript.html" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://yourdomain.com/html-vs-javascript.html" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
 
-    <!-- 🔥 Firebase Comments Section -->
     <div class="comments">
       <h3><i class="fas fa-comments"></i> Comments</h3>
       <textarea id="commentInput" placeholder="Write your comment..."></textarea><br>
@@ -200,60 +230,28 @@ HTML, JavaScript has nothing to interact with.</p>
     </div>
   </div>
 
-  <!-- 🔗 Firebase SDK and Script -->
- <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+    <p>Join our <a href="https://whatsapp.com/channel/0029VbAbwiL3AzNOpEoe5Y23" target="_blank">WhatsApp Channel</a> for updates.</p>
+  </footer>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDv-uoifvaK8jbH7v5TtI15BS7s_5MUKDo",
-      authDomain: "commentsession-633ad.firebaseapp.com",
-      projectId: "commentsession-633ad",
-      storageBucket: "commentsession-633ad.appspot.com",
-      messagingSenderId: "884719953807",
-      appId: "1:884719953807:web:8b257b8dfdfd8a6822cdfa",
-      measurementId: "G-LT48Q4SVFX"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const commentForm = document.getElementById('commentForm');
-    const commentsDisplay = document.getElementById('commentsDisplay');
-    const nameInput = document.getElementById('nameInput');
-    const commentInput = document.getElementById('commentInput');
-
-    commentForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const name = nameInput.value.trim();
-      const comment = commentInput.value.trim();
-      if (!name || !comment) return;
-
-      try {
-        await addDoc(collection(db, "comments"), {
-          name: name,
-          comment: comment,
-          timestamp: Date.now()
-        });
-        nameInput.value = '';
-        commentInput.value = '';
-      } catch (error) {
-        alert("Imeshindikana kutuma maoni. Tafadhali jaribu tena.");
-        console.error(error);
-      }
-    });
-
-    const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
-    onSnapshot(q, (snapshot) => {
-      commentsDisplay.innerHTML = "";
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        const div = document.createElement("div");
-        div.className = "comment-box";
-        div.innerHTML = `<strong>${data.name}</strong><p>${data.comment}</p>`;
-        commentsDisplay.appendChild(div);
-      });
-    });
+  <!-- Timer Script -->
+  <script>
+    function updateGreetingTime() {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+      let greeting = '';
+      if (hours < 12) greeting = 'Good Morning';
+      else if (hours < 18) greeting = 'Good Afternoon';
+      else greeting = 'Good Evening';
+      const timeString = `${hours.toString().padStart(2,'0')}:${minutes}:${seconds}`;
+      document.getElementById('greetingTime').textContent = `${greeting}! The time is ${timeString}`;
+    }
+    updateGreetingTime();
+    setInterval(updateGreetingTime, 1000);
   </script>
 </body>
 </html>

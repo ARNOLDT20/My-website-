@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Understanding AI in Daily Life</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #0077cc;
+    }
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    .latest-posts {
+      margin-top: 40px;
+    }
+    .latest-posts ul {
+      padding-left: 20px;
+    }
+    .latest-posts li {
+      margin-bottom: 8px;
+    }
+    .latest-posts a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+    .latest-posts a:hover {
+      text-decoration: underline;
+    }
+    .comments-section {
+      margin-top: 40px;
+    }
+    .comments-section h2 {
+      margin-bottom: 10px;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .comments-display {
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .comment {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      padding: 15px;
+      background: #222;
+      color: #fff;
+      border-radius: 0 0 8px 8px;
+    }
+    footer a {
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Understanding AI in Daily Life</h1>
+    <img src="0x0.webp" alt="AI Technology" />
+
+    <p>
+      Artificial Intelligence (AI) is quietly transforming our everyday experiences. You may not notice it, but AI helps in tasks like unlocking your phone with your face, suggesting movies on Netflix, or navigating traffic using Google Maps.
+    </p>
+    <p>
+      Whenever you talk to a voice assistant like Google Assistant or Alexa, AI processes your voice and responds accurately. When you scroll through social media, AI chooses what content appears first — based on your behavior and preferences.
+    </p>
+    <p>
+      AI is also working in banking systems to detect fraud, in hospitals to assist in diagnosis, and in agriculture to predict weather and improve crop yields. It even powers smart home devices like thermostats and security systems that adapt to your habits.
+    </p>
+    <p>
+      Understanding AI means realizing it’s not magic — it’s machine learning, data, and smart algorithms making life easier, faster, and sometimes safer. As technology grows, knowing how AI works gives you an edge in a tech-driven world.
+    </p>
+
+    <div class="latest-posts">
+      <h2>📌 Latest Posts</h2>
+      <ul>
+        <li><a href="post2.html">The Future of Tech Education</a></li>
+        <li><a href="post3.html">Top 5 Innovations of 2025</a></li>
+        <li><a href="forst programmer.html">Ada Lovelace: The First Programmer</a></li>
+      </ul>
+    </div>
+
+    <div class="comments-section">
+      <h2>💬 Leave a Comment</h2>
+      <input type="text" id="username" placeholder="Your name..." />
+      <textarea id="usercomment" rows="4" placeholder="Your comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+
+      <div class="comments-display" id="commentsDisplay"></div>
+    </div>
+<div style="margin-top: 30px; display: flex; gap: 10px;">
+  <button onclick="history.back()" style="
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  ">
+    ← Back
+  </button>
+
+  <a href="index.html" style="
+    background-color: #00aa55;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    display: inline-block;
+  ">
+    🏠 Home
+  </a>
+</div>
+
+    <footer>
+      &copy; 2025 T20 CLASSIC TECH | Join our 
+      <a href="https://whatsapp.com/channel/0029VbAbwiL3AzNOpEoe5Y23" target="_blank">
+        WhatsApp Channel
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    function addComment() {
+      const name = document.getElementById('username').value.trim();
+      const comment = document.getElementById('usercomment').value.trim();
+      const display = document.getElementById('commentsDisplay');
+
+      if (name && comment) {
+        const newComment = document.createElement('div');
+        newComment.className = 'comment';
+        newComment.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+        display.prepend(newComment);
+        document.getElementById('username').value = '';
+        document.getElementById('usercomment').value = '';
+      } else {
+        alert("Please enter your name and comment.");
+      }
+    }
+  </script>
+
+</body>
+</html>

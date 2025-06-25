@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Top 5 Innovations of 2025</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      color: #0077cc;
+    }
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    p, li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    ol {
+      padding-left: 20px;
+    }
+    .latest-posts {
+      margin-top: 40px;
+    }
+    .latest-posts ul {
+      padding-left: 20px;
+    }
+    .latest-posts li {
+      margin-bottom: 8px;
+    }
+    .latest-posts a {
+      text-decoration: none;
+      color: #0077cc;
+    }
+    .latest-posts a:hover {
+      text-decoration: underline;
+    }
+    .comments-section {
+      margin-top: 40px;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    .comments-display {
+      margin-top: 20px;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 6px;
+    }
+    .comment {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 14px;
+      padding: 15px;
+      background: #222;
+      color: #fff;
+      border-radius: 0 0 8px 8px;
+    }
+    footer a {
+      color: #00ffaa;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Top 5 Innovations of 2025</h1>
+    <img src="ima.jpg" alt="Innovations 2025" />
+
+    <p>
+      The year 2025 is shaping up to be a groundbreaking one in the world of technology. From health to communication to green energy, innovation is pushing boundaries. Here are five top tech breakthroughs expected to define the year:
+    </p>
+
+    <ol>
+      <li><strong>AI-Powered Medical Diagnostics:</strong> Machines that can detect diseases like cancer or heart issues earlier than human doctors by analyzing medical images and data more accurately.</li>
+      <li><strong>6G Networks:</strong> Ultra-fast internet speeds and hologram-style communication will become a reality, enabling real-time 3D meetings and smart city infrastructure.</li>
+      <li><strong>Augmented Reality Glasses:</strong> Smart glasses that overlay digital information on your real-world view — replacing your phone, GPS, and even your TV screen.</li>
+      <li><strong>Eco-Friendly Batteries:</strong> New battery tech with faster charging, longer life, and recyclable materials will power everything from phones to electric cars with less environmental impact.</li>
+      <li><strong>Quantum Computing Power:</strong> Quantum systems will begin solving problems in seconds that would take supercomputers years — from simulations to logistics and beyond.</li>
+    </ol>
+
+    <p>
+      These innovations are just the beginning. With tech evolving so quickly, staying informed is essential — whether you're a developer, student, or simply a curious explorer.
+    </p>
+
+    <div class="latest-posts">
+      <h2>📌 Latest Posts</h2>
+      <ul>
+        <li><a href="post1.html">Understanding AI in Daily Life</a></li>
+        <li><a href="post2.html">The Future of Tech Education</a></li>
+        <li><a href="ada-lovelace.html">Ada Lovelace: The First Programmer</a></li>
+      </ul>
+    </div>
+
+    <div class="comments-section">
+      <h2>💬 Leave a Comment</h2>
+      <input type="text" id="username" placeholder="Your name..." />
+      <textarea id="usercomment" rows="4" placeholder="Your comment..."></textarea>
+      <button onclick="addComment()">Post Comment</button>
+
+      <div class="comments-display" id="commentsDisplay"></div>
+    </div><div style="margin-top: 30px; display: flex; gap: 10px;">
+  <button onclick="history.back()" style="
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  ">
+    ← Back
+  </button>
+
+  <a href="index.html" style="
+    background-color: #00aa55;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    display: inline-block;
+  ">
+    🏠 Home
+  </a>
+</div>
+
+
+    <footer>
+      &copy; 2025 T20 CLASSIC TECH | Join our 
+      <a href="https://whatsapp.com/channel/0029VbAbwiL3AzNOpEoe5Y23" target="_blank">
+        WhatsApp Channel
+      </a>
+    </footer>
+  </div>
+
+  <script>
+    function addComment() {
+      const name = document.getElementById('username').value.trim();
+      const comment = document.getElementById('usercomment').value.trim();
+      const display = document.getElementById('commentsDisplay');
+
+      if (name && comment) {
+        const newComment = document.createElement('div');
+        newComment.className = 'comment';
+        newComment.innerHTML = `<strong>${name}</strong><p>${comment}</p>`;
+        display.prepend(newComment);
+        document.getElementById('username').value = '';
+        document.getElementById('usercomment').value = '';
+      } else {
+        alert("Please enter your name and comment.");
+      }
+    }
+  </script>
+
+</body>
+</html>
