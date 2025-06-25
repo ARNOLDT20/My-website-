@@ -82,6 +82,35 @@
       margin: 0;
       padding-left: 20px;
     }
+    @keyframes emojiFade {
+  0%, 100% { opacity: 1; transform: translateY(0); }
+  50% { opacity: 0; transform: translateY(-10px); }
+}
+.animated-emoji {
+  display: inline-block;
+  margin-left: 8px;
+  animation: emojiFade 3s infinite;
+  font-size: 1.2em;
+  user-select: none;
+}
+
+@keyframes pulseFade {
+  0% { opacity: 0; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(0.85); }
+}
+#greeting-timer {
+  animation: pulseFade 4s ease-in-out infinite;
+}
+@keyframes pulseFade {
+  0% { opacity: 0.6; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 0.6; transform: scale(0.95); }
+}
+#greeting-timer {
+  animation: pulseFade 4s ease-in-out infinite;
+}
+
   </style>
 </head>
 <body>
@@ -89,6 +118,11 @@
 <div style="position: fixed; top: 15px; left: 15px; z-index: 9999;">
   <button id="mode-toggle" style="padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer;">🌙 Dark Mode</button>
 </div>
+
+<div id="greeting-timer" style="position: fixed; top: 60px; left: 15px; z-index: 9999; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px; color: #007bff; user-select: none;">
+  👋 Hello!
+</div>
+
 
 <nav class="mobile-nav">
   <button id="menu-toggle">&#9776;</button>
@@ -102,7 +136,9 @@
 
 <header class="hero">
   <div class="container">
-    <h1>T20 CLASSIC TECH</h1>
+    <h1>T20 CLASSIC TECH 
+      <span id="emoji" class="animated-emoji">🤖</span>
+</h1>
     <p>Smart Tech. Smarter You.</p>
     <a href="services.html" class="btn">Explore Services</a>
   </div>
@@ -312,6 +348,47 @@
     const box = document.getElementById('fun-facts-box');
     box.style.display = box.style.display === 'block' ? 'none' : 'block';
   }
+</script>
+<script>
+  const emojis = ['🤖', '💻', '🛠️', '🚀', '⚙️', '🧠'];
+  const emojiSpan = document.getElementById('emoji');
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % emojis.length;
+    emojiSpan.textContent = emojis[i];
+  }, 3000);
+</script>
+<script>
+  function updateGreetingTime() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour % 12 || 12;
+
+    let greeting = '';
+    let emoji = '';
+
+    if (hour >= 5 && hour < 12) {
+      greeting = 'Good Morning';
+      emoji = '☀️';
+    } else if (hour >= 12 && hour < 17) {
+      greeting = 'Good Afternoon';
+      emoji = '🌤️';
+    } else if (hour >= 17 && hour < 21) {
+      greeting = 'Good Evening';
+      emoji = '🌆';
+    } else {
+      greeting = 'Good Night';
+      emoji = '🌙';
+    }
+
+    const greetingEl = document.getElementById('greeting-timer');
+    greetingEl.textContent = `${emoji} ${greeting}! It's ${displayHour}:${minutes} ${ampm}`;
+  }
+
+  updateGreetingTime();
+  setInterval(updateGreetingTime, 1000); // update every second
 </script>
 
 </body>
