@@ -75,6 +75,8 @@
     <input type="password" id="password" placeholder="Password" /><br>
     <button onclick="login()">Login</button>
     <p id="error"></p>
+    <button onclick="resendVerification()" id="resend-btn" style="display:none;">Resend Verification Email</button>
+
     <p class="toggle-link" onclick="showSignup()">Create Account</p>
     <p class="toggle-link" onclick="showReset()">Forgot Password?</p>
   </div>
@@ -129,39 +131,48 @@
     const db = firebase.firestore();
     const storage = firebase.storage();
 
-    function login() {
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
-      auth.signInWithEmailAndPassword(email, password)
-        .then((cred) => {
-          if (cred.user.emailVerified) {
-            document.getElementById("error").innerText = "";
-          } else {
-            auth.signOut();
-            document.getElementById("error").innerText = "Verify your email before logging in.";
-          }
-        })
-        .catch((error) => {
-          document.getElementById("error").innerText = error.message;
-        });
-    }
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    function signup() {
-      const email = document.getElementById("signup-email").value;
-      const password = document.getElementById("signup-password").value;
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((cred) => {
-          cred.user.sendEmailVerification();
+  auth.signInWithEmailAndPassword(email, password)
+    .then((cred) => {
+      if (cred.user.emailVerified) {
+        document.getElementById("error").innerText = "";
+        document.getElementById("resend-btn").style.display = "none";
+      } else {
+        auth.signOut();
+        document.getElementById("error").innerText = "Verify your email before logging in.";
+        document.getElementById("resend-btn").style.display = "block";
+      }
+    })
+    .catch((error) => {
+      document.getElementById("error").innerText = error.message;
+      document.getElementById("resend-btn").style.display = "none";
+    });
+}
+
+
+  function signup() {
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((cred) => {
+      return cred.user.sendEmailVerification()
+        .then(() => {
           db.collection("users").doc(cred.user.uid).set({
             email: email,
             joined: new Date().toISOString()
           });
-          document.getElementById("signup-error").innerText = "Check your email to verify.";
-        })
-        .catch((error) => {
-          document.getElementById("signup-error").innerText = error.message;
+          document.getElementById("signup-error").innerText = "Check your email to verify your account.";
         });
-    }
+    })
+    .catch((error) => {
+      document.getElementById("signup-error").innerText = error.message;
+    });
+}
+
 
     function resetPassword() {
       const email = document.getElementById("reset-email").value;
@@ -175,6 +186,30 @@
     }
 
     function logout() {
+    function resendVerification() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then((cred) => {
+      if (!cred.user.emailVerified) {
+        cred.user.sendEmailVerification()
+          .then(() => {
+            alert("Verification email resent. Check your inbox.");
+            auth.signOut();
+          })
+          .catch((error) => {
+            alert("Error sending email: " + error.message);
+          });
+      } else {
+        alert("Email is already verified.");
+      }
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
+    });
+}
+
       auth.signOut();
     }
 
