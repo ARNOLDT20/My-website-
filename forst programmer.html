@@ -123,67 +123,59 @@
       padding: 10px;
       border-radius: 5px;
       margin-bottom: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
     .related-posts {
-  padding: 20px;
-  background: #f9f9f9;
-  border-top: 2px solid #ddd;
-}
-
-.related-posts h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-.related-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.related-card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  overflow: hidden;
-  width: 30%;
-  min-width: 200px;
-  transition: transform 0.3s;
-}
-
-.related-card:hover {
-  transform: scale(1.03);
-}
-
-.related-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-
-.related-card h3 {
-  padding: 10px;
-  font-size: 16px;
-}
-.site-footer {
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 20px 10px;
-  margin-top: 40px;
-  font-size: 14px;
-}
-
-.site-footer a {
-  color: #00ffcc;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-
+      padding: 20px;
+      background: #f9f9f9;
+      border-top: 2px solid #ddd;
+    }
+    .related-posts h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    .related-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .related-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: 30%;
+      min-width: 200px;
+      transition: transform 0.3s;
+    }
+    .related-card:hover {
+      transform: scale(1.03);
+    }
+    .related-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .related-card h3 {
+      padding: 10px;
+      font-size: 16px;
+    }
+    .site-footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    .site-footer a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+    .site-footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -243,63 +235,69 @@
       </div>
     </div>
 
-     <div class="related-posts">
-  <h2>You May Also Like</h2>
-  <div class="related-container">
-    <div class="related-card">
-      <a href="post1.html">
-        <img src="0x0.webp" alt="Post 1" />
-        <h3>Understanding AI in Daily Life</h3>
-      </a>
+    <div class="related-posts">
+      <h2>You May Also Like</h2>
+      <div class="related-container">
+        <div class="related-card">
+          <a href="post1.html">
+            <img src="0x0.webp" alt="Post 1" />
+            <h3>Understanding AI in Daily Life</h3>
+          </a>
+        </div>
+        <div class="related-card">
+          <a href="post2.html">
+            <img src="image 1.jpeg" alt="Post 2" />
+            <h3>The Future of Tech Education</h3>
+          </a>
+        </div>
+        <div class="related-card">
+          <a href="post3.html">
+            <img src="ima.jpg" alt="Post 3" />
+            <h3>Top 5 Innovations of 2025</h3>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="related-card">
-      <a href="post2.html">
-        <img src="image 1.jpeg" alt="Post 2" />
-        <h3>The Future of Tech Education</h3>
-      </a>
-    </div>
-    <div class="related-card">
-      <a href="post3.html">
-        <img src="ima.jpg" alt="Post 3" />
-        <h3>Top 5 Innovations of 2025</h3>
-      </a>
-    </div>
-  </div>
-</div>
 
     <!-- Comments Section -->
     <div class="comments">
       <h3><i class="fas fa-comments"></i> Comments</h3>
-      <textarea id="commentInput" placeholder="Write your comment..."></textarea><br>
-      <button onclick="postComment()">Post Comment</button>
+      <textarea id="commentInput" placeholder="Write your comment..."></textarea><br />
+      <button id="postBtn">Post Comment</button>
       <div id="commentSection" style="margin-top: 20px;"></div>
     </div>
   </div>
 
-<div style="margin-top: 30px;">
-  <button onclick="history.back()" style="
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-  ">
-    ← Back
-  </button>
-</div>
+  <div style="margin-top: 30px; text-align:center;">
+    <button onclick="history.back()" style="
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    ">
+      ← Back
+    </button>
+  </div>
 
-<!-- Footer -->
-<footer class="site-footer">
-  <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
-  <p>Join our <a href="https://whatsapp.com/channel/0029VbAbwiL3AzNOpEoe5Y23" target="_blank">WhatsApp Channel</a> for updates.</p>
-</footer>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+    <p>Join our <a href="https://whatsapp.com/channel/0029VbAbwiL3AzNOpEoe5Y23" target="_blank">WhatsApp Channel</a> for updates.</p>
+  </footer>
 
-
-
+  <!-- Firebase Comments Script -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      query,
+      orderBy,
+      onSnapshot,
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
     const firebaseConfig = {
       apiKey: "AIzaSyDv-uoifvaK8jbH7v5TtI15BS7s_5MUKDo",
@@ -308,42 +306,49 @@
       storageBucket: "commentsession-633ad.appspot.com",
       messagingSenderId: "884719953807",
       appId: "1:884719953807:web:8b257b8dfdfd8a6822cdfa",
-      measurementId: "G-LT48Q4SVFX"
+      measurementId: "G-LT48Q4SVFX",
     };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    const commentInput = document.getElementById('commentInput');
-    const commentSection = document.getElementById('commentSection');
+    window.addEventListener("DOMContentLoaded", () => {
+      const commentInput = document.getElementById("commentInput");
+      const commentSection = document.getElementById("commentSection");
+      const postBtn = document.getElementById("postBtn");
 
-    async function postComment() {
-      const comment = commentInput.value.trim();
-      if (!comment) {
-        alert("Please write a comment before posting.");
-        return;
+      async function postComment() {
+        const comment = commentInput.value.trim();
+        if (!comment) {
+          alert("Please write a comment before posting.");
+          return;
+        }
+        try {
+          await addDoc(collection(db, "comments"), {
+            comment: comment,
+            timestamp: Date.now(),
+          });
+          commentInput.value = "";
+        } catch (error) {
+          alert("Failed to post comment. Please try again.");
+          console.error(error);
+        }
       }
-      try {
-        await addDoc(collection(db, "comments"), {
-          comment: comment,
-          timestamp: Date.now()
+
+      // Expose globally for inline handlers if needed
+      window.postComment = postComment;
+
+      postBtn.addEventListener("click", postComment);
+
+      const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        commentSection.innerHTML = "";
+        snapshot.forEach((doc) => {
+          const div = document.createElement("div");
+          div.className = "comment-entry";
+          div.textContent = doc.data().comment;
+          commentSection.appendChild(div);
         });
-        commentInput.value = '';
-      } catch (error) {
-        alert("Failed to post comment. Please try again.");
-        console.error(error);
-      }
-    }
-
-    const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
-    onSnapshot(q, (snapshot) => {
-      commentSection.innerHTML = "";
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        const div = document.createElement("div");
-        div.className = "comment-entry";
-        div.textContent = data.comment;
-        commentSection.appendChild(div);
       });
     });
   </script>

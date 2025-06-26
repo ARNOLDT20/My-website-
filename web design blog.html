@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,6 @@
       margin: 0;
       padding: 0;
     }
-
     .container {
       max-width: 800px;
       margin: 40px auto;
@@ -22,46 +20,36 @@
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
-
-
     h1, h2, h3 {
       color: #2e7d32;
     }
-
     h1 {
       font-size: 2em;
       margin-bottom: 10px;
     }
-
     h2 {
       margin-top: 30px;
       font-size: 1.5em;
     }
-
     h3 {
       margin-top: 20px;
       font-size: 1.2em;
     }
-
     p {
       line-height: 1.8;
       font-size: 1.05em;
       margin-top: 10px;
     }
-
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
-
     th, td {
       text-align: left;
       padding: 10px;
       border-bottom: 1px solid #ddd;
     }
-
     .footer {
       text-align: center;
       font-size: 0.95em;
@@ -69,15 +57,76 @@
       padding-top: 20px;
       border-top: 1px solid #ddd;
     }
-
     .highlight {
       background-color: #e8f5e9;
       padding: 10px;
       border-left: 4px solid #2e7d32;
-
       margin: 20px 0;
     }
+    /* Comments styles */
+    .comments {
+      margin-top: 50px;
+      background-color: #fefefe;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+    .comments h3 {
+      color: #2e7d32;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .comments textarea {
+      width: 100%;
+      height: 90px;
+      padding: 10px;
+      font-size: 1em;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      resize: vertical;
+    }
+    .comments button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 22px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .comments button:hover {
+      background-color: #1b4314;
+    }
+    .comment-entry {
+      background-color: #f4f9f4;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      border-left: 3px solid #2e7d32;
+    }
+    .back-btn-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .back-btn-container button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+    .back-btn-container button:hover {
+      background-color: #1b4314;
+    }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
   <div class="container">
@@ -89,7 +138,6 @@
     <p>Web development is the process of <strong>building websites and web applications</strong> that run on the internet. Whether it’s a personal blog, an online store, or a game you play in your browser — it was all created by a web developer.</p>
 
     <h2>🧱 The 3 Main Parts of Web Development</h2>
-
 
     <h3>1. 🔸 Frontend (What you see)</h3>
     <p>This is what you see when you open a website. It includes buttons, images, menus, colors — everything visible.</p>
@@ -106,7 +154,6 @@
     - MySQL, MongoDB<br>
     - Apache, Nginx</p>
     <div class="highlight">📝 Example: When you log in to Facebook and it checks your password — that’s the backend working.</div>
-
 
     <h3>3. 🔄 Full-Stack Development</h3>
     <p>A full-stack developer does <strong>both frontend and backend</strong> — meaning they build the full website from start to finish.</p>
@@ -130,7 +177,6 @@
       </tr>
       <tr>
         <td>Git & GitHub</td>
-
         <td>Saving and managing code</td>
       </tr>
       <tr>
@@ -153,7 +199,6 @@
       <li>🌱 Grow your brand like T20 Classic Tech</li>
       <li>🤝 Work with others or become a freelancer</li>
       <li>💡 Create your own apps or digital products</li>
-
     </ul>
 
     <p>Whether you're a student, beginner, or dreamer — starting now means you're preparing for the digital future.</p>
@@ -169,12 +214,91 @@
       <em>Let’s build together, one line of code at a time!</em>
     </div>
 
-    <div class="footer">
+    <!-- Comments Section -->
+    <div class="comments">
+      <h3><i class="fas fa-comments"></i> Comments</h3>
+      <textarea id="commentInput" placeholder="Write your comment..."></textarea><br />
+      <button id="postBtn">Post Comment</button>
+      <div id="commentSection"></div>
+    </div>
 
-      📩 Got a question? Email me at: <a href="atarimo117@gmail.com">atarimo117@gmail.com</a><br />
+    <div class="back-btn-container">
+      <button id="backBtn">← Back</button>
+    </div>
+
+    <div class="footer">
+      📩 Got a question? Email me at: <a href="mailto:atarimo117@gmail.com">atarimo117@gmail.com</a><br />
       🔗 Follow T20 Classic Tech for more tips & updates!<br />
       <p>&copy; 2025 Arnold Tarimo. All rights reserved.</p>
     </div>
   </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      query,
+      orderBy,
+      onSnapshot
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const firebaseConfig = {
+        apiKey: "AIzaSyDv-uoifvaK8jbH7v5TtI15BS7s_5MUKDo",
+        authDomain: "commentsession-633ad.firebaseapp.com",
+        projectId: "commentsession-633ad",
+        storageBucket: "commentsession-633ad.appspot.com",
+        messagingSenderId: "884719953807",
+        appId: "1:884719953807:web:8b257b8dfdfd8a6822cdfa",
+        measurementId: "G-LT48Q4SVFX"
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      const commentInput = document.getElementById("commentInput");
+      const commentSection = document.getElementById("commentSection");
+      const postBtn = document.getElementById("postBtn");
+      const backBtn = document.getElementById("backBtn");
+
+      postBtn.addEventListener("click", async () => {
+        const comment = commentInput.value.trim();
+        if (!comment) {
+          alert("Please write a comment before posting.");
+          return;
+        }
+        try {
+          await addDoc(collection(db, "comments"), {
+            comment,
+            timestamp: Date.now()
+          });
+          commentInput.value = "";
+        } catch (error) {
+          alert("Failed to post comment. Please try again.");
+          console.error(error);
+        }
+      });
+
+      backBtn.addEventListener("click", () => {
+        history.back();
+      });
+
+      const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        commentSection.innerHTML = "";
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const div = document.createElement("div");
+          div.className = "comment-entry";
+          div.textContent = data.comment;
+          commentSection.appendChild(div);
+        });
+      });
+    });
+  </script>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>

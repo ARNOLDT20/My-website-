@@ -136,6 +136,8 @@
       padding: 10px;
       border-radius: 5px;
       margin-bottom: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
     footer {
       background-color: #05cc16;
@@ -157,7 +159,7 @@
 <body>
   <!-- Background Video -->
   <video class="bg-video" autoplay loop muted playsinline>
-    <source src="VID-20250623-WA0500.mp4" type="video/mp4">
+    <source src="VID-20250623-WA0500.mp4" type="video/mp4" />
   </video>
 
   <!-- Live Time Banner -->
@@ -167,7 +169,7 @@
   <div class="container">
     <h1>HTML vs JavaScript – Which One Should You Learn First?</h1>
     <div class="image-box">
-      <img src="fb1e7f9db2540c3194a9179094a925e2.jpg" height="400" width="500"="Banner image" />
+      <img src="fb1e7f9db2540c3194a9179094a925e2.jpg" height="400" width="500" alt="Banner image" />
     </div>
 
     <p>As a beginner stepping into the world of web development in 2025, it's common to ask: <strong>Should I learn HTML or JavaScript first?</strong></p>
@@ -224,8 +226,8 @@
 
     <div class="comments">
       <h3><i class="fas fa-comments"></i> Comments</h3>
-      <textarea id="commentInput" placeholder="Write your comment..."></textarea><br>
-      <button onclick="postComment()">submit</button>
+      <textarea id="commentInput" placeholder="Write your comment..."></textarea><br />
+      <button id="postBtn">Submit</button>
       <div id="commentSection" style="margin-top: 20px;"></div>
     </div>
   </div>
@@ -252,6 +254,72 @@
     }
     updateGreetingTime();
     setInterval(updateGreetingTime, 1000);
+  </script>
+
+  <!-- Firebase Comments Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      query,
+      orderBy,
+      onSnapshot,
+    } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDv-uoifvaK8jbH7v5TtI15BS7s_5MUKDo",
+      authDomain: "commentsession-633ad.firebaseapp.com",
+      projectId: "commentsession-633ad",
+      storageBucket: "commentsession-633ad.appspot.com",
+      messagingSenderId: "884719953807",
+      appId: "1:884719953807:web:8b257b8dfdfd8a6822cdfa",
+      measurementId: "G-LT48Q4SVFX",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const commentInput = document.getElementById("commentInput");
+      const commentSection = document.getElementById("commentSection");
+      const postBtn = document.getElementById("postBtn");
+
+      async function postComment() {
+        const comment = commentInput.value.trim();
+        if (!comment) {
+          alert("Please write a comment before posting.");
+          return;
+        }
+        try {
+          await addDoc(collection(db, "comments"), {
+            comment: comment,
+            timestamp: Date.now(),
+          });
+          commentInput.value = "";
+        } catch (error) {
+          alert("Failed to post comment. Please try again.");
+          console.error(error);
+        }
+      }
+
+      // Expose globally for inline handlers if needed
+      window.postComment = postComment;
+
+      postBtn.addEventListener("click", postComment);
+
+      const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
+      onSnapshot(q, (snapshot) => {
+        commentSection.innerHTML = "";
+        snapshot.forEach((doc) => {
+          const div = document.createElement("div");
+          div.className = "comment-entry";
+          div.textContent = doc.data().comment;
+          commentSection.appendChild(div);
+        });
+      });
+    });
   </script>
 </body>
 </html>
