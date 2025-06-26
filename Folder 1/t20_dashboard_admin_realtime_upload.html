@@ -281,6 +281,30 @@ function login() {
       document.getElementById("signup").style.display = "none";
       document.getElementById("resetPassword").style.display = "block";
     }
+    function resendVerification() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then((cred) => {
+      if (!cred.user.emailVerified) {
+        cred.user.sendEmailVerification()
+          .then(() => {
+            alert("✅ Verification email sent again! Check inbox or Spam.");
+            auth.signOut();
+          })
+          .catch((error) => {
+            alert("❌ Failed to send: " + error.message);
+          });
+      } else {
+        alert("✅ Your email is already verified.");
+      }
+    })
+    .catch((error) => {
+      alert("⚠️ Login failed: " + error.message);
+    });
+}
+
   </script>
 </body>
 </html>
