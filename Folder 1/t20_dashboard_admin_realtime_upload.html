@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T20 CLASSIC TECH Dashboard (Full)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-storage-compat.js"></script>
+
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      background: linear-gradient(to right, #007bff, #00c6ff);
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color: white;
+    }
+    .container {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    input, button {
+      padding: 10px;
+      width: 90%;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+    input {
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    #dashboard, #signup, #resetPassword, #admin-section { display: none; }
+    #error, #signup-error, #reset-msg { color: #ff4d4d; font-size: 14px; }
+    .toggle-link {
+      color: #00c6ff;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+    .file-list {
+      text-align: left;
+      margin-top: 10px;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+    .file-list a {
+      color: #00ffcc;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login -->
+  <div class="container" id="login">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="Email" /><br>
+    <input type="password" id="password" placeholder="Password" /><br>
+    <button onclick="login()">Login</button>
+    <p id="error"></p>
+    <p class="toggle-link" onclick="showSignup()">Create Account</p>
+    <p class="toggle-link" onclick="showReset()">Forgot Password?</p>
+  </div>
+
+  <!-- Signup -->
+  <div class="container" id="signup">
+    <h2>Sign Up</h2>
+    <input type="email" id="signup-email" placeholder="Email" /><br>
+    <input type="password" id="signup-password" placeholder="Password" /><br>
+    <button onclick="signup()">Sign Up</button>
+    <p id="signup-error"></p>
+    <p class="toggle-link" onclick="showLogin()">Already have an account?</p>
+  </div>
+
+  <!-- Reset -->
+  <div class="container" id="resetPassword">
+    <h2>Reset Password</h2>
+    <input type="email" id="reset-email" placeholder="Enter your email" /><br>
+    <button onclick="resetPassword()">Send Reset Link</button>
+    <p id="reset-msg"></p>
+    <p class="toggle-link" onclick="showLogin()">Back to login</p>
+  </div>
+
+  <!-- Dashboard -->
+  <div class="container" id="dashboard">
+    <h2>Welcome to T20 CLASSIC Dashboard</h2>
+    <p id="user-email"></p>
+    <div id="user-data"></div>
+    <button onclick="logout()">Logout</button>
+
+    <!-- Admin-Only Section -->
+    <div id="admin-section">
+      <h3>📁 File Upload (Admin Only)</h3>
+      <input type="file" id="fileInput" />
+      <button onclick="uploadFile()">Upload</button>
+      <div class="file-list" id="fileList"></div>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDvOj4awayuyP3gcnW6x3cJNHbU66hn-QU",
+      authDomain: "dashboard-d2ae7.firebaseapp.com",
+      projectId: "dashboard-d2ae7",
+      storageBucket: "dashboard-d2ae7.appspot.com",
+      messagingSenderId: "825089517341",
+      appId: "1:825089517341:web:147e53170e9200fe59a3f4"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+    const storage = firebase.storage();
+
+    function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      auth.signInWithEmailAndPassword(email, password)
+        .then((cred) => {
+          if (cred.user.emailVerified) {
+            document.getElementById("error").innerText = "";
+          } else {
+            auth.signOut();
+            document.getElementById("error").innerText = "Verify your email before logging in.";
+          }
+        })
+        .catch((error) => {
+          document.getElementById("error").innerText = error.message;
+        });
+    }
+
+    function signup() {
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((cred) => {
+          cred.user.sendEmailVerification();
+          db.collection("users").doc(cred.user.uid).set({
+            email: email,
+            joined: new Date().toISOString()
+          });
+          document.getElementById("signup-error").innerText = "Check your email to verify.";
+        })
+        .catch((error) => {
+          document.getElementById("signup-error").innerText = error.message;
+        });
+    }
+
+    function resetPassword() {
+      const email = document.getElementById("reset-email").value;
+      auth.sendPasswordResetEmail(email)
+        .then(() => {
+          document.getElementById("reset-msg").innerText = "Reset link sent to email.";
+        })
+        .catch((error) => {
+          document.getElementById("reset-msg").innerText = error.message;
+        });
+    }
+
+    function logout() {
+      auth.signOut();
+    }
+
+    auth.onAuthStateChanged((user) => {
+      if (user && user.emailVerified) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("resetPassword").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        document.getElementById("user-email").innerText = "Logged in as: " + user.email;
+
+        db.collection("users").doc(user.uid).get().then(doc => {
+          if (doc.exists) {
+            const data = doc.data();
+            document.getElementById("user-data").innerText = "Joined: " + data.joined;
+          }
+        });
+
+        if (user.email === "atarimo117@gmail.com") {
+          document.getElementById("admin-section").style.display = "block";
+          loadFiles();
+        }
+      } else {
+        showLogin();
+      }
+    });
+
+    function uploadFile() {
+      const file = document.getElementById("fileInput").files[0];
+      const storageRef = storage.ref('uploads/' + file.name);
+      storageRef.put(file).then(snapshot => {
+        return snapshot.ref.getDownloadURL();
+      }).then(downloadURL => {
+        db.collection("uploads").add({ name: file.name, url: downloadURL, time: new Date().toISOString() });
+        loadFiles();
+      });
+    }
+
+    function loadFiles() {
+      db.collection("uploads").orderBy("time", "desc").onSnapshot(snapshot => {
+        const list = document.getElementById("fileList");
+        list.innerHTML = "";
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const a = document.createElement("a");
+          a.href = data.url;
+          a.textContent = data.name;
+          a.target = "_blank";
+          list.appendChild(a);
+        });
+      });
+    }
+
+    function showSignup() {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("signup").style.display = "block";
+      document.getElementById("resetPassword").style.display = "none";
+    }
+
+    function showLogin() {
+      document.getElementById("login").style.display = "block";
+      document.getElementById("signup").style.display = "none";
+      document.getElementById("resetPassword").style.display = "none";
+      document.getElementById("dashboard").style.display = "none";
+    }
+
+    function showReset() {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("signup").style.display = "none";
+      document.getElementById("resetPassword").style.display = "block";
+    }
+  </script>
+</body>
+</html>
