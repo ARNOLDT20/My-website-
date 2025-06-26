@@ -379,7 +379,7 @@ data</li>
     const commentSection = document.getElementById('commentSection');
 
     async function postComment() {
-      const comment = commentInput.value.trim();
+      const comment = document.getElementById("commentInput").value;
       if (!comment) {
         alert("Please write a comment before posting.");
         return;
