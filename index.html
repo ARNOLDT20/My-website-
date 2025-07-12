@@ -5,6 +5,7 @@
      crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google-site-verification" content="8mm2t-QrtRNhyv0imLy3Nm9j6QDTrPes1ybd0RM3SVI" />
   <title>T20 CLASSIC TECH</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +14,7 @@
 
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#007bff" />
+  <meta name="google-site-verification" content="8mm2t-QrtRNhyv0imLy3Nm9j6QDTrPes1ybd0RM3SVI" />
   <style>
     .mobile-nav {
       position: fixed;
@@ -115,6 +117,7 @@
 
   </style>
 </head>
+
 <body>
 
 <div style="position: fixed; top: 15px; left: 15px; z-index: 9999;">
@@ -241,47 +244,6 @@
   </ul>
 </div>
 
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyAKaTBNl82-1E-doxGiJ4P9lQCVwIEdO0s",
-    authDomain: "t20classic.firebaseapp.com",
-    projectId: "t20classic",
-    storageBucket: "t20classic.firebasestorage.app",
-    messagingSenderId: "586223200337",
-    appId: "1:586223200337:web:d70211f02a842014707070",
-    measurementId: "G-0XSRFMY0HY"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth();
-
-  document.getElementById('menu-toggle').addEventListener('click', () => {
-    const menu = document.getElementById('menu-items');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  });
-
-  onAuthStateChanged(auth, (user) => {
-    const dashLink = document.getElementById('dashboard-link');
-    const logoutBtn = document.getElementById('logout-btn');
-    if (user && user.emailVerified) {
-      dashLink.style.display = 'block';
-      logoutBtn.style.display = 'block';
-    } else {
-      dashLink.style.display = 'none';
-      logoutBtn.style.display = 'none';
-    }
-  });
-
-  document.getElementById('logout-btn').addEventListener('click', async (e) => {
-    e.preventDefault();
-    await signOut(auth);
-    alert("Logged out.");
-    window.location.href = "index.html";
-  });
-</script>
 
 <script>
   if ('serviceWorker' in navigator) {
