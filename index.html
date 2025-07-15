@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<head>
+  <!-- Add these ABOVE your existing scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/i18next.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4082508843151495" crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -171,6 +178,24 @@
       background: #f0f0f0;
       cursor: pointer;
     }
+.language-switcher {
+  position: fixed;
+  top: 15px;
+  left: 100px;
+  z-index: 1000;
+}
+.language-switcher button {
+  padding: 5px 10px;
+  margin: 0 2px;
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.language-active {
+  background: #007bff !important;
+  color: white;
+}
   </style>
 </head>
 
@@ -182,14 +207,13 @@
 </div>
 
 <!-- Greeting Timer -->
-<div id="greeting-timer" style="position: fixed; top: 60px; left: 15px; z-index: 9999; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px; color: #007bff; user-select: none;">
-  👋 Hello!
+<div id="greeting-timer" data-i18n="greetings.hello">👋 Hello!</div>
 </div>
 
 <!-- Language Switcher -->
 <div class="language-switcher">
-  <button data-lang="en">EN</button>
-  <button data-lang="sw">SW</button>
+  <button id="lang-en" class="language-active">EN</button>
+  <button id="lang-sw">SW</button>
 </div>
 
 <!-- WhatsApp Float -->
@@ -470,6 +494,105 @@
       // Full implementation would load JSON translations
     });
   });
+<script>
+// ===== LANGUAGE SYSTEM =====
+const resources = {
+  en: {
+    translation: {
+      // Main Headers
+      "title": "T20 CLASSIC TECH",
+      "tagline": "Smart Tech. Smarter You.",
+      
+      // About Section
+      "about.title": "About T20 CLASSIC TECH",
+      "about.text": "is a youth-driven digital platform based in Tanzania, focused on smart tech education...",
+      "about.motto": "Motto",
+      "about.why": "Why us?",
+      
+      // Services
+      "services.title": "Our Services",
+      "services.tech": "Tech Reviews",
+      "services.code": "Code Tutorials",
+      "services.mobile": "Mobile Tricks",
+      "services.more": "EXPLORE MORE SERVICES!",
+      
+      // Add translations for ALL text elements
+    }
+  },
+  sw: {
+    translation: {
+      // Main Headers
+      "title": "TEKNOLOJIA YA T20 CLASSIC",
+      "tagline": "Teknolojia Smart. Wewe Bora Zaidi.",
+      
+      // About Section
+      "about.title": "Kuhusu T20 CLASSIC TECH",
+      "about.text": "ni jukwaa la kidijitali linaloongozwa na vijana nchini Tanzania, linalolenga elimu ya teknolojia mahiri...",
+      "about.motto": "Kauli mbiu",
+      "about.why": "Kwa nini sisi?",
+      
+      // Services
+      "services.title": "Huduma Zetu",
+      "services.tech": "Ukaguzi wa Teknolojia",
+      "services.code": "Mafunzo ya Kodi",
+      "services.mobile": "Hila za Simu",
+      "services.more": "ANGALIA HUDUMU ZAIDI!",
+      
+      // Add Swahili translations for ALL elements
+    }
+  }
+};
+
+// Initialize i18n
+i18next.init({
+  lng: 'en',
+  resources: resources
+}).then(function() {
+  jqueryI18next.init(i18next, $);
+  updateContent();
+});
+
+// Update all page content
+function updateContent() {
+  $('[data-i18n]').localize();
+  $('.language-switcher button').removeClass('language-active');
+  $(`#lang-${i18next.language}`).addClass('language-active');
+}
+
+// Language switch handlers
+$('#lang-en').click(() => { i18next.changeLanguage('en').then(updateContent); });
+$('#lang-sw').click(() => { i18next.changeLanguage('sw').then(updateContent); });
+
+// Update greeting with translation
+function updateGreetingTime() {
+  const hour = new Date().getHours();
+  let greetingKey = 'greetings.';
+  
+  if (hour >= 5 && hour < 12) greetingKey += 'morning';
+  else if (hour >= 12 && hour < 17) greetingKey += 'afternoon'; 
+  else if (hour >= 17 && hour < 21) greetingKey += 'evening';
+  else greetingKey += 'night';
+
+  $('#greeting-timer').text(i18next.t(greetingKey));
+}
+// In both language resources:
+"greetings": {
+  "hello": "👋 Hello!",
+  "morning": "☀️ Good Morning!",
+  "afternoon": "🌤️ Good Afternoon!", 
+  "evening": "🌆 Good Evening!",
+  "night": "🌙 Good Night!"
+},
+
+// Swahili version:
+"greetings": {
+  "hello": "👋 Habari!",
+  "morning": "☀️ Habari za Asubuhi!",
+  "afternoon": "🌤️ Habari za Mchana!",
+  "evening": "🌆 Habari za Jioni!",
+  "night": "🌙 Usiku Mwema!"
+}
+</script>
 </script>
 </body>
 </html>
