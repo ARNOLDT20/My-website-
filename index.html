@@ -116,6 +116,8 @@
 }
 
   </style>
+<!-- New Font Awesome (if not already present) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare
 </head>
 
 <body>
@@ -354,6 +356,27 @@
   updateGreetingTime();
   setInterval(updateGreetingTime, 1000); // update every second
 </script>
+<!-- ===== SAFE ADDITIONS ===== -->
+<!-- WhatsApp Float -->
+<a href="https://wa.me/255658206524" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+  <span class="pulse"></span>
+</a>
+
+<!-- Newsletter (Before Footer) -->
+<section class="newsletter">
+  <h2><i class="fas fa-envelope"></i> Tech Updates</h2>
+  <form id="newsletter-form">
+    <input type="email" placeholder="Your email" required>
+    <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
+  </form>
+</section>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner">
+  <p>We use cookies 🍪 <a href="/privacy">Learn more</a></p>
+  <button id="accept-cookies">Accept</button>
+</div>
 
 </body>
 </html>
