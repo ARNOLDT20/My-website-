@@ -381,6 +381,29 @@
   <p>We use cookies 🍪 <a href="/privacy">Learn more</a></p>
   <button id="accept-cookies">Accept</button>
 </div>
+<script src="scripts/enhancements.js"></script>
 
+// WhatsApp Float (Always works)
+document.querySelector('.whatsapp-float').addEventListener('click', () => {
+  console.log('WhatsApp clicked!'); // Track interactions
+});
+
+// Cookie Banner
+if(!document.cookie.includes('cookies_accepted=true')) {
+  document.getElementById('cookie-banner').style.display = 'block';
+}
+
+document.getElementById('accept-cookies').addEventListener('click', () => {
+  document.cookie = "cookies_accepted=true; max-age=2592000; path=/";
+  document.getElementById('cookie-banner').style.display = 'none';
+});
+
+// Language Switcher (Basic)
+document.querySelectorAll('.language-switcher button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    alert(`Language switched to ${btn.dataset.lang === 'en' ? 'English' : 'Kiswahili'}`);
+    // Full implementation would load JSON translations
+  });
+});
 </body>
 </html>
