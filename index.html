@@ -359,6 +359,18 @@
 
   updateGreetingTime();
   setInterval(updateGreetingTime, 1000); // update every second
+// Mobile Menu Toggle
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  const menu = document.getElementById('menu-items');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Close menu when clicking links
+document.querySelectorAll('#menu-items a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('menu-items').style.display = 'none';
+  });
+});
 </script>
 <!-- ===== SAFE ADDITIONS ===== -->
 <!-- WhatsApp Float -->
@@ -367,14 +379,25 @@
   <span class="pulse"></span>
 </a>
 
-<!-- Newsletter (Before Footer) -->
-<section class="newsletter">
-  <h2><i class="fas fa-envelope"></i> Tech Updates</h2>
-  <form id="newsletter-form">
-    <input type="email" placeholder="Your email" required>
-    <button type="submit">Subscribe <i class="fas fa-paper-plane"></i></button>
-  </form>
-</section>
+// Newsletter Form (Basic Version)
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = this.querySelector('input').value;
+  
+  // For demo - replace with real backend
+  console.log('Submitting email:', email); 
+  alert(`Thank you for subscribing! We'll send updates to ${email}`);
+  this.reset();
+  
+  /* For production use:
+  fetch('YOUR_MAILCHIMP_ENDPOINT', {
+    method: 'POST',
+    body: JSON.stringify({ email })
+  })
+  .then(response => alert('Subscription successful!'))
+  .catch(error => alert('Error: Please try again later'));
+  */
+});
 
 <!-- Cookie Banner -->
 <div id="cookie-banner">
@@ -388,10 +411,22 @@ document.querySelector('.whatsapp-float').addEventListener('click', () => {
   console.log('WhatsApp clicked!'); // Track interactions
 });
 
-// Cookie Banner
-if(!document.cookie.includes('cookies_accepted=true')) {
-  document.getElementById('cookie-banner').style.display = 'block';
+// Enhanced Cookie Banner
+function checkCookies() {
+  if (!document.cookie.split('; ').find(row => row.startsWith('cookies_accepted='))) {
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
 }
+
+document.getElementById('accept-cookies').addEventListener('click', function() {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() + 1);
+  document.cookie = `cookies_accepted=true; expires=${date.toUTCString()}; path=/`;
+  document.getElementById('cookie-banner').style.display = 'none';
+});
+
+// Run on page load
+checkCookies();
 
 document.getElementById('accept-cookies').addEventListener('click', () => {
   document.cookie = "cookies_accepted=true; max-age=2592000; path=/";
@@ -403,6 +438,18 @@ document.querySelectorAll('.language-switcher button').forEach(btn => {
   btn.addEventListener('click', () => {
     alert(`Language switched to ${btn.dataset.lang === 'en' ? 'English' : 'Kiswahili'}`);
     // Full implementation would load JSON translations
+  });
+});
+// Mobile Menu Toggle
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  const menu = document.getElementById('menu-items');
+  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+});
+
+// Close menu when clicking links
+document.querySelectorAll('#menu-items a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('menu-items').style.display = 'none';
   });
 });
 </body>
