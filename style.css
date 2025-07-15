@@ -202,4 +202,75 @@ footer {
   object-fit: cover;
   filter: brightness(0.6); /* Optional: darken for readability */
 }
+/* ===== NEW STYLES ===== */
+/* WhatsApp Float */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.3s;
+}
 
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37,211,102,0.5);
+  animation: pulse 2s infinite;
+}
+
+/* Newsletter */
+.newsletter {
+  background: #f0f8ff;
+  padding: 40px 0;
+  text-align: center;
+}
+
+#newsletter-form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Testimonials */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.testimonial {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Cookie Banner */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #333;
+  color: white;
+  padding: 15px;
+  z-index:
