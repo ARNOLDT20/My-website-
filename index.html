@@ -99,35 +99,20 @@
     }
 
     @keyframes pulseFade {
+      0% { opacity: 0; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.1); }
+      100% { opacity: 0; transform: scale(0.85); }
+    }
+    #greeting-timer {
+      animation: pulseFade 4s ease-in-out infinite;
+    }
+    @keyframes pulseFade {
       0% { opacity: 0.6; transform: scale(0.95); }
       50% { opacity: 1; transform: scale(1.05); }
       100% { opacity: 0.6; transform: scale(0.95); }
     }
     #greeting-timer {
       animation: pulseFade 4s ease-in-out infinite;
-    }
-    
-    /* WhatsApp Button - NEW */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-      transition: all 0.3s;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      background: #128C7E;
     }
   </style>
 </head>
@@ -142,11 +127,6 @@
   👋 Hello!
 </div>
 
-<!-- WhatsApp Button - NEW (only change is the number) -->
-<a href="https://wa.me/255768418867" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
-
 <nav class="mobile-nav">
   <button id="menu-toggle">&#9776;</button>
   <div id="menu-items" class="menu-items">
@@ -157,12 +137,11 @@
   </div>
 </nav>
 
-<!-- YOUR ORIGINAL CONTENT STARTS HERE -->
 <header class="hero">
   <div class="container">
     <h1>T20 CLASSIC TECH 
       <span id="emoji" class="animated-emoji">🤖</span>
-    </h1>
+</h1>
     <p>Smart Tech. Smarter You.</p>
     <a href="services.html" class="btn">Explore Services</a>
   </div>
@@ -239,65 +218,154 @@
     <p id="form-response" style="margin-top:10px;color:green;font-weight:bold;"></p>
   </div>
 </section>
-<!-- Continuing from previous code -->
 
-<!-- WhatsApp Float Button (now with pulse animation) -->
-<style>
-  .whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    width: 60px;
-    height: 60px;
-    background: #25D366;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    z-index: 1000;
-    transition: all 0.3s;
-    animation: pulse 2s infinite;
-  }
+<footer>
+  <div class="container">
+    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://web.facebook.com/profile.php?id=61571178502431&sk=about"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/official_arnold.1?igsh=Nm1vNm10ZXpjczRu&fbclid=PAZXh0bgNhZW0CMTEAAaf9_d1tJ_3rPA2ZMwqMeLeNqWJHX-MOwWEAyuevlBkit3AixsXcisOnPVfe1w_aem_GcMHIyrELn3_0pSN9E8v3w"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/255768418867"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
 
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-  }
-</style>
+<div id="fun-facts-icon" onclick="toggleFacts()">🤣 Fun Fact</div>
+<div id="fun-facts-box">
+  <strong>Did you know?</strong>
+  <ul>
+    <li>Ctrl+Alt+Del was made for reboots.</li>
+    <li>Wi-Fi doesn't stand for anything.</li>
+    <li>Typing "Google" into Google can crash it (but don't try it)</li>
+    <li>Samsung started as a grocery store.</li>
+    <li>The first computer bug was an actual moth.</li>
+  </ul>
+</div>
 
-<!-- Your existing scripts continue unchanged -->
+
 <script>
-  // All your original JavaScript remains exactly the same
-  // Only WhatsApp links were updated to 255768418867
-  
-  // Mobile menu toggle
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registered.', reg))
+        .catch(err => console.error('Service Worker registration failed:', err));
+    });
+  }
+
+  const toggleBtn = document.getElementById('mode-toggle');
+  const currentMode = localStorage.getItem('mode');
+  if (currentMode === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleBtn.textContent = '☀️ Light Mode';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    localStorage.setItem('mode', isDark ? 'dark' : 'light');
+  });
+</script>
+
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+
+    fetch("https://formsubmit.co/ajax/atarimo117@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById("form-response").textContent = "Message sent successfully!";
+      form.reset();
+    })
+    .catch(error => {
+      document.getElementById("form-response").textContent = "Failed to send. Please try again.";
+      console.error("Error:", error);
+    });
+  });
+</script>
+
+<script>
+  const facts = [
+    "Ctrl+Alt+Del was made for reboots.",
+    "Wi-Fi doesn't stand for anything.",
+    "The first computer bug was an actual moth."
+  ];
+  let factIndex = 0;
+  const factsList = document.querySelector("#fun-facts-box ul");
+
+  function rotateFacts() {
+    if (!factsList) return;
+    factsList.innerHTML = `<li>${facts[factIndex]}</li>`;
+    factIndex = (factIndex + 1) % facts.length;
+  }
+  rotateFacts();
+  setInterval(rotateFacts, 5000);
+
+  function toggleFacts() {
+    const box = document.getElementById('fun-facts-box');
+    box.style.display = box.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+<script>
+  const emojis = ['🤖', '💻', '🛠️', '🚀', '⚙️', '🧠'];
+  const emojiSpan = document.getElementById('emoji');
+  let i = 0;
+  setInterval(() => {
+    i = (i + 1) % emojis.length;
+    emojiSpan.textContent = emojis[i];
+  }, 3000);
+</script>
+<script>
+  function updateGreetingTime() {
+    const now = new Date();
+    const hour = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour % 12 || 12;
+
+    let greeting = '';
+    let emoji = '';
+
+    if (hour >= 5 && hour < 12) {
+      greeting = 'Good Morning';
+      emoji = '☀️';
+    } else if (hour >= 12 && hour < 17) {
+      greeting = 'Good Afternoon';
+      emoji = '🌤️';
+    } else if (hour >= 17 && hour < 21) {
+      greeting = 'Good Evening';
+      emoji = '🌆';
+    } else {
+      greeting = 'Good Night';
+      emoji = '🌙';
+    }
+
+    const greetingEl = document.getElementById('greeting-timer');
+    greetingEl.textContent = `${emoji} ${greeting}! It's ${displayHour}:${minutes} ${ampm}`;
+  }
+
+  updateGreetingTime();
+  setInterval(updateGreetingTime, 1000); // update every second
+</script>
+
+<script>
+  // Mobile Menu Toggle
   document.getElementById('menu-toggle').addEventListener('click', function() {
     const menu = document.getElementById('menu-items');
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
   });
 
-  // Dark mode toggle
-  document.getElementById('mode-toggle').addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    // ... rest of your dark mode logic
+  // Close menu when clicking links
+  document.querySelectorAll('#menu-items a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('menu-items').style.display = 'none';
+    });
   });
-
-  // All other existing functions remain identical
 </script>
-
-<!-- Footer with updated WhatsApp link -->
-<footer>
-  <div class="container">
-    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
-    <div class="social-icons">
-      <!-- Other social links -->
-      <a href="https://wa.me/255768418867"><i class="fab fa-whatsapp"></i></a>
-    </div>
-  </div>
-</footer>
 </body>
 </html>
