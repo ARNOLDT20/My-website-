@@ -13,6 +13,7 @@
   <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#007bff" />
   <style>
+    /* Mobile Menu Styles */
     .mobile-nav {
       position: fixed;
       top: 15px;
@@ -46,6 +47,8 @@
     .menu-items a:hover {
       background: #f0f0f0;
     }
+    
+    /* Fun Facts Styles */
     #fun-facts-icon {
       position: fixed;
       top: 20px;
@@ -83,6 +86,8 @@
       margin: 0;
       padding-left: 20px;
     }
+    
+    /* Animated Emoji */
     @keyframes emojiFade {
       0%, 100% { opacity: 1; transform: translateY(0); }
       50% { opacity: 0; transform: translateY(-10px); }
@@ -94,6 +99,8 @@
       font-size: 1.2em;
       user-select: none;
     }
+    
+    /* Greeting Timer */
     @keyframes pulseFade {
       0% { opacity: 0.6; transform: scale(0.95); }
       50% { opacity: 1; transform: scale(1.05); }
@@ -102,6 +109,7 @@
     #greeting-timer {
       animation: pulseFade 4s ease-in-out infinite;
     }
+    
     /* WhatsApp Float */
     .whatsapp-float {
       position: fixed;
@@ -135,6 +143,7 @@
       70% { transform: scale(1.3); opacity: 0 }
       100% { opacity: 0 }
     }
+    
     /* Cookie Banner */
     #cookie-banner {
       position: fixed;
@@ -148,6 +157,7 @@
       display: none;
       text-align: center;
     }
+    
     /* Language Switcher */
     .language-switcher {
       position: fixed;
@@ -166,14 +176,17 @@
 
 <body>
 
+<!-- Dark Mode Toggle -->
 <div style="position: fixed; top: 15px; left: 15px; z-index: 9999;">
   <button id="mode-toggle" style="padding: 8px 12px; border-radius: 6px; border: none; cursor: pointer;">🌙 Dark Mode</button>
 </div>
 
+<!-- Greeting Timer -->
 <div id="greeting-timer" style="position: fixed; top: 60px; left: 15px; z-index: 9999; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 18px; color: #007bff; user-select: none;">
   👋 Hello!
 </div>
 
+<!-- Language Switcher -->
 <div class="language-switcher">
   <button data-lang="en">EN</button>
   <button data-lang="sw">SW</button>
@@ -191,6 +204,7 @@
   <button id="accept-cookies" style="background:#4CAF50; color:white; border:none; padding:8px 20px; border-radius:4px; cursor:pointer;">Accept</button>
 </div>
 
+<!-- Mobile Navigation -->
 <nav class="mobile-nav">
   <button id="menu-toggle">&#9776;</button>
   <div id="menu-items" class="menu-items">
@@ -201,15 +215,109 @@
   </div>
 </nav>
 
-<!-- Rest of your HTML content remains unchanged -->
+<!-- Hero Section -->
 <header class="hero">
-  <!-- ... -->
+  <div class="container">
+    <h1>T20 CLASSIC TECH 
+      <span id="emoji" class="animated-emoji">🤖</span>
+    </h1>
+    <p>Smart Tech. Smarter You.</p>
+    <a href="services.html" class="btn">Explore Services</a>
+  </div>
 </header>
-<!-- ... all other sections ... -->
+
+<!-- Main Navigation -->
+<nav class="navbar">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- About Section -->
+<section id="about" class="section about fade-in">
+  <div class="container">
+    <h2>About T20 CLASSIC TECH</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p><strong>T20 CLASSIC TECH</strong> is a youth-driven digital platform based in Tanzania, focused on smart tech education...</p>
+        <p>📌 <strong>Motto:</strong> Smart Tech. Smarter You.</p>
+        <p>💡 <strong>Why us?</strong> Because we speak your language, understand your needs, and deliver content that matters.</p>
+      </div>
+      <div class="about-image">
+        <img src="file_00000000d4dc61f7abff96c4470aed27.png" alt="T20 CLASSIC TECH Logo">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="section services">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card"><h3>Tech Reviews</h3><p>We bring honest, detailed reviews...</p></div>
+      <div class="card"><h3>Code Tutorials</h3><p>Learn HTML, CSS, JS easily...</p></div>
+      <div class="card"><h3>Mobile Tricks</h3><p>Explore phone secrets and more!</p></div>
+      <div class="card"><h4>EXPLORE MORE SERVICES!</h4><a href="services.html" class="btn">Explore Services</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="section blog">
+  <div class="container">
+    <h2>Latest Blog Posts</h2>
+    <div class="cards">
+      <div class="card"><h3>How to Save Data</h3><p>Top 5 Android settings...</p><a href="blog data usage.html" class="btn">See more!</a></div>
+      <div class="card"><h3>HTML vs. JS</h3><p>Beginner-friendly breakdown...</p><a href="blog html vs javascript.html" class="btn">See more!</a></div>
+      <div class="card"><h4>MORE BLOGS!!</h4><p>See more blog posts...</p><a href="blog page home.HTML" class="btn">Explore Blogs</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section id="team" class="section team">
+  <div class="container">
+    <h2>Meet the Team</h2>
+    <div class="cards">
+      <div class="card team-card"><img src="ZOM_7941.jpg" height="100"><h3>Arnold Tarimo</h3><p>Founder</p><a href="about T20.html" class="btn">About!</a></div>
+      <div class="card team-card"><img src="IMG-20250212-WA0024 (1) (1).jpg" height="100"><h3>Novath Komba</h3><p>Web Developer</p><a href="about novath.html" class="btn">About!</a></div>
+      <div class="card team-card"><img src="IMG-20250620-WA0073.jpg" height="100"><h3>Justice Geaz</h3><p>Assistant</p><a href="about justice.html" class="btn">About!</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p id="form-response" style="margin-top:10px;color:green;font-weight:bold;"></p>
+  </div>
+</section>
+
+<!-- Footer -->
 <footer>
-  <!-- ... -->
+  <div class="container">
+    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://web.facebook.com/profile.php?id=61571178502431&sk=about"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/official_arnold.1?igsh=Nm1vNm10ZXpjczRu&fbclid=PAZXh0bgNhZW0CMTEAAaf9_d1tJ_3rPA2ZMwqMeLeNqWJHX-MOwWEAyuevlBkit3AixsXcisOnPVfe1w_aem_GcMHIyrELn3_0pSN9E8v3w"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/255658206524"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
 </footer>
 
+<!-- Fun Facts Box -->
 <div id="fun-facts-icon" onclick="toggleFacts()">🤣 Fun Fact</div>
 <div id="fun-facts-box">
   <strong>Did you know?</strong>
@@ -223,7 +331,7 @@
 </div>
 
 <script>
-  // Service Worker
+  // Service Worker Registration
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js')
@@ -247,7 +355,7 @@
     localStorage.setItem('mode', isDark ? 'dark' : 'light');
   });
 
-  // Contact Form
+  // Contact Form Submission
   document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
     const form = e.target;
@@ -268,7 +376,7 @@
     });
   });
 
-  // Fun Facts
+  // Fun Facts Rotation
   const facts = [
     "Ctrl+Alt+Del was made for reboots.",
     "Wi-Fi doesn't stand for anything.",
