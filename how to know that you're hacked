@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Will I Know That I’m Hacked?</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #d11a2a;
+    }
+    h2 {
+      margin-top: 25px;
+      color: #1a73e8;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    p, li {
+      line-height: 1.7;
+    }
+    .cta {
+      background: #1a73e8;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 30px 0;
+    }
+    .cta a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-top: 40px;
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🔐 How Will I Know That I’m Hacked?</h1>
+  <p><strong>By T20 CLASSIC TECH</strong><br>🛡️ Stay Safe | 💡 Stay Informed | 📱 Protect Your Data</p>
+
+  <h2>🚨 1. Unusual Activity on Your Accounts</h2>
+  <p><strong>What to Look For:</strong></p>
+  <ul>
+    <li>Unknown logins or devices</li>
+    <li>Password reset emails or alerts you didn’t trigger</li>
+    <li>Strange messages sent to your contacts</li>
+  </ul>
+  <p><strong>Why This Happens:</strong> Hackers might’ve used phishing or leaked credentials to access your account.</p>
+  <p><strong>What to Do:</strong> Change your password, log out all sessions, and enable 2FA.</p>
+
+  <h2>📵 2. Device Slowing Down or Acting Weird</h2>
+  <p><strong>What to Look For:</strong></p>
+  <ul>
+    <li>Battery drains quickly</li>
+    <li>Unexplained overheating</li>
+    <li>Pop-ups or strange behavior</li>
+  </ul>
+  <p><strong>Why This Happens:</strong> Malware or spyware may be running in the background.</p>
+  <p><strong>What to Do:</strong> Use antivirus, uninstall unknown apps, and reboot or reset.</p>
+
+  <h2>💸 3. Suspicious Financial Transactions</h2>
+  <p><strong>What to Look For:</strong></p>
+  <ul>
+    <li>Unknown charges or deductions</li>
+    <li>OTPs or confirmation messages not triggered by you</li>
+  </ul>
+  <p><strong>Why This Happens:</strong> Your payment info may have been compromised.</p>
+  <p><strong>What to Do:</strong> Block/freeze accounts, change online banking passwords, and contact support.</p>
+
+  <h2>🧠 4. Changed Passwords or Settings</h2>
+  <p><strong>What to Look For:</strong></p>
+  <ul>
+    <li>You're locked out of your account</li>
+    <li>Recovery email or phone changed</li>
+  </ul>
+  <p><strong>Why This Happens:</strong> Hackers change recovery settings to take full control.</p>
+  <p><strong>What to Do:</strong> Use account recovery or contact platform support immediately.</p>
+
+  <h2>🐛 5. Unknown Apps or Files</h2>
+  <p><strong>What to Look For:</strong></p>
+  <ul>
+    <li>Apps/files you don’t recognize</li>
+    <li>High data or CPU usage</li>
+    <li>Camera or mic activating on its own</li>
+  </ul>
+  <p><strong>Why This Happens:</strong> Your device might have a trojan, spyware, or adware.</p>
+  <p><strong>What to Do:</strong> Remove suspicious apps, run antivirus scans, and reset browser settings.</p>
+
+  <h2>🛠️ Immediate Steps to Take</h2>
+  <ul>
+    <li>Change all important passwords</li>
+    <li>Enable Two-Factor Authentication (2FA)</li>
+    <li>Run antivirus scans</li>
+    <li>Log out of all active sessions</li>
+    <li>Be cautious with public Wi-Fi and apps</li>
+  </ul>
+
+  <div class="cta">
+    📲 Need Help? <a href="https://wa.me/255627417402?text=Hello%20T20_STARBOY%20👋%20i%20need%20help%20with%20my%20hacked%20account" target="_blank">Click here to WhatsApp T20_STARBOY</a>
+  </div>
+
+  <h2>🧠 Final Advice: Stay Smart, Stay Safe</h2>
+  <ul>
+    <li>Don't click suspicious links</li>
+    <li>Never share OTPs or passwords</li>
+    <li>Update your apps and systems</li>
+    <li>Use strong, unique passwords</li>
+    <li>Don’t trust random “tech support” calls</li>
+  </ul>
+
+  <div class="footer">
+    🔐 Stay Smart. Stay Safe. Stay T20.<br>
+    Powered by <strong>T20 CLASSIC TECH</strong>
+  </div>
+</div>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/255627417402?text=Hello%20T20_STARBOY%20👋%20i%20need%20help%20with%20my%20hacked%20account"
+   class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+</body>
+</html>
