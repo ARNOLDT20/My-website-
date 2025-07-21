@@ -405,5 +405,17 @@
   </script>
 
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script>
+  // Monetag popup ad: show only once
+  window.onload = function () {
+    const shownBefore = localStorage.getItem('monetagShown');
+    if (!shownBefore) {
+      setTimeout(() => {
+        window.open("https://otieu.com/4/9599187", "_blank");
+        localStorage.setItem('monetagShown', 'true');
+      }, 1500); // Delay (1.5s) to reduce popup blocking
+    }
+  };
+</script>
 </body>
 </html>
