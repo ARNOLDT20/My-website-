@@ -9,16 +9,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="google-site-verification" content="8mm2t-QrtRNhyv0imLy3Nm9j6QDTrPes1ybd0RM3SVI" />
-  <title>T20 CLASSIC TECH | Smart Tech. Smarter You.</title>
+  <title>T20 CLASSIC TECH | Professional Tech Solutions</title>
   
   <!-- Google Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#6366f1" />
+  <meta name="theme-color" content="#0f172a" />
   
-  <!-- Enhanced Ultra-Modern Styles - No Hamburger Menu -->
   <style>
     * {
       margin: 0;
@@ -27,187 +26,290 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: #ffffff;
       color: #0a0c10;
       transition: background 0.3s ease, color 0.2s ease;
       scroll-behavior: smooth;
     }
 
-    /* Premium Dark Mode */
+    /* Professional Dark Mode */
     body.dark-mode {
-      background: #0a0c15;
+      background: #0a0c10;
       color: #eef2ff;
     }
 
     body.dark-mode .navbar {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.98);
       backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    body.dark-mode .navbar a {
-      color: #cbd5e1;
-    }
-    body.dark-mode .navbar a:hover {
-      color: #818cf8;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
     body.dark-mode .card {
       background: #111827;
       border: 1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.3);
     }
     body.dark-mode .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+      background: linear-gradient(135deg, #0a0c10 0%, #0f172a 100%);
     }
     body.dark-mode footer {
       background: #030712;
-      border-top: 1px solid #1e293b;
-    }
-    body.dark-mode .btn-primary {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-top: 1px solid #1f2937;
     }
     body.dark-mode input, 
     body.dark-mode textarea {
-      background: #1e293b;
-      border-color: #334155;
-      color: #f1f5f9;
+      background: #1f2937;
+      border-color: #374151;
+      color: #f3f4f6;
     }
     body.dark-mode .social-icons a {
-      background: #1e293b;
-      color: #cbd5e1;
+      background: #1f2937;
+      color: #e2e8f0;
+    }
+    body.dark-mode .contact-card {
+      background: #111827;
+    }
+    body.dark-mode .stat-number {
+      color: #818cf8;
     }
 
-    /* Hero Section - Premium Gradient */
+    /* Hero Section - Professional & Clean */
     .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2d2b5c 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
       color: white;
       text-align: center;
-      padding: 6rem 1.5rem 7rem;
+      padding: 5rem 1.5rem 6rem;
       position: relative;
-      overflow: hidden;
+      isolation: isolate;
     }
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(99,102,241,0.08)" d="M45.3,-66.8C59.1,-58.2,71.1,-44.5,75.5,-28.8C79.9,-13.1,76.6,4.5,69.2,20.3C61.8,36.1,50.3,50.1,36.4,59.8C22.5,69.5,6.2,75,-9.1,73.4C-24.4,71.8,-39.9,63.1,-51.1,50.8C-62.3,38.5,-69.3,22.6,-69.2,6.8C-69.1,-9,-61.9,-24.7,-51,-37.7C-40.1,-50.7,-25.5,-61,-10.1,-66.1C5.3,-71.2,21.3,-71.1,45.3,-66.8Z" transform="translate(100 100)"/></svg>') no-repeat center;
-      opacity: 0.3;
+      inset: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 70%);
       pointer-events: none;
     }
     .hero h1 {
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff, #c084fc, #60a5fa);
+      background: linear-gradient(135deg, #ffffff, #a78bfa, #60a5fa);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
     }
     .hero p {
-      font-size: 1.35rem;
-      margin: 1rem 0 2rem;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
       opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      gap: 0.6rem;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
       color: white;
       padding: 0.9rem 2.2rem;
-      border-radius: 60px;
+      border-radius: 50px;
       text-decoration: none;
-      font-weight: 700;
-      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(79,70,229,0.3);
       border: none;
       cursor: pointer;
+      font-size: 1rem;
     }
     .btn-primary:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(99,102,241,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(79,70,229,0.4);
     }
     .btn-outline {
       display: inline-block;
       background: transparent;
       border: 2px solid currentColor;
-      padding: 0.7rem 1.8rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 40px;
       text-decoration: none;
       font-weight: 600;
       transition: 0.2s;
     }
 
-    /* Modern Navbar - Inline, No Hamburger */
+    /* Professional Navbar with Hamburger Menu */
     .navbar {
-      background: rgba(255,255,255,0.98);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(16px);
       z-index: 1000;
+      padding: 1rem 2rem;
       border-bottom: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.3s;
     }
     .nav-container {
-      max-width: 1280px;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 0.8rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .logo-area {
-      font-weight: 800;
+    .logo {
       font-size: 1.5rem;
+      font-weight: 800;
       background: linear-gradient(135deg, #4f46e5, #c084fc);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      letter-spacing: -0.3px;
     }
-    .nav-links {
+    .logo i {
+      background: none;
+      -webkit-background-clip: unset;
+      color: #4f46e5;
+      margin-right: 6px;
+    }
+    
+    /* Hamburger Menu Button */
+    .hamburger {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
       display: flex;
-      gap: 2rem;
+      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      gap: 6px;
+      border-radius: 12px;
+      transition: background 0.2s;
     }
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #1e293b;
+    .hamburger:hover {
+      background: rgba(0,0,0,0.05);
+    }
+    body.dark-mode .hamburger:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #1e293b;
+      border-radius: 2px;
       transition: 0.2s;
-      font-size: 0.95rem;
     }
-    body.dark-mode .nav-links a {
+    body.dark-mode .hamburger span {
+      background: #e2e8f0;
+    }
+    
+    /* Mobile Navigation Menu (Fullscreen Elegant) */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100vh;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(24px);
+      z-index: 1001;
+      padding: 5rem 2rem 2rem;
+      transition: right 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark-mode .mobile-menu {
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(24px);
+    }
+    .mobile-menu.active {
+      right: 0;
+    }
+    .menu-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: transparent;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #1e293b;
+    }
+    body.dark-mode .menu-close {
       color: #e2e8f0;
     }
-    .nav-links a:hover {
-      color: #6366f1;
+    .mobile-menu a {
+      display: block;
+      padding: 1rem 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #1e293b;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
-    .nav-actions {
+    body.dark-mode .mobile-menu a {
+      color: #e2e8f0;
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+    .mobile-menu a:hover {
+      color: #4f46e5;
+      padding-left: 8px;
+    }
+    .mobile-auth {
+      margin-top: 2rem;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 1rem;
     }
-    .auth-btn {
-      background: #f1f5f9;
-      padding: 0.5rem 1.2rem;
+    .mobile-auth .auth-link {
+      border: 1px solid #4f46e5;
       border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      transition: 0.2s;
+      text-align: center;
+      padding: 0.8rem;
     }
-    body.dark-mode .auth-btn {
-      background: #334155;
-      color: #e2e8f0;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
     }
-    .auth-btn:hover {
-      background: #6366f1;
-      color: white;
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
     }
 
-    /* Section styling */
+    /* Centered Greeting - Hero Style */
+    .hero-greeting {
+      text-align: center;
+      margin: 1rem 0 2rem;
+    }
+    #greeting-timer {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    /* Section Styling */
     .section {
       padding: 5rem 1rem;
     }
@@ -216,73 +318,60 @@
       margin: 0 auto;
       padding: 0 2rem;
     }
+    .section-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: #4f46e5;
+      margin-bottom: 1rem;
+    }
     h2 {
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 2rem;
       letter-spacing: -0.01em;
-      position: relative;
-      display: inline-block;
-    }
-    .section-subtitle {
-      color: #6366f1;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 0.8rem;
-      margin-bottom: 0.5rem;
     }
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     .card {
       background: #ffffff;
       border-radius: 28px;
       padding: 2rem;
-      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
-      transition: all 0.35s ease;
-      border: 1px solid rgba(0,0,0,0.03);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f2f5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 45px -15px rgba(0,0,0,0.15);
+      transform: translateY(-6px);
+      box-shadow: 0 24px 40px -16px rgba(0,0,0,0.12);
     }
     .card i {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #6366f1, #c084fc);
+      font-size: 2.3rem;
+      background: linear-gradient(135deg, #4f46e5, #a855f7);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       margin-bottom: 1rem;
     }
     .card h3 {
-      margin: 1rem 0 0.8rem;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
+      margin: 0.8rem 0 0.6rem;
     }
     .card p {
-      color: #475569;
-      line-height: 1.6;
+      color: #4b5563;
+      line-height: 1.5;
     }
     body.dark-mode .card p {
-      color: #a0aec0;
+      color: #9ca3af;
     }
-    .team-card {
-      text-align: center;
-    }
-    .team-card img {
-      border-radius: 50%;
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 4px solid #6366f1;
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-    }
-
-    /* About Section Modern */
+    
+    /* About Section Professional */
     .about-grid {
       display: flex;
       flex-wrap: wrap;
@@ -299,31 +388,27 @@
     .about-image img {
       max-width: 100%;
       border-radius: 32px;
-      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2);
+      box-shadow: 0 25px 35px -12px rgba(0,0,0,0.15);
     }
-    .stats {
+    .stats-row {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       margin-top: 2rem;
+      flex-wrap: wrap;
     }
-    .stat {
-      text-align: center;
-    }
-    .stat-number {
+    .stat-item h3 {
       font-size: 2rem;
       font-weight: 800;
-      color: #6366f1;
+      color: #4f46e5;
     }
-
+    
     /* Contact Form */
     .contact-card {
-      background: #f8fafc;
+      background: #f9fafb;
       border-radius: 32px;
-      padding: 2rem;
+      padding: 2.5rem;
       max-width: 700px;
-    }
-    body.dark-mode .contact-card {
-      background: #111827;
+      margin-top: 1rem;
     }
     .form-group {
       margin-bottom: 1.2rem;
@@ -332,22 +417,21 @@
       width: 100%;
       padding: 1rem 1.2rem;
       border-radius: 60px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #e5e7eb;
       font-family: inherit;
-      transition: 0.2s;
       font-size: 1rem;
-      background: white;
+      transition: 0.2s;
     }
     textarea {
-      border-radius: 28px;
+      border-radius: 24px;
       resize: vertical;
     }
     input:focus, textarea:focus {
       outline: none;
-      border-color: #6366f1;
-      box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79,70,229,0.1);
     }
-
+    
     footer {
       background: #f9fafb;
       padding: 3rem 1rem;
@@ -358,164 +442,128 @@
       margin-top: 1.5rem;
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 1rem;
     }
     .social-icons a {
-      background: #ffffff;
-      width: 44px;
-      height: 44px;
+      background: white;
+      width: 42px;
+      height: 42px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      color: #0f172a;
+      color: #1f2937;
       transition: 0.2s;
-      font-size: 1.3rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .social-icons a:hover {
-      background: #6366f1;
+      background: #4f46e5;
       color: white;
-      transform: translateY(-4px);
+      transform: translateY(-3px);
     }
-
-    /* Floating Elements (preserved) */
+    
+    /* Floating Elements */
     #mode-toggle {
       position: fixed;
-      top: 20px;
-      right: 20px;
+      bottom: 24px;
+      left: 24px;
       background: rgba(255,255,255,0.9);
       backdrop-filter: blur(12px);
       border: none;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 40px;
       font-weight: 600;
       cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
-      font-size: 0.9rem;
-    }
-    body.dark-mode #mode-toggle {
-      background: #1e293b;
-      color: white;
-    }
-    #greeting-timer {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-weight: 600;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       font-size: 0.85rem;
-      z-index: 9999;
-      font-family: monospace;
-      letter-spacing: 0.3px;
-      color: #0f172a;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    body.dark-mode #greeting-timer {
-      background: #1e293b;
-      color: #e2e8f0;
     }
     #fun-facts-icon {
       position: fixed;
-      bottom: 28px;
-      right: 28px;
-      background: linear-gradient(135deg, #6366f1, #a855f7);
+      bottom: 24px;
+      right: 24px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
       color: white;
-      padding: 12px 24px;
-      border-radius: 60px;
-      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 600;
       cursor: pointer;
-      z-index: 10000;
-      box-shadow: 0 10px 25px rgba(99,102,241,0.3);
+      z-index: 999;
+      box-shadow: 0 6px 14px rgba(79,70,229,0.3);
       transition: 0.2s;
-      font-size: 0.9rem;
-      backdrop-filter: blur(4px);
-    }
-    #fun-facts-icon:hover {
-      transform: scale(1.05);
     }
     #fun-facts-box {
       display: none;
       position: fixed;
-      bottom: 100px;
-      right: 28px;
+      bottom: 90px;
+      right: 24px;
       background: white;
-      border-radius: 28px;
-      width: 290px;
-      padding: 1.2rem 1.5rem;
-      font-size: 0.9rem;
-      box-shadow: 0 25px 40px rgba(0,0,0,0.2);
-      z-index: 9999;
+      border-radius: 24px;
+      width: 280px;
+      padding: 1rem 1.2rem;
+      box-shadow: 0 20px 35px rgba(0,0,0,0.15);
+      z-index: 1000;
       backdrop-filter: blur(16px);
       background: rgba(255,255,255,0.98);
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid #eef2ff;
     }
     body.dark-mode #fun-facts-box {
-      background: #1e293b;
+      background: #1f2937;
       color: #e2e8f0;
-      border-color: #334155;
+      border-color: #374151;
     }
     .animated-emoji {
       display: inline-block;
-      animation: gentleFloat 2.5s infinite ease-in-out;
+      animation: float 2s infinite ease;
     }
-    @keyframes gentleFloat {
+    @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-6px); }
+      50% { transform: translateY(-5px); }
     }
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .nav-links { gap: 1rem; }
-      .nav-container { flex-wrap: wrap; gap: 0.8rem; }
-      .nav-links { order: 3; width: 100%; justify-content: center; padding-top: 0.5rem; }
+      .hero h1 { font-size: 2.2rem; }
       .container { padding: 0 1.2rem; }
       h2 { font-size: 1.8rem; }
-      #mode-toggle { top: 12px; right: 12px; padding: 6px 14px; font-size: 0.75rem; }
-      #greeting-timer { top: 12px; left: 12px; font-size: 0.7rem; padding: 5px 12px; }
-    }
-    .fade-up {
-      animation: fadeUp 0.7s ease-out;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      .stats-row { gap: 1rem; }
     }
   </style>
 </head>
 <body>
 
-<!-- Dark Mode Toggle (floating) -->
-<button id="mode-toggle">🌙 Dark Mode</button>
-<div id="greeting-timer">👋 Good day!</div>
-
-<!-- Modern Navbar - No Hamburger -->
+<!-- Professional Navbar with Hamburger -->
 <nav class="navbar">
   <div class="nav-container">
-    <div class="logo-area"><i class="fas fa-microchip"></i> T20 CLASSIC</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#blog">Blog</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-actions">
-      <a href="dashboard.html" class="auth-btn"><i class="fas fa-user"></i> Sign In</a>
-      <a href="Folder 1/t20_dashboard_admin_realtime_upload.html" class="auth-btn"><i class="fas fa-user-plus"></i> Register</a>
-    </div>
+    <div class="logo"><i class="fas fa-microchip"></i> T20 CLASSIC TECH</div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
-<!-- Hero Section -->
+<!-- Mobile Menu Panel -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="menu-close" id="closeMenuBtn"><i class="fas fa-times"></i></button>
+  <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+  <a href="#services"><i class="fas fa-cogs"></i> Services</a>
+  <a href="#blog"><i class="fas fa-newspaper"></i> Blog</a>
+  <a href="#team"><i class="fas fa-users"></i> Team</a>
+  <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+  <div class="mobile-auth">
+    <a href="dashboard.html" class="auth-link"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+    <a href="Folder 1/t20_dashboard_admin_realtime_upload.html" class="auth-link"><i class="fas fa-user-plus"></i> Register</a>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- Hero Section with Centered Greeting -->
 <header class="hero">
   <div class="container">
-    <h1>T20 CLASSIC TECH <span id="emoji" class="animated-emoji">🤖</span></h1>
-    <p>Smart Tech. Smarter You. — Empowering the next generation of digital innovators.</p>
-    <a href="services.html" class="btn-primary"><i class="fas fa-rocket"></i> Explore Services</a>
+    <div class="hero-greeting">
+      <div id="greeting-timer">✨ Welcome to T20 CLASSIC TECH</div>
+    </div>
+    <h1>Smart Tech. <span id="emoji" class="animated-emoji">🤖</span><br>Smarter You.</h1>
+    <p>Empowering digital innovation, tech education, and next-gen solutions in Tanzania and beyond.</p>
+    <a href="services.html" class="btn-primary" style="margin-top: 1.5rem;"><i class="fas fa-arrow-right"></i> Explore Services</a>
   </div>
 </header>
 
@@ -524,15 +572,15 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <div class="section-subtitle">WHO WE ARE</div>
+        <div class="section-badge">WHO WE ARE</div>
         <h2>About T20 CLASSIC TECH</h2>
         <p><strong>T20 CLASSIC TECH</strong> is a youth-driven digital platform based in Tanzania, focused on smart tech education, innovation, and digital empowerment. We simplify complex tech concepts and make them accessible to everyone.</p>
         <p>📌 <strong>Motto:</strong> Smart Tech. Smarter You.</p>
         <p>💡 <strong>Why us?</strong> Because we speak your language, understand your needs, and deliver content that matters. Our mission is to bridge the digital divide in Africa.</p>
-        <div class="stats">
-          <div class="stat"><div class="stat-number">500+</div><div>Students Trained</div></div>
-          <div class="stat"><div class="stat-number">50+</div><div>Tech Articles</div></div>
-          <div class="stat"><div class="stat-number">24/7</div><div>Support</div></div>
+        <div class="stats-row">
+          <div class="stat-item"><h3>500+</h3><p>Students Trained</p></div>
+          <div class="stat-item"><h3>50+</h3><p>Tech Articles</p></div>
+          <div class="stat-item"><h3>24/7</h3><p>Expert Support</p></div>
         </div>
       </div>
       <div class="about-image">
@@ -545,13 +593,13 @@
 <!-- Services Section -->
 <section id="services" class="section" style="background: #fefefe;">
   <div class="container">
-    <div class="section-subtitle">WHAT WE OFFER</div>
-    <h2>Our Services</h2>
+    <div class="section-badge">OUR EXPERTISE</div>
+    <h2>Services We Deliver</h2>
     <div class="cards-grid">
-      <div class="card"><i class="fas fa-laptop-code"></i><h3>Tech Reviews</h3><p>Honest, detailed reviews on gadgets, apps, and software to help you choose smart.</p></div>
-      <div class="card"><i class="fas fa-code"></i><h3>Code Tutorials</h3><p>Learn HTML, CSS, JavaScript, and modern frameworks with real-world projects.</p></div>
-      <div class="card"><i class="fas fa-mobile-alt"></i><h3>Mobile Tricks</h3><p>Explore phone secrets, optimization tips, and hidden features to boost productivity.</p></div>
-      <div class="card"><i class="fas fa-chalkboard-user"></i><h4>✨ Premium Courses</h4><p>Exclusive content and workshops coming soon.</p><a href="services.html" class="btn-primary" style="margin-top: 1rem; display: inline-block; font-size: 0.8rem;">Discover →</a></div>
+      <div class="card"><i class="fas fa-microchip"></i><h3>Tech Reviews</h3><p>Honest, detailed reviews on gadgets, software, and digital tools to guide your choices.</p></div>
+      <div class="card"><i class="fas fa-code"></i><h3>Code Tutorials</h3><p>Master HTML, CSS, JavaScript and modern frameworks with real-world projects.</p></div>
+      <div class="card"><i class="fas fa-mobile-alt"></i><h3>Mobile Tricks</h3><p>Unlock hidden phone features, optimize performance, and boost productivity.</p></div>
+      <div class="card"><i class="fas fa-chalkboard-user"></i><h4>Premium Courses</h4><p>Advanced workshops and exclusive content coming soon.</p><a href="services.html" class="btn-primary" style="margin-top: 1rem; display: inline-block; font-size: 0.8rem;">Discover →</a></div>
     </div>
   </div>
 </section>
@@ -559,12 +607,12 @@
 <!-- Blog Section -->
 <section id="blog" class="section">
   <div class="container">
-    <div class="section-subtitle">INSIGHTS & GUIDES</div>
-    <h2>Latest Blog Posts</h2>
+    <div class="section-badge">LATEST INSIGHTS</div>
+    <h2>From Our Blog</h2>
     <div class="cards-grid">
-      <div class="card"><i class="fas fa-chart-line"></i><h3>How to Save Data</h3><p>Top 5 Android settings to reduce mobile data usage by 40%.</p><a href="blog data usage.html" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Read More →</a></div>
-      <div class="card"><i class="fas fa-code-branch"></i><h3>HTML vs. JavaScript</h3><p>Beginner-friendly breakdown: differences, when to use each, and core concepts.</p><a href="blog html vs javascript.html" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Read More →</a></div>
-      <div class="card"><i class="fas fa-newspaper"></i><h4>MORE BLOGS</h4><p>Explore our full library of tech tutorials, reviews, and digital lifestyle articles.</p><a href="blog page home.HTML" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Explore Blogs →</a></div>
+      <div class="card"><i class="fas fa-chart-line"></i><h3>How to Save Data</h3><p>Top 5 Android settings to reduce mobile data usage by up to 40%.</p><a href="blog data usage.html" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Read More →</a></div>
+      <div class="card"><i class="fas fa-code-branch"></i><h3>HTML vs. JavaScript</h3><p>Beginner-friendly breakdown: differences, use cases, and core concepts.</p><a href="blog html vs javascript.html" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Read More →</a></div>
+      <div class="card"><i class="fas fa-newspaper"></i><h4>Explore Library</h4><p>Dive into our complete collection of tech tutorials, reviews, and digital lifestyle.</p><a href="blog page home.HTML" class="btn-primary" style="margin-top: 1rem; display: inline-block;">All Blogs →</a></div>
     </div>
   </div>
 </section>
@@ -572,10 +620,10 @@
 <!-- Team Section -->
 <section id="team" class="section" style="background: #fefefe;">
   <div class="container">
-    <div class="section-subtitle">BEHIND THE BRAND</div>
+    <div class="section-badge">LEADERSHIP</div>
     <h2>Meet the Team</h2>
     <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); justify-content: center;">
-      <div class="card team-card"><img src="ZOM_7941.jpg" alt="Arnold Tarimo"><h3>Arnold Tarimo</h3><p>Founder & Lead Innovator</p><a href="about T20.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">About Arnold →</a></div>
+      <div class="card team-card"><img src="ZOM_7941.jpg" alt="Arnold Tarimo" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 1rem; border: 3px solid #4f46e5;"><h3>Arnold Tarimo</h3><p>Founder & Lead Innovator</p><a href="about T20.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">About Arnold →</a></div>
     </div>
   </div>
 </section>
@@ -583,13 +631,13 @@
 <!-- Contact Section -->
 <section id="contact" class="section">
   <div class="container">
-    <div class="section-subtitle">GET IN TOUCH</div>
+    <div class="section-badge">GET IN TOUCH</div>
     <h2>Contact Us</h2>
     <div class="contact-card">
       <form id="contact-form">
-        <div class="form-group"><input type="text" name="name" placeholder="Your full name" required></div>
+        <div class="form-group"><input type="text" name="name" placeholder="Full name" required></div>
         <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
-        <div class="form-group"><textarea name="message" rows="4" placeholder="Write your message..." required></textarea></div>
+        <div class="form-group"><textarea name="message" rows="4" placeholder="Your message..." required></textarea></div>
         <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
       </form>
       <p id="form-response" style="margin-top:1rem; font-weight: 500;"></p>
@@ -599,26 +647,36 @@
 
 <footer>
   <div class="container">
-    <p>&copy; 2025 T20 CLASSIC TECH — Smart Tech. Smarter You. | Built with <i class="fas fa-heart" style="color: #6366f1;"></i> in Tanzania</p>
+    <p>&copy; 2025 T20 CLASSIC TECH — Smart Tech. Smarter You. | Professional Tech Solutions</p>
     <div class="social-icons">
-      <a href="https://web.facebook.com/profile.php?id=61571178502431&sk=about" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="https://www.instagram.com/official_arnold.1?igsh=Nm1vNm10ZXpjczRu&fbclid=PAZXh0bgNhZW0CMTEAAaf9_d1tJ_3rPA2ZMwqMeLeNqWJHX-MOwWEAyuevlBkit3AixsXcisOnPVfe1w_aem_GcMHIyrELn3_0pSN9E8v3w" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://wa.me/255768418867" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://web.facebook.com/profile.php?id=61571178502431&sk=about"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/official_arnold.1?igsh=Nm1vNm10ZXpjczRu"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/255768418867"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
 </footer>
 
-<div id="fun-facts-icon" onclick="toggleFacts()"><i class="fas fa-lightbulb"></i> Fun Fact</div>
-<div id="fun-facts-box">
-  <strong>✨ Tech Trivia</strong>
-  <ul><li>Ctrl+Alt+Del was created by David Bradley.</li></ul>
-</div>
+<div id="fun-facts-icon" onclick="toggleFacts()"><i class="fas fa-lightbulb"></i> Tech Fact</div>
+<div id="fun-facts-box"><strong>💡 Did you know?</strong><ul><li>Loading...</li></ul></div>
+<button id="mode-toggle">🌙 Dark Mode</button>
 
 <script>
-  // Dark mode
+  // Hamburger Menu Logic
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  const closeMenu = document.getElementById('closeMenuBtn');
+  
+  function openMenu() { mobileMenu.classList.add('active'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  function closeMenuFunc() { mobileMenu.classList.remove('active'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', openMenu);
+  closeMenu.addEventListener('click', closeMenuFunc);
+  overlay.addEventListener('click', closeMenuFunc);
+  document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', closeMenuFunc));
+  
+  // Dark Mode
   const toggleBtn = document.getElementById('mode-toggle');
-  const currentMode = localStorage.getItem('mode');
-  if (currentMode === 'dark') {
+  if (localStorage.getItem('mode') === 'dark') {
     document.body.classList.add('dark-mode');
     toggleBtn.textContent = '☀️ Light Mode';
   }
@@ -628,79 +686,49 @@
     toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
     localStorage.setItem('mode', isDark ? 'dark' : 'light');
   });
-
-  // Contact form
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
+  
+  // Contact Form
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
-    const form = e.target;
-    const formData = new FormData(form);
-    fetch("https://formsubmit.co/ajax/atarimo117@gmail.com", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById("form-response").innerHTML = '<span style="color:#10b981;">✓ Message sent successfully! We’ll reply soon.</span>';
-      form.reset();
-      setTimeout(() => document.getElementById("form-response").innerHTML = '', 4000);
-    })
-    .catch(error => {
-      document.getElementById("form-response").innerHTML = '<span style="color:#ef4444;">✗ Failed to send. Please try again.</span>';
-    });
+    const formData = new FormData(this);
+    fetch("https://formsubmit.co/ajax/atarimo117@gmail.com", { method: "POST", body: formData })
+      .then(() => { document.getElementById("form-response").innerHTML = '<span style="color:#10b981;">✓ Message sent successfully!</span>'; this.reset(); setTimeout(() => document.getElementById("form-response").innerHTML = '', 4000); })
+      .catch(() => document.getElementById("form-response").innerHTML = '<span style="color:#ef4444;">✗ Failed. Try again.</span>');
   });
-
-  // Fun facts rotating
-  const factsArr = ["Ctrl+Alt+Del was originally for reboots.", "Wi-Fi doesn't stand for anything.", "The first computer bug was a real moth.", "Samsung started as a grocery store.", "The first 1GB hard drive weighed over 500 lbs."];
-  let fIndex = 0;
-  const factBoxUl = document.querySelector("#fun-facts-box ul");
-  function rotateFunFact() {
-    if (factBoxUl) factBoxUl.innerHTML = `<li>✨ ${factsArr[fIndex]}</li>`;
-    fIndex = (fIndex + 1) % factsArr.length;
-  }
-  rotateFunFact();
-  setInterval(rotateFunFact, 5500);
-  window.toggleFacts = function() {
-    const box = document.getElementById('fun-facts-box');
-    box.style.display = box.style.display === 'block' ? 'none' : 'block';
-  };
-
+  
+  // Fun facts
+  const facts = ["Ctrl+Alt+Del was created by David Bradley.", "Wi-Fi doesn't stand for anything.", "The first computer bug was a real moth.", "Samsung started as a grocery store.", "The first 1GB hard drive weighed 550 lbs."];
+  let factIdx = 0;
+  const factBox = document.querySelector("#fun-facts-box ul");
+  function rotateFact() { if(factBox) factBox.innerHTML = `<li>✨ ${facts[factIdx]}</li>`; factIdx = (factIdx+1)%facts.length; }
+  rotateFact(); setInterval(rotateFact, 5500);
+  window.toggleFacts = function() { const box = document.getElementById('fun-facts-box'); box.style.display = box.style.display === 'block' ? 'none' : 'block'; };
+  
   // Animated emoji
-  const emojiList = ['🤖', '💻', '🛠️', '🚀', '⚡', '🧠', '🌟'];
+  const emojis = ['🤖', '💻', '🚀', '⚙️', '🧠', '📡'];
   let eIdx = 0;
-  setInterval(() => {
-    eIdx = (eIdx + 1) % emojiList.length;
-    document.getElementById('emoji').textContent = emojiList[eIdx];
-  }, 2800);
-
-  // Greeting with time
-  function updateGreeting() {
+  setInterval(() => { document.getElementById('emoji').textContent = emojis[eIdx]; eIdx = (eIdx+1)%emojis.length; }, 2800);
+  
+  // Centered Greeting with live time
+  function updateCenteredGreeting() {
     const now = new Date();
-    const h = now.getHours();
-    const m = now.getMinutes().toString().padStart(2,'0');
-    const ampm = h >= 12 ? 'PM' : 'AM';
-    const displayHour = h % 12 || 12;
-    let greet = '', icon = '';
-    if (h >= 5 && h < 12) { greet = 'Good Morning'; icon = '☀️'; }
-    else if (h >= 12 && h < 17) { greet = 'Good Afternoon'; icon = '🌤️'; }
-    else if (h >= 17 && h < 21) { greet = 'Good Evening'; icon = '🌆'; }
-    else { greet = 'Good Night'; icon = '🌙'; }
-    document.getElementById('greeting-timer').textContent = `${icon} ${greet} • ${displayHour}:${m} ${ampm}`;
+    const hour = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2,'0');
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    const displayHour = hour % 12 || 12;
+    let greeting = '', icon = '';
+    if (hour >= 5 && hour < 12) { greeting = 'Good Morning'; icon = '☀️'; }
+    else if (hour >= 12 && hour < 17) { greeting = 'Good Afternoon'; icon = '🌤️'; }
+    else if (hour >= 17 && hour < 21) { greeting = 'Good Evening'; icon = '🌆'; }
+    else { greeting = 'Good Night'; icon = '🌙'; }
+    document.getElementById('greeting-timer').innerHTML = `${icon} ${greeting} • ${displayHour}:${minutes} ${ampm} • T20 CLASSIC TECH`;
   }
-  updateGreeting();
-  setInterval(updateGreeting, 1000);
-
-  // Service Worker (preserved)
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch(err => console.log("SW error:", err));
-    });
-  }
-  // Monetag popup (preserved)
-  window.onload = function () {
-    if (!localStorage.getItem('monetagShown')) {
-      setTimeout(() => { window.open("https://otieu.com/4/9599187", "_blank"); localStorage.setItem('monetagShown', 'true'); }, 1500);
-    }
-  };
+  updateCenteredGreeting();
+  setInterval(updateCenteredGreeting, 1000);
+  
+  // Service Worker & Monetag (preserved)
+  if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(e=>console.log));
+  window.onload = function() { if(!localStorage.getItem('monetagShown')){ setTimeout(()=>{ window.open("https://otieu.com/4/9599187", "_blank"); localStorage.setItem('monetagShown','true'); }, 1500); } };
 </script>
 </body>
 </html>
