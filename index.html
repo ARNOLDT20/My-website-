@@ -13,13 +13,12 @@
   
   <!-- Google Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#0a58ca" />
-  <meta name="google-site-verification" content="8mm2t-QrtRNhyv0imLy3Nm9j6QDTrPes1ybd0RM3SVI" />
+  <meta name="theme-color" content="#6366f1" />
   
-  <!-- Enhanced beautiful styles (without breaking any integrations) -->
+  <!-- Enhanced Ultra-Modern Styles - No Hamburger Menu -->
   <style>
     * {
       margin: 0;
@@ -28,198 +27,270 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #ffffff;
+      color: #0a0c10;
       transition: background 0.3s ease, color 0.2s ease;
       scroll-behavior: smooth;
     }
 
-    /* Modern Dark Mode */
+    /* Premium Dark Mode */
     body.dark-mode {
-      background: #0f172a;
-      color: #e2e8f0;
+      background: #0a0c15;
+      color: #eef2ff;
     }
 
-    body.dark-mode .navbar, 
-    body.dark-mode .menu-items {
-      background: #1e293b;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-    body.dark-mode .card {
-      background: #1e293b;
-      color: #e2e8f0;
-      box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
-    }
-    body.dark-mode .hero {
-      background: linear-gradient(135deg, #0f2b3d, #0a0f1c);
-    }
-    body.dark-mode footer {
-      background: #0f172a;
-      border-top: 1px solid #334155;
-    }
-    body.dark-mode .btn {
-      background: #3b82f6;
-      color: white;
-    }
-    body.dark-mode .btn:hover {
-      background: #2563eb;
-    }
-    body.dark-mode input, 
-    body.dark-mode textarea {
-      background: #334155;
-      border-color: #475569;
-      color: white;
-    }
-
-    /* Hero Section - modern gradient */
-    .hero {
-      background: linear-gradient(135deg, #0b2b44 0%, #0f172a 100%);
-      color: white;
-      text-align: center;
-      padding: 5rem 1.5rem;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-      margin-bottom: 2rem;
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(to right, #fff, #a5f3fc);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      display: inline-block;
-    }
-    .hero p {
-      font-size: 1.3rem;
-      margin: 1rem 0 2rem;
-      opacity: 0.9;
-    }
-    .btn {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 0.8rem 2rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-      box-shadow: 0 4px 12px rgba(37,99,235,0.3);
-      border: none;
-      cursor: pointer;
-    }
-    .btn:hover {
-      transform: translateY(-3px);
-      background: #1d4ed8;
-      box-shadow: 0 8px 20px rgba(37,99,235,0.4);
-    }
-
-    /* Navbar (main nav under hero) */
-    .navbar {
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(8px);
-      background: rgba(255,255,255,0.95);
-    }
     body.dark-mode .navbar {
-      background: rgba(30,41,59,0.95);
-      backdrop-filter: blur(8px);
-    }
-    .navbar ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      list-style: none;
-    }
-    .navbar a {
-      text-decoration: none;
-      font-weight: 600;
-      color: #1e293b;
-      transition: 0.2s;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     body.dark-mode .navbar a {
       color: #cbd5e1;
     }
-    .navbar a:hover {
-      color: #2563eb;
+    body.dark-mode .navbar a:hover {
+      color: #818cf8;
+    }
+    body.dark-mode .card {
+      background: #111827;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    }
+    body.dark-mode footer {
+      background: #030712;
+      border-top: 1px solid #1e293b;
+    }
+    body.dark-mode .btn-primary {
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+    body.dark-mode input, 
+    body.dark-mode textarea {
+      background: #1e293b;
+      border-color: #334155;
+      color: #f1f5f9;
+    }
+    body.dark-mode .social-icons a {
+      background: #1e293b;
+      color: #cbd5e1;
+    }
+
+    /* Hero Section - Premium Gradient */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2d2b5c 100%);
+      color: white;
+      text-align: center;
+      padding: 6rem 1.5rem 7rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path fill="rgba(99,102,241,0.08)" d="M45.3,-66.8C59.1,-58.2,71.1,-44.5,75.5,-28.8C79.9,-13.1,76.6,4.5,69.2,20.3C61.8,36.1,50.3,50.1,36.4,59.8C22.5,69.5,6.2,75,-9.1,73.4C-24.4,71.8,-39.9,63.1,-51.1,50.8C-62.3,38.5,-69.3,22.6,-69.2,6.8C-69.1,-9,-61.9,-24.7,-51,-37.7C-40.1,-50.7,-25.5,-61,-10.1,-66.1C5.3,-71.2,21.3,-71.1,45.3,-66.8Z" transform="translate(100 100)"/></svg>') no-repeat center;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff, #c084fc, #60a5fa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.35rem;
+      margin: 1rem 0 2rem;
+      opacity: 0.9;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      padding: 0.9rem 2.2rem;
+      border-radius: 60px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 8px 24px rgba(99,102,241,0.3);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(99,102,241,0.4);
+    }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid currentColor;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    /* Modern Navbar - Inline, No Hamburger */
+    .navbar {
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-area {
+      font-weight: 800;
+      font-size: 1.5rem;
+      background: linear-gradient(135deg, #4f46e5, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1e293b;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    body.dark-mode .nav-links a {
+      color: #e2e8f0;
+    }
+    .nav-links a:hover {
+      color: #6366f1;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .auth-btn {
+      background: #f1f5f9;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: 0.2s;
+    }
+    body.dark-mode .auth-btn {
+      background: #334155;
+      color: #e2e8f0;
+    }
+    .auth-btn:hover {
+      background: #6366f1;
+      color: white;
     }
 
     /* Section styling */
     .section {
-      padding: 4rem 1rem;
+      padding: 5rem 1rem;
     }
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
     h2 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
       margin-bottom: 2rem;
+      letter-spacing: -0.01em;
       position: relative;
       display: inline-block;
     }
-    h2:after {
-      content: '';
-      display: block;
-      width: 60%;
-      height: 4px;
-      background: #2563eb;
-      border-radius: 4px;
-      margin-top: 8px;
+    .section-subtitle {
+      color: #6366f1;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
     }
-    .cards {
+    .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       gap: 2rem;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
     .card {
-      background: white;
-      border-radius: 24px;
-      padding: 1.8rem;
-      box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.05);
+      transition: all 0.35s ease;
       border: 1px solid rgba(0,0,0,0.03);
     }
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 24px 36px -12px rgba(0,0,0,0.15);
+      box-shadow: 0 30px 45px -15px rgba(0,0,0,0.15);
     }
-    .card h3, .card h4 {
+    .card i {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #6366f1, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
       margin-bottom: 1rem;
-      font-weight: 700;
+    }
+    .card h3 {
+      margin: 1rem 0 0.8rem;
+      font-size: 1.5rem;
     }
     .card p {
       color: #475569;
-      line-height: 1.5;
+      line-height: 1.6;
     }
     body.dark-mode .card p {
-      color: #cbd5e1;
+      color: #a0aec0;
+    }
+    .team-card {
+      text-align: center;
     }
     .team-card img {
-      border-radius: 100%;
-      width: 100px;
-      height: 100px;
+      border-radius: 50%;
+      width: 130px;
+      height: 130px;
       object-fit: cover;
       margin-bottom: 1rem;
-      border: 3px solid #2563eb;
+      border: 4px solid #6366f1;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
     }
 
-    /* About section layout */
-    .about-content {
+    /* About Section Modern */
+    .about-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 2rem;
+      gap: 3rem;
       align-items: center;
     }
     .about-text {
-      flex: 2;
+      flex: 1.5;
     }
     .about-image {
       flex: 1;
@@ -228,156 +299,159 @@
     .about-image img {
       max-width: 100%;
       border-radius: 32px;
-      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+      box-shadow: 0 30px 40px -20px rgba(0,0,0,0.2);
+    }
+    .stats {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #6366f1;
     }
 
-    /* Contact form styling */
-    .contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
-      margin-top: 1rem;
+    /* Contact Form */
+    .contact-card {
+      background: #f8fafc;
+      border-radius: 32px;
+      padding: 2rem;
+      max-width: 700px;
+    }
+    body.dark-mode .contact-card {
+      background: #111827;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
     }
     input, textarea {
-      padding: 0.9rem 1.2rem;
-      border-radius: 28px;
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border-radius: 60px;
       border: 1px solid #e2e8f0;
       font-family: inherit;
       transition: 0.2s;
       font-size: 1rem;
+      background: white;
+    }
+    textarea {
+      border-radius: 28px;
+      resize: vertical;
     }
     input:focus, textarea:focus {
       outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.2);
+      border-color: #6366f1;
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.2);
     }
 
     footer {
-      background: #ffffff;
-      padding: 2rem 1rem;
+      background: #f9fafb;
+      padding: 3rem 1rem;
       text-align: center;
       border-top: 1px solid #eef2ff;
     }
     .social-icons {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
     .social-icons a {
-      background: #f1f5f9;
-      width: 40px;
-      height: 40px;
+      background: #ffffff;
+      width: 44px;
+      height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       color: #0f172a;
       transition: 0.2s;
-      font-size: 1.2rem;
-    }
-    body.dark-mode .social-icons a {
-      background: #334155;
-      color: #e2e8f0;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
     .social-icons a:hover {
-      background: #2563eb;
+      background: #6366f1;
       color: white;
-      transform: translateY(-3px);
+      transform: translateY(-4px);
     }
 
-    /* Floating elements (preserve fun fact, menu, mode toggle) */
-    .mobile-nav {
+    /* Floating Elements (preserved) */
+    #mode-toggle {
       position: fixed;
       top: 20px;
       right: 20px;
-      z-index: 9999;
-    }
-    #menu-toggle {
-      font-size: 28px;
       background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
       border: none;
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
       cursor: pointer;
-      color: #0f172a;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: 0.2s;
+      z-index: 9999;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
     }
-    body.dark-mode #menu-toggle {
+    body.dark-mode #mode-toggle {
       background: #1e293b;
       color: white;
     }
-    .menu-items {
-      display: none;
-      position: absolute;
-      right: 0;
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      margin-top: 12px;
-      width: 160px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.2);
-      backdrop-filter: blur(8px);
-    }
-    body.dark-mode .menu-items {
-      background: #1e293b;
-    }
-    .menu-items a {
-      display: block;
-      padding: 12px 18px;
+    #greeting-timer {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      z-index: 9999;
+      font-family: monospace;
+      letter-spacing: 0.3px;
       color: #0f172a;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.1s;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    body.dark-mode .menu-items a {
+    body.dark-mode #greeting-timer {
+      background: #1e293b;
       color: #e2e8f0;
     }
-    .menu-items a:hover {
-      background: #f1f5f9;
-    }
-    body.dark-mode .menu-items a:hover {
-      background: #334155;
-    }
-
-    /* Fun fact & greeting timers */
     #fun-facts-icon {
       position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
       color: white;
-      padding: 12px 20px;
+      padding: 12px 24px;
       border-radius: 60px;
       font-weight: 700;
       cursor: pointer;
       z-index: 10000;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 25px rgba(99,102,241,0.3);
       transition: 0.2s;
       font-size: 0.9rem;
+      backdrop-filter: blur(4px);
     }
     #fun-facts-icon:hover {
-      transform: scale(1.02);
-      background: linear-gradient(135deg, #2563eb, #0891b2);
+      transform: scale(1.05);
     }
     #fun-facts-box {
       display: none;
       position: fixed;
-      bottom: 90px;
-      right: 24px;
+      bottom: 100px;
+      right: 28px;
       background: white;
-      border-radius: 24px;
-      width: 280px;
-      padding: 1rem 1.2rem;
+      border-radius: 28px;
+      width: 290px;
+      padding: 1.2rem 1.5rem;
       font-size: 0.9rem;
-      box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+      box-shadow: 0 25px 40px rgba(0,0,0,0.2);
       z-index: 9999;
-      backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      background: rgba(255,255,255,0.98);
       border: 1px solid rgba(0,0,0,0.05);
     }
     body.dark-mode #fun-facts-box {
@@ -385,121 +459,81 @@
       color: #e2e8f0;
       border-color: #334155;
     }
-    #fun-facts-box ul {
-      margin: 0.5rem 0 0 1rem;
-    }
-    #greeting-timer {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background: rgba(255,255,255,0.8);
-      backdrop-filter: blur(8px);
-      padding: 8px 18px;
-      border-radius: 40px;
-      font-weight: 600;
-      font-size: 0.85rem;
-      z-index: 9999;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      font-family: monospace;
-      letter-spacing: 0.3px;
-      color: #0f172a;
-    }
-    body.dark-mode #greeting-timer {
-      background: #1e293b;
-      color: #e2e8f0;
-    }
-    #mode-toggle {
-      position: fixed;
-      top: 20px;
-      left: 200px;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      border: none;
-      padding: 8px 18px;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      z-index: 9999;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    @media (max-width: 680px) {
-      .hero h1 { font-size: 2rem; }
-      .navbar ul { gap: 1rem; flex-wrap: wrap; }
-      #mode-toggle { left: 100px; font-size: 12px; padding: 6px 12px; }
-      #greeting-timer { font-size: 0.7rem; top: 15px; left: 15px; }
-    }
     .animated-emoji {
       display: inline-block;
-      animation: gentleFloat 2s ease-in-out infinite;
+      animation: gentleFloat 2.5s infinite ease-in-out;
     }
     @keyframes gentleFloat {
       0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
+      50% { transform: translateY(-6px); }
     }
-    .fade-in {
-      animation: fadeInUp 0.8s ease-out;
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .nav-links { gap: 1rem; }
+      .nav-container { flex-wrap: wrap; gap: 0.8rem; }
+      .nav-links { order: 3; width: 100%; justify-content: center; padding-top: 0.5rem; }
+      .container { padding: 0 1.2rem; }
+      h2 { font-size: 1.8rem; }
+      #mode-toggle { top: 12px; right: 12px; padding: 6px 14px; font-size: 0.75rem; }
+      #greeting-timer { top: 12px; left: 12px; font-size: 0.7rem; padding: 5px 12px; }
     }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .fade-up {
+      animation: fadeUp 0.7s ease-out;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-<!-- Existing UI elements preserved: Mode toggle, greeting, nav, etc -->
-<div style="position: fixed; top: 15px; left: 15px; z-index: 9999;">
-  <button id="mode-toggle" style="padding: 8px 12px; border-radius: 40px; border: none; cursor: pointer; font-weight: 600;">🌙 Dark Mode</button>
-</div>
-<div id="greeting-timer" style="position: fixed; top: 60px; left: 15px; z-index: 9999; font-family: 'Inter', monospace; font-weight: 600; font-size: 14px;">
-  👋 Hello!
-</div>
+<!-- Dark Mode Toggle (floating) -->
+<button id="mode-toggle">🌙 Dark Mode</button>
+<div id="greeting-timer">👋 Good day!</div>
 
-<nav class="mobile-nav">
-  <button id="menu-toggle"><i class="fas fa-bars"></i></button>
-  <div id="menu-items" class="menu-items">
-    <a href="dashboard.html" id="dashboard-link" style="display:none;">Dashboard</a>
-    <a href="dashboard.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
-    <a href="Folder 1/t20_dashboard_admin_realtime_upload.html"><i class="fas fa-user-plus"></i> Register</a>
-    <a href="#" id="logout-btn" style="display:none;">Logout</a>
+<!-- Modern Navbar - No Hamburger -->
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="logo-area"><i class="fas fa-microchip"></i> T20 CLASSIC</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#blog">Blog</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a href="dashboard.html" class="auth-btn"><i class="fas fa-user"></i> Sign In</a>
+      <a href="Folder 1/t20_dashboard_admin_realtime_upload.html" class="auth-btn"><i class="fas fa-user-plus"></i> Register</a>
+    </div>
   </div>
 </nav>
 
+<!-- Hero Section -->
 <header class="hero">
   <div class="container">
-    <h1>T20 CLASSIC TECH 
-      <span id="emoji" class="animated-emoji">🤖</span>
-    </h1>
-    <p>Smart Tech. Smarter You.</p>
-    <a href="services.html" class="btn">Explore Services <i class="fas fa-arrow-right"></i></a>
+    <h1>T20 CLASSIC TECH <span id="emoji" class="animated-emoji">🤖</span></h1>
+    <p>Smart Tech. Smarter You. — Empowering the next generation of digital innovators.</p>
+    <a href="services.html" class="btn-primary"><i class="fas fa-rocket"></i> Explore Services</a>
   </div>
 </header>
 
-<nav class="navbar">
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#team">Team</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<section id="about" class="section about fade-in">
+<!-- About Section -->
+<section id="about" class="section">
   <div class="container">
-    <h2>About T20 CLASSIC TECH</h2>
-    <div class="about-content">
+    <div class="about-grid">
       <div class="about-text">
-        <p><strong>T20 CLASSIC TECH</strong> is a youth-driven digital platform based in Tanzania, focused on smart tech education, innovation, and digital empowerment.</p>
+        <div class="section-subtitle">WHO WE ARE</div>
+        <h2>About T20 CLASSIC TECH</h2>
+        <p><strong>T20 CLASSIC TECH</strong> is a youth-driven digital platform based in Tanzania, focused on smart tech education, innovation, and digital empowerment. We simplify complex tech concepts and make them accessible to everyone.</p>
         <p>📌 <strong>Motto:</strong> Smart Tech. Smarter You.</p>
-        <p>💡 <strong>Why us?</strong> Because we speak your language, understand your needs, and deliver content that matters.</p>
-        <p>🚀 We bridge the gap between tech enthusiasts and real-world digital skills. Join the movement!</p>
+        <p>💡 <strong>Why us?</strong> Because we speak your language, understand your needs, and deliver content that matters. Our mission is to bridge the digital divide in Africa.</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-number">500+</div><div>Students Trained</div></div>
+          <div class="stat"><div class="stat-number">50+</div><div>Tech Articles</div></div>
+          <div class="stat"><div class="stat-number">24/7</div><div>Support</div></div>
+        </div>
       </div>
       <div class="about-image">
         <img src="file_00000000d4dc61f7abff96c4470aed27.png" alt="T20 CLASSIC TECH Logo">
@@ -508,54 +542,64 @@
   </div>
 </section>
 
-<section id="services" class="section services">
+<!-- Services Section -->
+<section id="services" class="section" style="background: #fefefe;">
   <div class="container">
+    <div class="section-subtitle">WHAT WE OFFER</div>
     <h2>Our Services</h2>
-    <div class="cards">
-      <div class="card"><h3><i class="fas fa-microchip"></i> Tech Reviews</h3><p>We bring honest, detailed reviews on gadgets and software.</p></div>
-      <div class="card"><h3><i class="fas fa-code"></i> Code Tutorials</h3><p>Learn HTML, CSS, JS easily with real projects.</p></div>
-      <div class="card"><h3><i class="fas fa-mobile-alt"></i> Mobile Tricks</h3><p>Explore phone secrets and boost productivity!</p></div>
-      <div class="card"><h4>✨ MORE SERVICES</h4><p>Discover cutting-edge digital tools</p><a href="services.html" class="btn" style="margin-top: 12px;">Explore →</a></div>
+    <div class="cards-grid">
+      <div class="card"><i class="fas fa-laptop-code"></i><h3>Tech Reviews</h3><p>Honest, detailed reviews on gadgets, apps, and software to help you choose smart.</p></div>
+      <div class="card"><i class="fas fa-code"></i><h3>Code Tutorials</h3><p>Learn HTML, CSS, JavaScript, and modern frameworks with real-world projects.</p></div>
+      <div class="card"><i class="fas fa-mobile-alt"></i><h3>Mobile Tricks</h3><p>Explore phone secrets, optimization tips, and hidden features to boost productivity.</p></div>
+      <div class="card"><i class="fas fa-chalkboard-user"></i><h4>✨ Premium Courses</h4><p>Exclusive content and workshops coming soon.</p><a href="services.html" class="btn-primary" style="margin-top: 1rem; display: inline-block; font-size: 0.8rem;">Discover →</a></div>
     </div>
   </div>
 </section>
 
-<section id="blog" class="section blog">
+<!-- Blog Section -->
+<section id="blog" class="section">
   <div class="container">
+    <div class="section-subtitle">INSIGHTS & GUIDES</div>
     <h2>Latest Blog Posts</h2>
-    <div class="cards">
-      <div class="card"><h3>📱 How to Save Data</h3><p>Top 5 Android settings to reduce mobile data usage.</p><a href="blog data usage.html" class="btn">Read More</a></div>
-      <div class="card"><h3>⚡ HTML vs. JS</h3><p>Beginner-friendly breakdown: differences and uses.</p><a href="blog html vs javascript.html" class="btn">Read More</a></div>
-      <div class="card"><h4>📚 MORE BLOGS</h4><p>Explore our latest tech insights & tutorials</p><a href="blog page home.HTML" class="btn">Explore Blogs</a></div>
+    <div class="cards-grid">
+      <div class="card"><i class="fas fa-chart-line"></i><h3>How to Save Data</h3><p>Top 5 Android settings to reduce mobile data usage by 40%.</p><a href="blog data usage.html" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Read More →</a></div>
+      <div class="card"><i class="fas fa-code-branch"></i><h3>HTML vs. JavaScript</h3><p>Beginner-friendly breakdown: differences, when to use each, and core concepts.</p><a href="blog html vs javascript.html" class="btn-outline" style="margin-top: 1rem; display: inline-block;">Read More →</a></div>
+      <div class="card"><i class="fas fa-newspaper"></i><h4>MORE BLOGS</h4><p>Explore our full library of tech tutorials, reviews, and digital lifestyle articles.</p><a href="blog page home.HTML" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Explore Blogs →</a></div>
     </div>
   </div>
 </section>
 
-<section id="team" class="section team">
+<!-- Team Section -->
+<section id="team" class="section" style="background: #fefefe;">
   <div class="container">
+    <div class="section-subtitle">BEHIND THE BRAND</div>
     <h2>Meet the Team</h2>
-    <div class="cards">
-      <div class="card team-card"><img src="ZOM_7941.jpg" height="100" alt="Arnold Tarimo"><h3>Arnold Tarimo</h3><p>Founder & Lead Innovator</p><a href="about T20.html" class="btn">About!</a></div>
+    <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); justify-content: center;">
+      <div class="card team-card"><img src="ZOM_7941.jpg" alt="Arnold Tarimo"><h3>Arnold Tarimo</h3><p>Founder & Lead Innovator</p><a href="about T20.html" class="btn-primary" style="margin-top: 1rem; display: inline-block;">About Arnold →</a></div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="section contact">
+<!-- Contact Section -->
+<section id="contact" class="section">
   <div class="container">
+    <div class="section-subtitle">GET IN TOUCH</div>
     <h2>Contact Us</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
-      <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
-    </form>
-    <p id="form-response" style="margin-top:10px;color:green;font-weight:bold;"></p>
+    <div class="contact-card">
+      <form id="contact-form">
+        <div class="form-group"><input type="text" name="name" placeholder="Your full name" required></div>
+        <div class="form-group"><input type="email" name="email" placeholder="Email address" required></div>
+        <div class="form-group"><textarea name="message" rows="4" placeholder="Write your message..." required></textarea></div>
+        <button type="submit" class="btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+      <p id="form-response" style="margin-top:1rem; font-weight: 500;"></p>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>&copy; 2025 T20 CLASSIC TECH. All rights reserved. | Empowering digital Tanzania</p>
+    <p>&copy; 2025 T20 CLASSIC TECH — Smart Tech. Smarter You. | Built with <i class="fas fa-heart" style="color: #6366f1;"></i> in Tanzania</p>
     <div class="social-icons">
       <a href="https://web.facebook.com/profile.php?id=61571178502431&sk=about" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       <a href="https://www.instagram.com/official_arnold.1?igsh=Nm1vNm10ZXpjczRu&fbclid=PAZXh0bgNhZW0CMTEAAaf9_d1tJ_3rPA2ZMwqMeLeNqWJHX-MOwWEAyuevlBkit3AixsXcisOnPVfe1w_aem_GcMHIyrELn3_0pSN9E8v3w" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -564,17 +608,14 @@
   </div>
 </footer>
 
-<div id="fun-facts-icon" onclick="toggleFacts()">🤣 Fun Fact</div>
+<div id="fun-facts-icon" onclick="toggleFacts()"><i class="fas fa-lightbulb"></i> Fun Fact</div>
 <div id="fun-facts-box">
-  <strong>✨ Did you know?</strong>
-  <ul>
-    <li>Ctrl+Alt+Del was originally for reboots.</li>
-  </ul>
+  <strong>✨ Tech Trivia</strong>
+  <ul><li>Ctrl+Alt+Del was created by David Bradley.</li></ul>
 </div>
 
-<!-- All scripts preserved and enhanced for beauty (without breaking) -->
 <script>
-  // Dark mode logic (enhanced)
+  // Dark mode
   const toggleBtn = document.getElementById('mode-toggle');
   const currentMode = localStorage.getItem('mode');
   if (currentMode === 'dark') {
@@ -587,8 +628,8 @@
     toggleBtn.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
     localStorage.setItem('mode', isDark ? 'dark' : 'light');
   });
-  
-  // Contact form (original)
+
+  // Contact form
   document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
     const form = e.target;
@@ -599,86 +640,65 @@
     })
     .then(response => response.json())
     .then(data => {
-      document.getElementById("form-response").textContent = "✅ Message sent successfully!";
+      document.getElementById("form-response").innerHTML = '<span style="color:#10b981;">✓ Message sent successfully! We’ll reply soon.</span>';
       form.reset();
-      setTimeout(() => document.getElementById("form-response").textContent = "", 4000);
+      setTimeout(() => document.getElementById("form-response").innerHTML = '', 4000);
     })
     .catch(error => {
-      document.getElementById("form-response").textContent = "❌ Failed to send. Please try again.";
-      console.error("Error:", error);
+      document.getElementById("form-response").innerHTML = '<span style="color:#ef4444;">✗ Failed to send. Please try again.</span>';
     });
   });
 
-  // Fun facts rotation (extended with more)
-  const factsList = ["Ctrl+Alt+Del was made for reboots.", "Wi-Fi doesn't stand for anything.", "The first computer bug was an actual moth.", "Samsung started as a grocery store.", "The first 1GB hard drive weighed over 500 pounds."];
-  let factIndex = 0;
-  const factsContainer = document.querySelector("#fun-facts-box ul");
-  function rotateFacts() {
-    if (factsContainer) {
-      factsContainer.innerHTML = `<li>✨ ${factsList[factIndex]}</li>`;
-      factIndex = (factIndex + 1) % factsList.length;
-    }
+  // Fun facts rotating
+  const factsArr = ["Ctrl+Alt+Del was originally for reboots.", "Wi-Fi doesn't stand for anything.", "The first computer bug was a real moth.", "Samsung started as a grocery store.", "The first 1GB hard drive weighed over 500 lbs."];
+  let fIndex = 0;
+  const factBoxUl = document.querySelector("#fun-facts-box ul");
+  function rotateFunFact() {
+    if (factBoxUl) factBoxUl.innerHTML = `<li>✨ ${factsArr[fIndex]}</li>`;
+    fIndex = (fIndex + 1) % factsArr.length;
   }
-  rotateFacts();
-  setInterval(rotateFacts, 5500);
+  rotateFunFact();
+  setInterval(rotateFunFact, 5500);
   window.toggleFacts = function() {
     const box = document.getElementById('fun-facts-box');
     box.style.display = box.style.display === 'block' ? 'none' : 'block';
   };
-  
-  // Emoji rotator
-  const emojis = ['🤖', '💻', '🛠️', '🚀', '⚙️', '🧠', '📡'];
-  const emojiSpan = document.getElementById('emoji');
-  let emojiIdx = 0;
+
+  // Animated emoji
+  const emojiList = ['🤖', '💻', '🛠️', '🚀', '⚡', '🧠', '🌟'];
+  let eIdx = 0;
   setInterval(() => {
-    emojiIdx = (emojiIdx + 1) % emojis.length;
-    emojiSpan.textContent = emojis[emojiIdx];
+    eIdx = (eIdx + 1) % emojiList.length;
+    document.getElementById('emoji').textContent = emojiList[eIdx];
   }, 2800);
 
-  // Greeting + live time (beautiful)
-  function updateGreetingTime() {
+  // Greeting with time
+  function updateGreeting() {
     const now = new Date();
-    const hour = now.getHours();
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    const ampm = hour >= 12 ? 'PM' : 'AM';
-    const displayHour = hour % 12 || 12;
-    let greeting = '', emojiGreet = '';
-    if (hour >= 5 && hour < 12) { greeting = 'Good Morning'; emojiGreet = '☀️'; }
-    else if (hour >= 12 && hour < 17) { greeting = 'Good Afternoon'; emojiGreet = '🌤️'; }
-    else if (hour >= 17 && hour < 21) { greeting = 'Good Evening'; emojiGreet = '🌆'; }
-    else { greeting = 'Good Night'; emojiGreet = '🌙'; }
-    const greetingEl = document.getElementById('greeting-timer');
-    greetingEl.textContent = `${emojiGreet} ${greeting}! ${displayHour}:${minutes} ${ampm}`;
+    const h = now.getHours();
+    const m = now.getMinutes().toString().padStart(2,'0');
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    const displayHour = h % 12 || 12;
+    let greet = '', icon = '';
+    if (h >= 5 && h < 12) { greet = 'Good Morning'; icon = '☀️'; }
+    else if (h >= 12 && h < 17) { greet = 'Good Afternoon'; icon = '🌤️'; }
+    else if (h >= 17 && h < 21) { greet = 'Good Evening'; icon = '🌆'; }
+    else { greet = 'Good Night'; icon = '🌙'; }
+    document.getElementById('greeting-timer').textContent = `${icon} ${greet} • ${displayHour}:${m} ${ampm}`;
   }
-  updateGreetingTime();
-  setInterval(updateGreetingTime, 1000);
+  updateGreeting();
+  setInterval(updateGreeting, 1000);
 
-  // Mobile menu toggle
-  document.getElementById('menu-toggle').addEventListener('click', function() {
-    const menu = document.getElementById('menu-items');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  });
-  document.querySelectorAll('#menu-items a').forEach(link => {
-    link.addEventListener('click', () => document.getElementById('menu-items').style.display = 'none');
-  });
-
-  // Service worker registration (preserved)
+  // Service Worker (preserved)
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(reg => console.log('Service Worker registered.', reg))
-        .catch(err => console.error('Service Worker registration failed:', err));
+      navigator.serviceWorker.register('/sw.js').catch(err => console.log("SW error:", err));
     });
   }
-  
-  // Monetag popup (preserved, no interference)
+  // Monetag popup (preserved)
   window.onload = function () {
-    const shownBefore = localStorage.getItem('monetagShown');
-    if (!shownBefore) {
-      setTimeout(() => {
-        window.open("https://otieu.com/4/9599187", "_blank");
-        localStorage.setItem('monetagShown', 'true');
-      }, 1500);
+    if (!localStorage.getItem('monetagShown')) {
+      setTimeout(() => { window.open("https://otieu.com/4/9599187", "_blank"); localStorage.setItem('monetagShown', 'true'); }, 1500);
     }
   };
 </script>
