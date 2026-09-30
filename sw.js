@@ -1,6 +1,8 @@
-self.options = {
-    "domain": "5gvci.com",
-    "zoneId": 10829822
-}
-self.lary = ""
-importScripts('https://5gvci.com/act/files/service-worker.min.js?r=sw')
+/* Retire the old third-party worker that imported an external advertising script. */
+self.addEventListener('install', event => {
+  event.waitUntil(self.skipWaiting());
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(self.registration.unregister());
+});

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://t20tech.site/sitemap.xml
