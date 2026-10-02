@@ -26,3 +26,7 @@
 ## Asset decision
 
 The selected surface is a service and community hub. Use simple inline SVG interface icons and CSS-built product panels instead of stock photography; no real people or product photographs are required. Avoid adding external image dependencies to the first load.
+
+## Content evolution — T20 learning and project previews
+
+Retain the approved Fireline Studio system. Restore T20 CLASSIC Tech’s original practical-education roots—phone and app tips, beginner code and web explanations, digital basics, and an article archive—without bringing back fabricated student counts or implying old app settings are current. Label original posts as archive content. Add a small verified-project gallery with descriptive, CSS-built interface glimpses; load public live Vercel pages only after a visitor explicitly opens a read-only sandboxed preview. Keep the official WhatsApp channel and group prominent, alongside the team’s confirmed phone routes. No surprise popups, automatic external embeds, payment-form interaction, or simulated member accounts.
