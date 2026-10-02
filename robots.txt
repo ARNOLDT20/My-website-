@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://my-website-jade-sigma.vercel.app/sitemap.xml
+Sitemap: https://www.t20tech.site/sitemap.xml
