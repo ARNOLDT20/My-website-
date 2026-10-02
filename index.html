@@ -37,7 +37,7 @@
         <a href="#projects">Projects</a>
         <a href="/insights.html">T20 insights</a>
         <a href="#members">Community</a>
-        <a class="nav-cta" href="https://chat.whatsapp.com/KtcGvOGHRlH2g1bhUUy0t9" target="_blank" rel="noopener noreferrer">Join the group <span aria-hidden="true">↗</span></a>
+        <a href="/contact.html">Contact</a><a class="nav-cta" href="https://chat.whatsapp.com/KtcGvOGHRlH2g1bhUUy0t9" target="_blank" rel="noopener noreferrer">Join the group <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -113,7 +113,7 @@
 
     <section class="section projects-section" id="projects">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow"><span>02</span> BUILT BY THE TEAM</p><h2>Real projects.<br>A closer look.</h2></div><p class="section-intro">Open an on-demand preview of the actual live project, or explore its full site. Quick previews are sandboxed; payment and form actions stay disabled.</p></div>
+        <div class="section-heading"><div><p class="eyebrow"><span>02</span> BUILT BY THE TEAM</p><h2>Real projects.<br>A closer look.</h2></div><p class="section-intro">Open an on-demand preview of the actual live project, or explore its full site. Previews are sandboxed: form submits, pop-ups, and top-level navigation are blocked. Don’t enter sensitive details.</p></div>
         <div class="filter-bar project-filter-bar" role="group" aria-label="Filter project previews">
           <span class="filter-label">SHOW</span><button class="filter-button is-active" type="button" data-project-filter="all" aria-pressed="true">All projects</button><button class="filter-button" type="button" data-project-filter="learning" aria-pressed="false">Learning</button><button class="filter-button" type="button" data-project-filter="tools" aria-pressed="false">Tools</button><button class="filter-button" type="button" data-project-filter="entertainment" aria-pressed="false">Entertainment</button>
         </div>
@@ -133,6 +133,10 @@
           <article class="project-card" data-project-card data-project-category="tools">
             <div class="project-visual project-visual-bot" aria-hidden="true"><div class="project-windowbar"><span>● &nbsp; ● &nbsp; ●</span><b>BLAZE / MD</b><em>SOURCE</em></div><div class="bot-preview"><span>WHATSAPP AUTOMATION</span><strong>Command<br>by command.</strong><code><i>01</i> plugins<br><i>02</i> group tools<br><i>03</i> media + search</code></div></div>
             <div class="project-card-copy"><span class="project-label">AUTOMATION · OPEN SOURCE</span><h3>BLAZE-MD</h3><p>A modular WhatsApp bot project with command plugins, group utilities, media tools, and search features.</p><div class="project-actions"><span class="project-preview-note">Public source available</span><a class="project-open-link" href="https://github.com/ARNOLDT20/BLAZE-TECH" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a></div></div>
+          </article>
+          <article class="project-card" data-project-card data-project-category="tools">
+            <div class="project-visual project-visual-hosting" aria-hidden="true"><div class="project-windowbar"><span>● &nbsp; ● &nbsp; ●</span><b>T20 / BOT HOST</b><em>LIVE</em></div><div class="hosting-preview"><span>BOT HOSTING · LIVE PROJECT</span><strong>Bring your<br>bot online.</strong><div class="hosting-preview-status"><i></i> T20 BOT HOST <b>↗</b></div></div></div>
+            <div class="project-card-copy"><span class="project-label">HOSTING · LIVE SITE</span><h3>BlazeTech Hosting</h3><p>Explore the live T20 Bot Host experience, the bot-hosting project within the BlazeTech ecosystem.</p><div class="project-actions"><button class="project-preview-button" type="button" data-project-preview data-preview-title="BlazeTech Hosting — T20 Bot Host" data-preview-url="https://bothost.t20tech.site/">Quick preview <span aria-hidden="true">↗</span></button><a class="project-open-link" href="https://bothost.t20tech.site/" target="_blank" rel="noopener noreferrer">Open full site <span aria-hidden="true">↗</span></a></div></div>
           </article>
         </div>
         <p class="project-note">Live links are checked before listing. Availability and project features can change; previews show the current public destination.</p>
@@ -216,8 +220,8 @@
     <dialog class="project-dialog" id="project-preview" aria-labelledby="project-preview-title">
       <div class="project-dialog-inner">
         <div class="project-dialog-top"><div><p>LIVE PROJECT PREVIEW</p><h2 id="project-preview-title">Project preview</h2></div><button class="project-dialog-close" type="button" data-close-project-preview>Close preview</button></div>
-        <iframe class="project-frame" id="project-preview-frame" title="Live project preview; interactive forms are disabled" sandbox="allow-scripts allow-same-origin" referrerpolicy="no-referrer"></iframe>
-        <div class="project-dialog-foot"><span>Read-only quick preview. Forms and payment actions are disabled.</span><a id="project-preview-open" href="https://example.com" target="_blank" rel="noopener noreferrer">Open the full project in a new tab ↗</a></div>
+        <iframe class="project-frame" id="project-preview-frame" title="Live project preview; form submission and pop-ups are blocked" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        <div class="project-dialog-foot"><span>Sandboxed preview: form submits, pop-ups, and top-level navigation are blocked. Don’t enter passwords or payment details.</span><a id="project-preview-open" href="https://example.com" target="_blank" rel="noopener noreferrer">Open the full project in a new tab ↗</a></div>
       </div>
     </dialog>
 
@@ -227,7 +231,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-top"><a class="brand brand-footer" href="/" aria-label="Blaze Tech home"><img src="/brand-mark.svg" width="38" height="38" alt=""><span><strong>BLAZE TECH</strong><small>PART OF T20 CLASSIC TECH</small></span></a><p>Smart tech. Smarter you.<br>Connected people.</p><nav aria-label="Footer navigation"><a href="#services">Services</a><a href="#projects">Projects</a><a href="/insights.html">T20 insights</a><a href="#members">Community</a><a href="#contact">Contact</a></nav></div>
+    <div class="wrap footer-top"><a class="brand brand-footer" href="/" aria-label="Blaze Tech home"><img src="/brand-mark.svg" width="38" height="38" alt=""><span><strong>BLAZE TECH</strong><small>PART OF T20 CLASSIC TECH</small></span></a><p>Smart tech. Smarter you.<br>Connected people.</p><nav aria-label="Footer navigation"><a href="#services">Services</a><a href="#projects">Projects</a><a href="/insights.html">T20 insights</a><a href="#members">Community</a><a href="/contact.html">Contact</a></nav></div>
     <div class="wrap footer-bottom"><span>© <span data-current-year>2026</span> Blaze Tech / T20 CLASSIC Tech</span><a href="#main">Back to top ↑</a><span>No account or private member data is collected on this page.</span></div>
   </footer>
 </body>

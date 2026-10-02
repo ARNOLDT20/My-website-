@@ -29,3 +29,52 @@
 .classic-services{margin:0 0 24px;padding:27px 30px;border:1px solid #e3e5e8;border-radius:16px;background:#f3f1ec}.classic-services h2,.contact-page-layout h2,.contact-community-card h2{margin:0;color:#172233;font-size:clamp(27px,3vw,36px);line-height:1.12;letter-spacing:-.045em}.classic-services>p:not(.eyebrow){max-width:760px;margin:14px 0 15px;color:#64707e;font-size:12px;line-height:1.8}.classic-service-links{display:flex;gap:20px;flex-wrap:wrap}.classic-service-links a{color:#d6512c;font-size:10px;font-weight:800}.classic-service-links span{margin-left:5px}.contact-page-layout{display:grid;grid-template-columns:1.1fr .9fr;align-items:start;gap:50px}.contact-page-layout h2{margin-bottom:8px}.contact-page-intro{max-width:520px;margin:0 0 20px;color:#687382;font-size:12px;line-height:1.8}.contact-page-numbers{display:grid;gap:10px}.contact-page-card{display:grid;grid-template-columns:30px minmax(120px,1fr) auto;align-items:center;gap:13px;padding:15px;border:1px solid var(--line);border-radius:13px;background:#fff}.contact-number-index{color:#db5a34;font-size:10px;font-weight:850}.contact-page-card small{color:#838d99;font-size:7px;font-weight:800;letter-spacing:.12em}.contact-page-card h3{margin:4px 0 0;color:#1b2636;font-size:15px;letter-spacing:-.02em}.contact-card-actions{display:flex;gap:10px}.contact-card-actions a{color:#d6512c;font-size:9px;font-weight:800}.contact-card-actions span{margin-left:3px}.contact-community-card{display:grid;justify-items:start;gap:13px;padding:25px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:#172234;color:#fff}.contact-community-card .eyebrow{margin:0;color:#aeb9c6}.contact-community-card h2{color:white}.contact-community-card>p:not(.eyebrow){margin:0;color:#bac5d1;font-size:11px;line-height:1.8}.contact-community-card .button{min-height:44px;font-size:10px}.contact-community-card .button-quiet{border-color:rgba(255,255,255,.22)}.contact-community-card>small{color:#aab4c0;font-size:8px;line-height:1.65}@media(max-width:760px){.contact-page-layout{grid-template-columns:1fr;gap:27px}.contact-page-card{grid-template-columns:26px 1fr auto}.classic-services{padding:21px}.community-links-section{padding:48px 0}}@media(max-width:480px){.contact-page-card{grid-template-columns:22px 1fr;gap:10px}.contact-card-actions{grid-column:2;justify-content:flex-start;margin-top:4px}.contact-page-card h3{font-size:14px}}
 
 .insight-art-swahili{background:linear-gradient(145deg,#203b32,#536644)}
+
+
+/* Contact directory, touch targets, and low-overhead mobile rendering. */
+.project-visual-hosting{background:radial-gradient(ellipse at 92% 4%,rgba(75,196,177,.24),transparent 36%),linear-gradient(145deg,#111c27,#1a2b36)}
+.hosting-preview{position:relative;z-index:1;padding:24px 12px}
+.hosting-preview>span{display:block;margin-bottom:11px;color:#a9b6c6;font-size:8px;font-weight:800;letter-spacing:.14em}
+.hosting-preview>strong{display:block;color:#fff;font-size:27px;line-height:1.04;letter-spacing:-.05em}
+.hosting-preview-status{display:flex;align-items:center;gap:8px;width:max-content;margin-top:16px;padding:7px 10px;border:1px solid rgba(255,255,255,.16);border-radius:8px;background:rgba(255,255,255,.06);color:#c5d0da;font-size:8px;font-weight:800;letter-spacing:.08em}
+.hosting-preview-status i{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.hosting-preview-status b{margin-left:6px;color:#ff9876}
+.contact-email-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 25px}
+.contact-email-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:13px;background:#fff}
+.contact-email-label{color:#838d99;font-size:8px;font-weight:850;letter-spacing:.13em}
+.contact-email-card h3{margin:7px 0 5px;color:#1b2636;font-size:14px}
+.contact-email-card>a{display:inline-flex;align-items:center;gap:5px;min-height:36px;color:#d6512c;font-size:11px;font-weight:800;overflow-wrap:anywhere;word-break:break-word}
+.contact-email-card>a:hover{text-decoration:underline;text-underline-offset:3px}
+.contact-phone-eyebrow{margin:0 0 9px}
+.contact-safety-note{margin:13px 0 0;color:#7b8592;font-size:10px;line-height:1.7}
+.contact-details-section{padding:68px 0;background:#efeee9}
+.contact-details-layout{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr);align-items:start;gap:48px}
+.contact-details-copy h2{max-width:420px;margin:0;color:#172233;font-size:clamp(30px,3.7vw,43px);line-height:1.08;letter-spacing:-.05em}
+.contact-details-copy>p:not(.eyebrow){max-width:430px;margin:16px 0 21px;color:#64707e;font-size:12px;line-height:1.8}
+.contact-details-directory{padding:22px;border:1px solid #dedfdc;border-radius:16px;background:rgba(255,255,255,.7)}
+.contact-details-directory h3{margin:0 0 12px;color:#263142;font-size:14px}
+.contact-service-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.contact-service-grid li{padding:10px 11px;border:1px solid #e6e7e4;border-radius:9px;background:#fff;color:#4e5a68;font-size:10px;line-height:1.5}
+.contact-brands-heading{margin-top:23px!important}
+.contact-brand-list{display:flex;flex-wrap:wrap;gap:7px}
+.contact-brand-list span{padding:7px 10px;border:1px solid #e4e6e6;border-radius:999px;background:#fff;color:#5c6674;font-size:9px;font-weight:700}
+.contact-details-footnote{margin:16px 0 0;color:#858e98;font-size:9px;line-height:1.7}
+@media(max-width:760px){
+  .site-header{-webkit-backdrop-filter:none;backdrop-filter:none;background:var(--paper)}
+  .hero-art{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hero-glow-two{display:none}
+  .project-dialog::backdrop{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .contact-details-layout{grid-template-columns:1fr;gap:25px}
+  .contact-email-grid{grid-template-columns:1fr}
+  .filter-button{min-height:40px}
+  .project-preview-button,.project-open-link,.contact-card-actions a,.footer-top nav a{min-height:42px;display:inline-flex;align-items:center}
+}
+@media(max-width:480px){
+  .contact-details-section{padding:52px 0}
+  .contact-details-directory{padding:16px}
+  .contact-service-grid{grid-template-columns:1fr}
+  .project-dialog-inner{gap:10px}
+}
+@media(hover:none){
+  .project-card:hover,.service-card:hover,.eco-card:hover,.insight-feature-card:hover,.community-link-card:hover{transform:none;box-shadow:none}
+}

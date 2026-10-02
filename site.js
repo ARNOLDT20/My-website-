@@ -99,7 +99,8 @@
   const allowedPreviewHosts = new Set([
     'blaze-movie-hub.vercel.app',
     'blazelearn-pro.vercel.app',
-    'blazepay-gateway-iota.vercel.app'
+    'blazepay-gateway-iota.vercel.app',
+    'bothost.t20tech.site'
   ]);
   const resetPreview = () => {
     if (previewFrame) previewFrame.removeAttribute('src');
