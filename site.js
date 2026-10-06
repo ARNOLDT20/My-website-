@@ -94,25 +94,40 @@
   const previewDialog = document.querySelector('#project-preview');
   const previewFrame = document.querySelector('#project-preview-frame');
   const previewTitle = document.querySelector('#project-preview-title');
+  const previewNotice = document.querySelector('#project-preview-notice');
   const previewOpenLink = document.querySelector('#project-preview-open');
   const previewClose = document.querySelector('[data-close-project-preview]');
   const allowedPreviewHosts = new Set([
     'blaze-movie-hub.vercel.app',
     'blazelearn-pro.vercel.app',
     'blazepay-gateway-iota.vercel.app',
-    'bothost.t20tech.site'
+    'bothost.t20tech.site',
+    'assistant.t20tech.site'
   ]);
+  const defaultPreviewSandbox = 'allow-scripts allow-same-origin';
+  const defaultPreviewNotice = 'Other project previews block form submits, pop-ups, and top-level navigation. Don’t enter passwords or payment details.';
+  const assistantPreviewNotice = 'T20-CLASSIC AI is hosted separately. Prompts you send are processed by assistant.t20tech.site; don’t share passwords, private, or financial details.';
   const resetPreview = () => {
-    if (previewFrame) previewFrame.removeAttribute('src');
+    if (previewFrame) {
+      previewFrame.removeAttribute('src');
+      previewFrame.setAttribute('sandbox', defaultPreviewSandbox);
+      previewFrame.title = 'Live project preview; forms, pop-ups, and top-level navigation are blocked';
+    }
+    if (previewNotice) previewNotice.textContent = defaultPreviewNotice;
   };
   if (previewDialog && previewFrame && previewTitle && previewOpenLink) {
     document.querySelectorAll('[data-project-preview]').forEach(button => button.addEventListener('click', () => {
       let url;
       try { url = new URL(button.dataset.previewUrl || ''); } catch { return; }
       if (url.protocol !== 'https:' || !allowedPreviewHosts.has(url.hostname)) return;
+      const isAssistantPreview = url.hostname === 'assistant.t20tech.site';
       previewTitle.textContent = button.dataset.previewTitle || 'Project preview';
       previewOpenLink.href = url.href;
-      previewFrame.title = `${previewTitle.textContent} live preview; interactive forms are disabled`;
+      previewFrame.setAttribute('sandbox', isAssistantPreview ? `${defaultPreviewSandbox} allow-forms` : defaultPreviewSandbox);
+      previewFrame.title = isAssistantPreview
+        ? 'T20-CLASSIC AI chat preview; prompts you send go to assistant.t20tech.site'
+        : `${previewTitle.textContent} live preview; form submits, pop-ups, and top-level navigation are blocked`;
+      if (previewNotice) previewNotice.textContent = isAssistantPreview ? assistantPreviewNotice : defaultPreviewNotice;
       previewFrame.src = url.href;
       if (typeof previewDialog.showModal === 'function') previewDialog.showModal();
       else window.open(url.href, '_blank', 'noopener,noreferrer');

@@ -78,3 +78,6 @@
 @media(hover:none){
   .project-card:hover,.service-card:hover,.eco-card:hover,.insight-feature-card:hover,.community-link-card:hover{transform:none;box-shadow:none}
 }
+
+.project-visual-assistant{padding:0;background:#0c101a}.project-visual-assistant:before{display:none}.project-site-screenshot{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center 50%}.project-visual-assistant:after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,rgba(8,10,17,.12),transparent 40%,rgba(8,10,17,.2))}.project-image-badge{position:absolute;z-index:2;left:14px;bottom:12px;padding:6px 9px;border:1px solid rgba(255,255,255,.3);border-radius:999px;background:rgba(13,18,31,.78);color:#fff;font-size:8px;font-weight:800;letter-spacing:.1em}
+@media(max-width:480px){.project-visual-assistant{height:260px;padding:0}.project-site-screenshot{object-fit:contain}}

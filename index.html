@@ -113,7 +113,7 @@
 
     <section class="section projects-section" id="projects">
       <div class="wrap">
-        <div class="section-heading"><div><p class="eyebrow"><span>02</span> BUILT BY THE TEAM</p><h2>Real projects.<br>A closer look.</h2></div><p class="section-intro">Open an on-demand preview of the actual live project, or explore its full site. Previews are sandboxed: form submits, pop-ups, and top-level navigation are blocked. Don’t enter sensitive details.</p></div>
+        <div class="section-heading"><div><p class="eyebrow"><span>02</span> BUILT BY THE TEAM</p><h2>Real projects.<br>A closer look.</h2></div><p class="section-intro">Open a preview only when you choose. The T20-CLASSIC AI chat runs on its own site, and prompts you send go to that service; avoid sensitive information. Other previews block forms, pop-ups, and top-level navigation.</p></div>
         <div class="filter-bar project-filter-bar" role="group" aria-label="Filter project previews">
           <span class="filter-label">SHOW</span><button class="filter-button is-active" type="button" data-project-filter="all" aria-pressed="true">All projects</button><button class="filter-button" type="button" data-project-filter="learning" aria-pressed="false">Learning</button><button class="filter-button" type="button" data-project-filter="tools" aria-pressed="false">Tools</button><button class="filter-button" type="button" data-project-filter="entertainment" aria-pressed="false">Entertainment</button>
         </div>
@@ -137,6 +137,10 @@
           <article class="project-card" data-project-card data-project-category="tools">
             <div class="project-visual project-visual-hosting" aria-hidden="true"><div class="project-windowbar"><span>● &nbsp; ● &nbsp; ●</span><b>T20 / BOT HOST</b><em>LIVE</em></div><div class="hosting-preview"><span>BOT HOSTING · LIVE PROJECT</span><strong>Bring your<br>bot online.</strong><div class="hosting-preview-status"><i></i> T20 BOT HOST <b>↗</b></div></div></div>
             <div class="project-card-copy"><span class="project-label">HOSTING · LIVE SITE</span><h3>BlazeTech Hosting</h3><p>Explore the live T20 Bot Host experience, the bot-hosting project within the BlazeTech ecosystem.</p><div class="project-actions"><button class="project-preview-button" type="button" data-project-preview data-preview-title="BlazeTech Hosting — T20 Bot Host" data-preview-url="https://bothost.t20tech.site/">Quick preview <span aria-hidden="true">↗</span></button><a class="project-open-link" href="https://bothost.t20tech.site/" target="_blank" rel="noopener noreferrer">Open full site <span aria-hidden="true">↗</span></a></div></div>
+          </article>
+          <article class="project-card" data-project-card data-project-category="tools">
+            <div class="project-visual project-visual-assistant" aria-hidden="true"><picture><source media="(max-width: 480px)" srcset="/assets/project-previews/t20-classic-ai-mobile.webp"><img class="project-site-screenshot" src="/assets/project-previews/t20-classic-ai.webp" alt="" width="960" height="375" loading="lazy" decoding="async"></picture></div>
+            <div class="project-card-copy"><span class="project-label">AI ASSISTANT · LIVE TEST</span><h3>T20-CLASSIC AI Assistant</h3><p>A multilingual chat assistant with code help and image-generation options, available to try in the preview or on its own site.</p><div class="project-actions"><button class="project-preview-button" type="button" data-project-preview data-preview-title="T20-CLASSIC AI Assistant" data-preview-url="https://assistant.t20tech.site/">Try chat preview <span aria-hidden="true">↗</span></button><a class="project-open-link" href="https://assistant.t20tech.site/" target="_blank" rel="noopener noreferrer">Open assistant <span aria-hidden="true">↗</span></a></div></div>
           </article>
         </div>
         <p class="project-note">Live links are checked before listing. Availability and project features can change; previews show the current public destination.</p>
@@ -170,6 +174,7 @@
           <article class="eco-card"><span class="eco-mark eco-pink">R</span><div><span class="eco-type">SOCIAL TOOLS</span><h3>Royal Panel</h3><p>A social media service and panel project in the wider ecosystem.</p></div><a href="#contact" data-contact-message="Hello Blaze Tech, I would like to ask about Royal Panel." aria-label="Ask about Royal Panel">↗</a></article>
           <article class="eco-card"><span class="eco-mark eco-teal">↗</span><div><span class="eco-type">INFRASTRUCTURE</span><h3>BlazeTech Hosting</h3><p>Hosting and deployment solutions for digital projects.</p></div><a href="#contact" data-contact-message="Hello Blaze Tech, I would like to ask about BlazeTech Hosting." aria-label="Ask about BlazeTech Hosting">↗</a></article>
           <article class="eco-card"><span class="eco-mark eco-red">▶</span><div><span class="eco-type">ENTERTAINMENT</span><h3>Blaze Movies Hub</h3><p>A digital entertainment and content-platform initiative.</p></div><a href="#contact" data-contact-message="Hello Blaze Tech, I would like to ask about Blaze Movies Hub." aria-label="Ask about Blaze Movies Hub">↗</a></article>
+          <article class="eco-card"><span class="eco-mark eco-purple">AI</span><div><span class="eco-type">AI ASSISTANT</span><h3>T20-CLASSIC AI</h3><p>Multilingual chat with code help and image-generation options.</p></div><a href="https://assistant.t20tech.site/" target="_blank" rel="noopener noreferrer" aria-label="Try the T20-CLASSIC AI assistant">↗</a></article>
         </div>
         <p class="ecosystem-note">Ask the team for current project links, access, or availability. We only link directly to public destinations that have been verified.</p>
       </div>
@@ -220,8 +225,8 @@
     <dialog class="project-dialog" id="project-preview" aria-labelledby="project-preview-title">
       <div class="project-dialog-inner">
         <div class="project-dialog-top"><div><p>LIVE PROJECT PREVIEW</p><h2 id="project-preview-title">Project preview</h2></div><button class="project-dialog-close" type="button" data-close-project-preview>Close preview</button></div>
-        <iframe class="project-frame" id="project-preview-frame" title="Live project preview; form submission and pop-ups are blocked" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="no-referrer"></iframe>
-        <div class="project-dialog-foot"><span>Sandboxed preview: form submits, pop-ups, and top-level navigation are blocked. Don’t enter passwords or payment details.</span><a id="project-preview-open" href="https://example.com" target="_blank" rel="noopener noreferrer">Open the full project in a new tab ↗</a></div>
+        <iframe class="project-frame" id="project-preview-frame" title="Live project preview; forms, pop-ups, and top-level navigation are blocked" sandbox="allow-scripts allow-same-origin" loading="lazy" referrerpolicy="no-referrer"></iframe>
+        <div class="project-dialog-foot"><span id="project-preview-notice">Other project previews block form submits, pop-ups, and top-level navigation. Don’t enter passwords or payment details.</span><a id="project-preview-open" href="https://example.com" target="_blank" rel="noopener noreferrer">Open the full project in a new tab ↗</a></div>
       </div>
     </dialog>
 
