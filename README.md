@@ -16,6 +16,8 @@ A static public hub for Blaze Tech / T20 CLASSIC Tech services, verified live pr
 - `brand-mark.svg` / `social-preview.png` — first-party identity assets
 - `assets/project-previews/t20-classic-ai.webp` — optimized, first-party screenshot for the AI assistant project card
 - `assets/project-previews/t20-classic-ai-mobile.webp` — portrait screenshot selected by the responsive `<picture>` source at viewport widths up to 480px, preserving the chat UI on phones
+- `assets/project-previews/whatsapbot-course.webp` and `whatsapbot-course-mobile.webp` — optimized first-party desktop/mobile screenshots for the guest-access course card; the mobile source is selected at widths up to 480px
+- `https://whatsapbot-development-course.vercel.app/` — public course site with a script-only sandboxed preview; guest demo likes and comments remain browser-local until Supabase is connected
 
 ## Local preview
 
