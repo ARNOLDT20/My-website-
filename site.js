@@ -102,11 +102,13 @@
     'blazelearn-pro.vercel.app',
     'blazepay-gateway-iota.vercel.app',
     'bothost.t20tech.site',
-    'assistant.t20tech.site'
+    'assistant.t20tech.site',
+    'whatsapbot-development-course.vercel.app'
   ]);
   const defaultPreviewSandbox = 'allow-scripts allow-same-origin';
   const defaultPreviewNotice = 'Other project previews block form submits, pop-ups, and top-level navigation. Don’t enter passwords or payment details.';
   const assistantPreviewNotice = 'T20-CLASSIC AI is hosted separately. Prompts you send are processed by assistant.t20tech.site; don’t share passwords, private, or financial details.';
+  const coursePreviewNotice = 'Guest course preview. Progress, likes, and comments stay in this browser until Supabase is connected; avoid sharing private information.';
   const resetPreview = () => {
     if (previewFrame) {
       previewFrame.removeAttribute('src');
@@ -121,13 +123,16 @@
       try { url = new URL(button.dataset.previewUrl || ''); } catch { return; }
       if (url.protocol !== 'https:' || !allowedPreviewHosts.has(url.hostname)) return;
       const isAssistantPreview = url.hostname === 'assistant.t20tech.site';
+      const isCoursePreview = url.hostname === 'whatsapbot-development-course.vercel.app';
       previewTitle.textContent = button.dataset.previewTitle || 'Project preview';
       previewOpenLink.href = url.href;
       previewFrame.setAttribute('sandbox', isAssistantPreview ? `${defaultPreviewSandbox} allow-forms` : defaultPreviewSandbox);
       previewFrame.title = isAssistantPreview
         ? 'T20-CLASSIC AI chat preview; prompts you send go to assistant.t20tech.site'
+        : isCoursePreview
+        ? 'WHATSAPBOT DEVELOPMENT COURSE guest preview; progress and comments are browser-local until Supabase is connected'
         : `${previewTitle.textContent} live preview; form submits, pop-ups, and top-level navigation are blocked`;
-      if (previewNotice) previewNotice.textContent = isAssistantPreview ? assistantPreviewNotice : defaultPreviewNotice;
+      if (previewNotice) previewNotice.textContent = isAssistantPreview ? assistantPreviewNotice : isCoursePreview ? coursePreviewNotice : defaultPreviewNotice;
       previewFrame.src = url.href;
       if (typeof previewDialog.showModal === 'function') previewDialog.showModal();
       else window.open(url.href, '_blank', 'noopener,noreferrer');
